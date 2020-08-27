@@ -1,0 +1,123 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: Arial, 'Times New Roman', 'Microsoft YaHei', SimHei;
+}
+a {
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+}
+div {
+  display: block;
+}
+.clear {
+  display: table;
+  content: "";
+}
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  min-width: 990px;
+}
+main .header_top {
+  font-size: 14px;
+  line-height: 32px;
+  height: 32px;
+  background-color: #333;
+  overflow: hidden;
+}
+main .header_top .container {
+  width: 1170px;
+  margin: 0 auto;
+}
+main .header_top .container li {
+  float: left;
+}
+main .header_top .container .container_left {
+  float: left;
+}
+main .header_top .container .container_left ul li a {
+  color: #ccc;
+  padding: 0 10px;
+}
+main .header_top .container .container_left ul li:first-child a {
+  border-right: 1px solid #222;
+}
+main .header_top .container .container_right {
+  float: right;
+}
+main .header_top .container .container_right ul li a {
+  color: #ccc;
+  padding: 0 10px;
+}
+main .header_top .container .container_right ul li:nth-child(2) a {
+  border-right: 1px solid #222;
+}
+main .header_top .container .container_right ul li:nth-child(5) a {
+  border-right: 1px solid #222;
+}
+main .header_top .container .container_right ul li a span {
+  width: 0;
+  height: 0;
+  display: inline-block;
+  border: 4px solid transparent;
+  border-top: 4px solid #ccc;
+  vertical-align: middle;
+  margin-left: 2px;
+}
+main .header {
+  background: #fff;
+  padding: 20px 0;
+  overflow: hidden;
+  color: #888;
+}
+main .header .container {
+  width: 1170px;
+  margin: 0 auto;
+}
+main .header .container .logo {
+  width: 33.33%;
+}
+main .header .container .logo img {
+  vertical-align: middle;
+}
+main .header .container .search {
+  float: left;
+  width: 50%;
+}
+main .header .container .search form input {
+  border: 1px solid #de3c5b;
+  height: 40px;
+  line-height: 40px;
+}
+main .header .container .search form span {
+  background-color: #de3c5b;
+  width: 80px;
+  height: 40px;
+}
+main .header .container .btn a {
+  border-radius: 20px;
+  background: #de3c5b;
+  font-size: 12px;
+  padding: 5px 12px;
+  margin: 3px;
+}
+.header_nav {
+  line-height: 40px;
+  height: 40px;
+  color: #fff;
+  background: #de3c5b;
+}
+.header_nav .container li {
+  float: left;
+  margin-right: 5px;
+}
+.header_nav .container li a {
+  font-size: 14px;
+  color: #fff;
+  display: block;
+}

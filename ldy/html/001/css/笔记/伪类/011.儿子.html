@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 子元素第一个儿子 */
+        /* div>:first-child{
+            color: aquamarine;
+        } */
+
+        /* h1在p前.选不中,nav中的被选中..包括孙子 */
+        /* div p:first-child{
+            color: aquamarine;
+        } */
+        /* last同理 */
+
+        /* 包括孙子 所有首个p */
+        div p:first-of-type{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>hhhhsp <span>22</span> </h1>
+        <p>ppp</p>
+        <span>spanspan</span>
+        <nav>
+            <p>123</p>
+        </nav>
+        <h1>2222</h1>
+        <p>pppp</p>
+    </div>
+</body>
+</html>

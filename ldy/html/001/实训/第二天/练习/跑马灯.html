@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <marquee behavior="" direction="">在线荷官发牌</marquee>
+        <p id="duanluo">今天也是充满希望的一天</p>
+    </body>
+</html>
+<script>
+    /*
+    *   今天也是充满希望的一天
+    *   天也是充满希望的一天今
+    *   也是充满希望的一天今天
+    *   是充满希望的一天今天也
+    * */
+
+    var duanluo = document.getElementById("duanluo");
+
+    //  innerText 这是标签内部的文本内容
+    console.log(duanluo.innerText);
+
+    var str = duanluo.innerText;
+
+    console.log(str);
+    //  切割字符串函数，字符串的内置方法
+    var newstr = str.split("");
+
+    console.log(newstr);
+
+    var arr = [];
+
+    //  newstr 的第i + 1个字变成arr的第i个字
+
+    for(i = 0; i < 11; i++ ){
+        console.log(newstr[i]);
+        arr[i] = newstr[i + 1];
+    }
+
+    arr[10] = newstr[0];
+
+    console.log(arr);
+
+</script>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 标签选择器 -->
+    <style type="css">
+    body{
+        background-color: aquamarine;
+        text-align: center;
+        font-size: 12;
+    }
+    h1{font:'黑体';}
+    p{color: blue;}
+    hr{width: 200px;}
+
+    /* 类别选择器 */
+    p{font: size 12px;}
+    .one{font-size: 18px;}
+    .two{font-size: 30px;}
+
+    /* ID选择器 */
+    #onee{font-size: 20px;}
+    #twoo{font-size: 50px;}
+
+    /* 嵌套声明 */
+    p span{
+        color: tomato;
+    }
+    h1,p{
+        text-align:center;
+    }
+    <!-- 全局声明 -->
+    *{
+        text-align:center;
+    }
+    </style>
+    <!-- 集体声明 -->
+    
+</head>
+
+<body>
+    <!-- 标签选择器 -->
+    <h1>标题</h1>
+    <hr>
+    <p>haha</p>
+    <!-- 类别选择器 -->
+    <p class="one">one</p>
+    <p class="two">two</p>
+    <!-- ID选择器 -->
+    <p id="onne">onne</p>
+    <p id="twoo">twoo</p>
+    <!-- 嵌套声明 -->
+    <p><span>中国</span>的首都是北京</p>
+    <!-- 混用 -->
+    <div class="one two">  </div>
+    <div id="onee" class="one"></div>
+    <!-- id不课多个同时使用 -->
+    
+
+    
+</body>
+
+</html>

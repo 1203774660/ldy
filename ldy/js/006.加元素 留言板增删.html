@@ -1,0 +1,122 @@
+<!-- 兄弟节点 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!-- 节点 -->
+    <div>w shi div</div>
+    <span>w shi span </span>
+    
+    <script>
+        var div =document.querySelector('div');
+        // 下一个兄弟节点，包含元素节点或者文本节点
+        console.log(div.nextSibling);//#text
+        console.log(div.previousSibling);//#text
+        //2.兄弟元素节点  ie9以上
+        console.log(div.nextElementSibling);//span
+        console.log(div.previousElementSibling);//null
+
+   
+    </script>
+
+<!-- 加元素 -->
+    <ul>
+        <li>123</li>
+        
+    </ul>
+    <script>
+        // 创建节点元素节点
+        var li =document.createElement('li');
+        //添加节点 加儿子  是后面追加
+        var ul=document.querySelector('ul');
+        ul.appendChild(li);
+        
+        //在li的前面加
+        var lili=document.createElement('li');
+        ul.insertBefore(lili,ul.children[0]);
+    </script>
+<!-- 删除节点 -->
+<button class="bb">删除</button>
+<ol>
+    <li>000</li>
+    <li>001</li>
+    <li>002</li>
+    <li>003</li>
+</ol>
+<script>
+    var ol=document.querySelector('ol');
+    var bb=document.querySelector('.bb');
+    bb.onclick=function(){
+        if(ol.children.length==0){
+            this.disabled=true;//按钮变灰色
+        }else{
+            ol.removeChild(ol.children[0]);
+        }
+        
+    }
+    
+</script>
+
+<!--留言板 -->
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+    <button class="bb2">发布</button>
+    <script>
+        //获取元素
+        var btn = document.querySelector('.bb2');
+        var text =document.querySelector('textarea');
+        var ul=document.querySelector('ul');
+        //注册事件
+
+        //写留言
+        // btn.onclick=function(){
+            
+        //     if(text.value==''){
+        //         alert('你没用输入内容'); 
+        //     }else{
+        //         // console.log(text.value);
+
+        //         var li =document.createElement('li');
+        //         li.innerHTML=text.value;
+        //         //发在后面
+        //         // ul.appendChild(li);
+        //         //发在前面
+        //         ul.insertBefore(li,ul.children[0]);
+        //     }
+        // }
+
+
+
+        //加删留言
+        btn.onclick=function(){
+            
+            if(text.value==''){
+                alert('你没用输入内容'); 
+            }else{
+                // console.log(text.value);
+
+                var li =document.createElement('li');
+                // javascript:;阻止界面跳转
+                li.innerHTML=text.value+'<a href="javascript:;">删除</a>';
+                //发在后面
+                // ul.appendChild(li);
+                //发在前面
+                ul.insertBefore(li,ul.children[0]);
+                var aa=document.querySelectorAll('a');
+                for (let i = 0; i < aa.length; i++) {
+                    aa[i].onclick=function(){
+                        ul.removeChild(this.parentNode);//删除a所在的li
+                    }
+                    
+                }
+            }
+        }
+        
+
+    </script>
+
+</body>
+</html>

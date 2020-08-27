@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Father{
+            //构造函数用来放共有属性
+            constructor(x,y){
+                this.x=x;
+                this.y=y;
+            }
+            //1类里面的方法部用写function
+            //2多个方法之间部能用逗号分隔
+
+            //普通函数  --方法
+            sum(){
+                console.log(this.x+this.y);
+            }
+            say(){
+                return '我是爸爸';
+            }
+            jian(){
+                console.log(this.x-this.y);
+
+            }
+        }
+        class Son extends Father{
+            constructor(x,y){
+                //利用super调用父类的构造函数的时候
+                //必须再子类的this之前
+                //子类不用的画也可以不写this
+                super(x,y);
+                this.x=x;
+                this.y=y;
+                
+            }
+            say(){
+                console.log('我是儿子');
+                console.log(super.say());    
+            }
+        }
+
+        var son=new Son(1,2);
+        //1.super调用父类的构造函数
+        son.sum();//报错
+        //子类可以用父类的方法。但是父类的this指向的是父类。
+        //解决用super  将1，2传给父类
+        
+
+        //2.super还可以调用父类普通函数
+        son.say();// --就近
+
+        //3.用super调用父类函数中使用到父类属性的普通函数
+        //儿子没有重新写
+        son.jian();
+    </script>
+
+    <button>dian</button>
+    <script>
+        class Teacher{
+            
+            constructor(name,age){
+                console.log(this);//--Teacher--ldy
+                //指向的是创建的实例对象
+                
+                this.name=name;
+                this.age=age;
+                // this.sing();
+                this.btn=document.querySelector('button');
+                this.btn.onclick=this.sing;
+                //sing后面不要加小括号，因为是点击后才会调用
+            }
+            sing(){
+                console.log(this);//--button
+                //按钮调用了这个函数
+                console.log(this.name);//undefind。因为btn没有这个属性
+
+            }
+            eat(){
+                console.log(this);//--Teacher--ldy
+                //指向的是创建的实例对象ldy
+                //因为后面是ldy调用了他
+                console.log('i can eat');
+                
+            }
+
+        }
+        var ldy=new Teacher('LDY',12);
+        ldy.eat();
+    </script>
+    <!-- 类和对象
+1.es6 中没有变量提升，必须先有类，才能实例化对象
+2.类里面的共有属性和方法一定要假this才能使用
+     -->
+</body>
+</html>

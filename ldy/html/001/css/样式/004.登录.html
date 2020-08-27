@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+
+        }
+        html{
+            height: 100%;
+
+        }
+        body{
+            
+            background-image: linear-gradient(to bottom right,rgb(114,135,254),rgb(130,88,186)) ;
+        }
+        .login{
+            
+            width: 600px;
+            margin: 0 auto;
+            margin-top: 10%;
+            box-shadow: 0 10px 50px 0 rgb(59,45,159);
+            background-color: rgb(95, 72, 194);
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        .left{
+            display: inline-block;
+            background-image: linear-gradient(to bottom right,rgb(118,76,163),rgb(92,103,211));
+            width: 330px;
+            padding: 60px;
+            /* 父亲用overflow: hidden;代替下面2个 */
+            /* border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px; */
+           
+        }
+        .left .title{
+            font-weight: 200;
+            color: #fff;
+            font-size: 18px;
+        }
+        .left .title span{
+            border-bottom:3px solid rgb(237, 221, 22) ;
+        }
+        .left .inout{
+            padding: 20px 0;
+        }
+        .left .inout input{
+            border: 0;
+            background: none;
+            color: #fff;
+            margin: 20px 0;
+            padding: 20px 0;
+            /* 点了以后出现的边框 */
+            outline: 0;
+            display: block;
+            width: 100%;
+            border-bottom: 1px solid rgb(223, 214, 214);
+            transition: .2ss;
+
+        }
+
+        ::-webkit-input-placeholder{
+            /* 提词 */
+            color: antiquewhite;
+        }
+        .left .inout input:hover{
+           border-bottom-color:#fff;
+        }
+
+        body .forget{
+            font-size: 14px;
+            transition:.2s;
+            cursor: pointer;
+            color:rgb(230, 230, 210);
+        }
+        .forget:hover{
+            color: aliceblue;
+        }
+        .login .right{
+            
+            width: 145px;
+            height: 100%;
+            display: inline-block;
+            padding: 60px 0;
+            /* 默认靠下面 了，手调 */
+            vertical-align: top;
+        }
+        body .right .neiron{
+            text-align: center;
+            font-weight: 200;
+        }
+        body .right .neiron span{
+            border-bottom:3px solid rgb(237, 221, 22) ;
+            color: #fff;
+            font-size: 18px;
+        }
+        body .right .over{
+            font-size: 10px;
+            color: #fff;
+            /* height: 100%; */
+            margin: 100px auto;
+            
+        }
+        body .login .right .over span{
+            border: 1px solid  rgb(237, 221, 22);
+            padding: 10px;
+
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="login">
+        <div class="left">
+            <div class="title"><span>登录</span></div>
+            <div class="inout">
+                <input type="text" placeholder="用户名" nmae='uname'>
+                <input type="password" placeholder="密码" name='password'>
+
+            </div>
+            <div class="forget"><span>忘记密码</span></div>
+        </div>
+        <div class="right">
+            <div class="neiron">
+                <span>注册</span>
+            </div>
+            <div class="over">
+                <span>提交</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

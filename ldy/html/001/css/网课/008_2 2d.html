@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #radius1{
+            height: 50px;
+            width: 200px;
+            background-color: red;
+            border-radius:25px;
+            margin: 5px;
+        }
+        #radius2{
+            height: 50px;
+            width: 200px;
+            background-color: red;
+            border-top-left-radius:25px;
+            border-bottom-right-radius:25px;
+        }
+        #shadow1{
+            width: 300px;
+            height: 100px;
+            margin: 5px;
+            background-color: aqua;
+            box-shadow:10px -15px 5px blue
+        }
+        #shadow2{
+            width: 300px;
+            height: 100px;
+            margin: 5px;
+            background-color: aqua;
+            box-shadow: inset 10px -15px 5px blue;
+        }
+        #transition{
+            height: 30px;
+            width: 100px;
+            line-height: 30px;
+            border-radius: 5px;
+            color: black;
+            background-color: antiquewhite;
+            transition: all 2s linear;
+            
+        }
+        #transition:hover{
+            color: aliceblue;
+            background-color: blue;
+        }
+        @keyframes mycolor{
+            0%{background-color: aqua;}
+            30%{background-color: blue;}
+            60%{background-color: violet;}
+            100%{background-color: springgreen;}
+        }
+        #vedio:hover{
+            animation: mycolor 5s linear;
+        }
+    </style>
+</head>
+<body>
+    <div id="radius1"></div>
+    <div id="radius2"></div>
+    <div id="shadow1"></div>
+    <div id="shadow2"></div>
+    <div id="transition">hhhh</div>
+    <hr>
+    <div id="vedio">bbbbb</div>
+</body>
+</html>

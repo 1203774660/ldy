@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!-- 函数的定义 -->
+<!-- 函数也属于对象 -->
+    <script>
+    //1.自定义函数--命名
+    function fn(){};
+    //2.函数表达式--匿名
+    var fun = function(){};
+
+    //3.利用new Function('参数1','参数2','函数体');
+
+    var f =new Function('a','b','console.log(a+b)');
+    f(1,2);
+
+    //所有函数都时Function的实例对象 ---有__proto__原型对象
+    console.log(f);
+    //前者属于后者 instancof
+    console.log(f instanceof Object);//true
+    
+    </script>
+    
+<!-- 函数调用 -->
+    <script>
+        //1普通函数
+        function fn(){
+            console.log('hhhh');
+            
+        }
+        fn();
+        fn.call();
+        //2对象的方法
+        var o={
+            say:function(){
+                console.log('i an say');
+                
+            }
+        }
+        o.say();
+        //3构造函数
+        function Star(){};
+        new Star();
+        //4绑定事件函数
+        // btn.onclick=function(){};
+        //5定时器函数
+        setInterval(function(){},1000);
+        //6立即执行函数
+        (function(){console.log('立即执行直接调用');})()
+
+
+    </script>
+<!-- this -->
+    <script>
+        //1普通函数--window
+        function fn(){
+            console.log('hhhh');
+            console.log(this);//winows
+            
+        }
+        fn();
+        fn.call();
+
+        var o=function Man(){
+            console.log(this);//winows
+        }
+        o();
+        //2对象的方法--该方法所属的对象
+        var o2={
+            say:function(){
+                console.log('i an say');
+                console.log(this);//{say: ƒ}
+
+            }
+        }
+        o2.say();
+        
+        //3构造函数--实例对象    原型对象里面的方法也是
+        function Star(){ 
+            console.log(this);//Star {}
+        };
+        new Star();
+        var ldy=new Star();//ldy这个实例对象
+        //原型对象
+        Star.prototype.sing=function(){
+            console.log(this);//Star {}
+        }
+        //4绑定事件函数--绑定事件对象
+        // btn.onclick=function(){};
+        //5定时器函数--window
+        setInterval(function(){
+            // console.log(this);//windows
+        },1000);
+        //6立即执行函数--window
+        (function(){
+            console.log('立即执行直接调用');
+            console.log(this);//windows
+        })()
+    </script>
+<!-- 改变this指向 -->
+    <script>
+//call
+        var b={
+            name:'ldy'
+        }
+        function fn(x,y){
+            console.log(this);
+            console.log(x+y);
+            
+            
+        }
+        //作用1调用
+        fn.call();
+        //作用2改变this指向
+        fn.call(b);
+        //调用传值
+        fn.call(b,1,2);
+        //3实现继承
+        function Father(name,age,sex){
+            this.name=name;
+            this.age=age;
+            this.sex=sex;
+        }
+        function Son(name,age,sex){
+            Father.call(this,name,age,sex);
+        }
+        var son= new Son('ldy',12,'女');
+        console.log(son);
+        
+
+//bind
+
+//apply       
+        
+    </script>
+</body>
+</html>

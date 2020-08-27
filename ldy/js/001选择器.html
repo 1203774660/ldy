@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+ <!-- 标签民、id -->
+    <div id="time">2020-07-01</div>
+    <script>
+        // 1.文档界面从上到下，要先写script标签
+        // 2.get获得 element 元素 by通过 
+        // 3.id大小写敏感的字符串
+        // 4.返回的是一个元素对象
+        var timer=document.getElementById('time');
+        console.log(timer);//<div id="time">2020-07-01</div>
+        console.log(typeof timer);//object
+        // 5.返回元素对象，查看属性方法
+        console.dir(timer);//div#time
+    </script>
+
+    <ul>
+        <li>one</li>
+        <li>two</li>
+        <li>three</li>
+    </ul>
+    <ol id='oll'>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ol>
+    <script>
+        // 返回获得过来元素的对象的集合，以伪数组的形式存储的
+        var lis=document.getElementsByTagName('li');
+        console.log(lis);
+        console.log(lis[0]);
+        // 数组遍历法
+        for (let i = 0; i < lis.length; i++) {
+            console.log(lis[i]);
+        }
+        // 1。只有一个li 返回还是伪数组形式
+        // 2.没用li元素 返回空的伪数组形式
+        //getElementsByTagName标签名
+        var ol =document.getElementsByTagName('ol');
+        console.log(ol[0].getElementsByTagName('li'));//HTMLCollection(3)。
+            //[0]父元素必须是各单个对象。不清楚ol又多少个
+        var ol =document.getElementById('oll');
+        console.log(ol.getElementsByTagName('li'));//HTMLCollection(3)
+    </script>
+
+
+<!-- 类名、选择器 -->
+    <div id="box"></div>
+    <div id="box"></div>
+    <div class='nav'>
+        <ol>
+            <li></li>
+            <li></li>
+        </ol>
+    </div>
+    <script>
+        // 1.根据类名获得某些元素集合
+        var boxs=document.getElementsByClassName('box');
+        console.log(boxs);
+        // 2.返回指定选择器的第一个元素对象
+        var firstbox=document.querySelector('#box');
+        console.log(firstbox);
+        var nav =document.querySelector('.nav');
+        console.log(nav);
+        // 3.选择器的所有对象的集合
+        var allbox=document.querySelectorAll("#box");
+        console.log(allbox);
+
+
+    </script>
+
+    <!-- 获取body和html -->
+    <script>
+        var boddy=document.body;
+        console.log(boddy);
+
+        var httml=document.documentElement;
+        console.log(httml);
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        1.application/x-www-form-urlencoded
+        name=zhangsan&age=20&sex=男
+        2.application/json
+        {
+            name:'',
+            age:'';
+        }
+        json对象要变形字符串才可以传递
+
+
+        get请求时不能提交json对象数据格式的，传统文章的表单提交也是不支持json的
+     -->
+     <script>
+        
+        var xhr=new XMLHttpRequest();
+        
+        xhr.open("post","http://localhost:3000/json")
+         
+         //通过请求头告诉服务器 客户端传递的请求参数的格式是什么
+        xhr.setRequestHeader('Content-Type','application/json');
+
+
+        xhr.send(JSON.stringify({name:'ldy',age:10}));
+        
+        xhr.onload=function(){
+            console.log(xhr.responseText);
+        }
+     </script>
+</body>
+</html>
+<!--  http://localhost:3000/005.请求参数格式.html -->

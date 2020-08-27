@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul{
+            list-style-image: url();
+            list-style-image: linear-gradient();
+            list-style-image: radial-gradient();
+        }
+
+        h2{
+            position: relative;
+        }
+        h2:hover:before{
+            position: absolute;
+            content: attr(title);
+            color: gold;
+            background-color: cadetblue;
+            padding: 10px 3px ;
+            box-shadow: 0 0 5px black;
+            left: 0;
+            bottom: -30px;
+
+        }
+
+        input{
+            border: none;
+            outline: none;
+            width: 100%;
+
+        }
+        div::after{
+            content: '';
+            background: linear-gradient(to right, white, red, green);
+            display: block;
+            height: 1px;
+        }
+        div:hover:before{
+            content: attr(data-help);
+            color: #666666;
+            font-size: 12px;
+            
+
+        }
+    </style>
+</head>
+<body>
+    <h2 title="提示"> 12333</h2>
+    <div data-help="提示">
+        <input type="text" name="" id="">
+    </div>
+    
+</body>
+</html>

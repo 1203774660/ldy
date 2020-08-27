@@ -1,0 +1,57 @@
+<!-- 
+    ajax状态码
+    0初始化
+    1已经建立还没发送
+    2已经发送
+    3正在处理，部分数据可用
+    4响应已经完成，可以获取并且使用服务器的响应
+    xhr.readystate
+ -->
+ <!-- 
+     onload            不兼容低ie 不需要判断状态码 调用1次
+     onreadystatechande   兼容      需要            多次
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <script>
+        var xhr=new XMLHttpRequest();
+        //0.创建了ajax对象
+        console.log(xhr.readyState);
+
+        xhr.open('get','http://localhost:3000/readystate');
+        //1.给ajax进行配置
+        console.log(xhr.readyState);
+
+
+        //当ajax状态码发生变化的时候出发
+        xhr.onreadystatechange=function(){
+            //2已经发送请求
+            //3接收到服务器端的部分数据
+            //4服务器端的响应数据已经接受完成
+            console.log(xhr.readyState);
+
+            //对状态码进行判断
+            //如果=4就代表数据已经接受完成。可以使用
+            if(xhr.readyState==4){
+                console.log(xhr.responseText);
+            }
+        }
+
+        xhr.send();
+        //后面1234都可能
+
+        console.log(xhr.readyState);
+        
+        
+    </script>
+</body>
+</html>
+
+<!-- http://localhost:3000/006.获取服务端的响应.html -->

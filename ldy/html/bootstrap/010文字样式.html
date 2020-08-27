@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- 固定大小 
+        宽度等于当前设备的宽度
+        缩放比例=1  完全不缩放
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+
+    <!-- 导入bootstrap -->
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+    <style>
+        body{
+            /* 留出导航部分 */
+            padding-top: 50px;
+        }
+        .a{
+            padding: 10px 15px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 导航
+    navbar-default 黑色
+    navbar-inverse白色
+    navbar-fixed-top 顶
+    
+    -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <a href="#" class="navbar-brand">首页</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">home</a></li>
+                    <li><a href="#">about</a></li>
+                    <li><a href="#">more</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div>
+        <h1 class="a">标题</h1>
+        <p class="a">.。。。。。。
+            。。。。
+        </p>
+
+        <p>尝试新的跨平台<small>small</small></p>
+        <p class="lead">lead尝试新的跨平台</p>
+        <p>尝试新的跨平台 <mark>mark</mark></p>
+        <p>尝试新的跨平台 <abbr title="attribute">缩略语abbr</abbr></p>
+
+        <p class="text-left">text-left</p>
+        <p class="text-center">text-center</p>
+        <p class="text-right">text-right</p>
+
+        <p class="text-lowercase">hello hTML 全小写</p>
+        <p class="text-uppercase">hello hTML 全大写</p>
+        <p class="text-capitalize">hello hTML 首字母大写</p>
+
+        <address>
+            <strong>strong</strong>
+            <br>
+            leiron
+            <abbr title="phont">p：12345</abbr>
+        </address>
+        
+        <!-- 无样式 -->
+        <ul class="list-unstyled">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+    </div>
+</body>
+</html>

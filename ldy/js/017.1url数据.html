@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!-- 传参数给017.2 -->
+    <form action="017.2.html">
+        用户名：<input type="text" name="user" id="">
+        <input type="submit" vale="登录" name="" id="">
+    </form>
+
+    <button class="bb">dianji</button>
+<!-- 按钮跳转 -->
+    <script>
+        var bb=document.querySelector('.bb');
+        bb.addEventListener('click',function(){
+            //记录浏览历史，可以后退
+            location.assign('https://www.baidu.com/');
+        })
+        // replace  不计历史
+        // reload  f5刷新界面  (ture)强制刷新服务器重新传
+    </script>
+
+<!-- 前进退后 -->
+    
+    <button class="bb2"><a href="017.3.html">前进</a></button>
+    <script>
+        var bb2=document.querySelector('.bb2');
+        bb2.addEventListener('click',function(){
+            // history.forward();
+            history.go(1);//前进一步
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-image: linear-gradient(to right, #ff977f 0%,#ee2233 100%  );
+        }
+        .login{
+            position: relative;
+            width: 500px;
+            height: 150px;
+            background-image: linear-gradient(45deg,pink 0%,#f4a 89%, pink 100%);
+            border-radius: 10px;
+            margin: 300px auto;
+        }
+        .user{
+            width: 300px;
+            height: 30px;background-color: transparent;
+            border: 0;
+            outline: none;
+            border-bottom: 2px solid #ffff;
+            font-size: 20px;
+            margin:60px 50px  0 ;
+            color: #000000;
+            font-weight: 100px;
+        }
+        .text{
+            position: absolute;
+            top: 60px;
+            left: 50px;
+            transition: all .5s;
+            font-size: 20px;
+            color: #f4a;
+            font-weight: 100;
+
+
+
+        }
+        .underline{
+            position: absolute;
+            top: 92px;
+            left: 50px;
+            display: block;
+            height: 2px;
+            width: 305px;
+            transform: scaleX(0);
+            transition: all .3s ease-in;
+
+        }
+        /* type：text */
+        .user:focus ~ .text{
+            top:45px;
+            font-size: 14px;
+
+        }
+        .user:focus ~ .underline{
+            transform: scaleX(1);
+            background-color: #f4a;
+        }
+    </style>
+</head>
+<body>
+    <div class="login">
+        <input type="text" name="" id="" class="user">
+        <label for="" class="text">user</label>
+        <label for="" class='underline'></label>
+
+    </div>
+</body>
+</html>

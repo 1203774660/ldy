@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 不可选 */
+        input:disabled{
+            background-color: aqua;
+        }
+        /* 可选 */
+        input:enabled{
+            background-color: yellow;
+        }
+        input:checked+label{
+            color: red;
+        }
+        /* 必填 */
+        #bixuan:required{
+            
+            border: 1px solid red;
+        }
+        /* 有效 */
+        input:valid{
+            background-color: chartreuse;
+        }
+        /* 无效 */
+        input:invalid{
+            background-color:orange;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <input type="text" disabled>
+        <input type="text">
+        <hr>
+        <input type="radio" name="sex" id="boy">
+        <label for="boy">男</label>
+        <input type="radio" name="sex" id="girl">
+        <label for="girl">女</label>
+        <hr>
+        <!-- /* 必选 */ -->
+        <input type="text" required id="bixuan">
+        <hr>
+        <input type="email">
+    </form>
+</body>
+</html>

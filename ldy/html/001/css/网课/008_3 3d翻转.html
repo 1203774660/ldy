@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: steelblue;
+        }
+        #piclis{
+            width: 1200px;
+            height: 800px;
+            margin: 100px auto;
+
+        }
+        .picbox{
+            float: left;
+            width: 500px;
+            height: 190px;
+            margin:10px;
+            transform-style: preserve-3d;
+            transition: 1.5s;
+            /* 父相对定位 */
+            position: relative;
+
+        }
+        .picbox:hover{
+            transform: rotateY(180deg);
+        }
+        .face{
+            width: 500px;
+            height: 170px;
+            /* 绝对定位 */
+            position: absolute;
+        }
+        .front{
+            border: 2px solid rebeccapurple;
+        }
+        .back{
+            
+            background-color: aqua;
+            border: 2px solid burlywood;
+            /* 先把背面放在下面。文字也翻转 */
+            transform: rotateY(180deg);
+        }
+        .back h1{
+            color: brown;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- 舞台 -->
+    <div id="piclist"> 
+         
+        <div class="picbox">
+            <!-- 正面 -->
+            <div class="face front"><img src="photo.png" alt=""></div>
+            <!-- 背面 -->
+            <div class="face back"><h1>谷雨</h1></div>
+        </div>
+
+        <div class="picbox">
+            <!-- 正面 -->
+            <div class="face front"><img src="photo.png" alt=""></div>
+            <!-- 背面 -->
+            <div class="face back"><h1>谷雨</h1></div>
+        </div>
+    </div>
+</body>
+</html>

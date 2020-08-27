@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #box{
+            width: 500px;height: 200px;
+            border: 1px solid palevioletred;
+        }
+        .neiron{
+            border: 1px solid salmon;
+            width: 500px;height: 200px;
+        }
+        li{
+            list-style-type: none;
+            float: left;
+            margin: 0  20px ;
+            
+        }
+        span{
+            border: 1px solid slateblue;
+        }   
+        p{
+            float: left;
+            background-color: brown;
+        }
+        section{
+            display: none;
+        }
+
+        .dd{
+            background-color: brown;
+        }
+    </style>
+</head>
+<body>
+<!-- 动态添加标签页 -->
+    <div id="box">
+        <div class="top">
+           
+                <ul>
+                <li class="dd"><span>测试1</span><p>-</p></li>
+                <li><span>测试1</span><p>-</p></li>
+                <li><span>测试1</span><p>-</p></li>
+                
+                </ul>
+                <div>
+                    <span class="addd">++</span>
+                </div>
+      </div>    
+            
+        <div class="neiron">
+            <section style="display:block ;">11111</section>
+            <section>2222</section>
+            <section>33333</section>
+        </div>
+        
+            
+        
+    </div>
+</body>
+</html>
+
+<script>
+    var that;
+    class Tab{
+        
+        
+        constructor(id){
+            
+            that=this;
+            this.main=document.querySelector(id);
+            console.log(id);
+            
+            this.lis=this.main.querySelectorAll('li');
+            this.sections=this.main.querySelectorAll('section');
+            
+            this.addd=this.main.querySelector('.top div .addd');
+            // console.log(this.addd);
+            this.ul=this.main.querySelector('.top ul:first-child');//top下面的第一个ul儿子
+            this.pp=this.main.querySelectorAll('p');
+
+            this.init();
+        }
+        init(){
+            //初始化操作   让相关的元素绑定事件
+            this.addd.onclick=this.addTab;
+            for (let i = 0; i < this.lis.length; i++) {
+                this.lis[i].index=i;
+                this.lis[i].onclick=this.toggleTab;//不要加小括号哟
+                
+            }
+            
+        }
+        
+        
+        //切换
+        toggleTab(){
+            that.clearClass();
+
+
+            //this指向的是lis
+                // console.log(this.index);
+            this.className='dd';
+            // this.sections[this.index].style.display="block";错
+            that.sections[this.index].style.display="block";
+        }
+        //清0
+        clearClass(){
+            for (let i = 0; i < this.lis.length; i++) {
+                this.lis[i].className='';
+                this.sections[i].style.display='none';
+                
+            }
+        }
+        
+        //添加
+        addTab(){
+            var li='<li><span>测试1</span><p>-</p></li>';
+            //加在父元素里面
+            that.ul.insertAdjacentHTML('beforeend',li);
+
+        }
+        //删除
+        removeTab(){
+
+        }
+        //修改
+        editTab(){
+
+        }
+
+    }
+    var tab=new Tab('#box');
+    
+    // tab.init();
+</script>

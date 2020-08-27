@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        /* 居中对齐 */
+        .jz{
+            width: 1200px;
+            margin: auto;
+        }
+        /* li */
+        li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+
+
+
+        .header{
+            height: 42px;
+            background-color: antiquewhite;
+            margin: 30px auto;
+        }
+        .logo{
+            float: left;
+            height: 42px;
+            width: 198px;
+            background-color: blueviolet;
+        }
+        .nav{
+            float: left;
+            margin-left: 60px;
+        }
+        .nav li{
+            float: left;
+            margin: 0 10px;
+            line-height: 42px;
+        }
+        .nav ul li a{
+            display: block;
+            height: 42px;
+            padding: 0 10px;
+        }
+        .nav ul li a:hover{
+            border-bottom: 2px solid #6a1691;
+        }
+        .search{
+            float: left;
+            height: 42px;
+            background-color:cornflowerblue;
+            margin-left: 400px;
+        }
+        .search input{
+            float: left;
+            width: 150px;
+            height: 38px;
+            border: 2px solid #6a1691;
+            border-right: 0;
+            font-size: 14px;
+            color: #888888;
+            padding-left: 10px;
+        }
+        .search button{
+            float: left;
+            width: 50px;
+            height: 42px;
+            margin: 0;
+            background-color: #6a1691;
+            color: aliceblue;
+            border-style: none;
+            font-size: 15px;
+        }
+        .user{
+            float: right;
+            line-height: 42px;
+            margin-right: 10px;
+        }
+
+
+        .banner{
+            /* 没用设置w就由了长铺效果 */
+            height: 421px;
+            background-color: #6a1691;
+        }
+        .banner .jz{
+            height: 421px;
+            /* background-color:purple; */
+        }
+        .subnav{
+            float: left;
+            width: 190px;
+            height: 421px;
+            background-color: rgba(255, 255, 255, 0.2);
+        } 
+        .subnav ul li{
+            height: 45px;
+            line-height: 45px;
+            padding:0 20px;
+        }
+        .subnav ul li a{
+            font-size: 14px;
+            color: aliceblue;
+        }
+        .subnav ul li a span{
+            float: right;
+        }
+        .subnav ul li a:hover{
+            color: #6a1691;
+        }
+        .guangao{
+            float: right;
+            width: 230px;
+            height: 300px;
+            background-color:#fafafa;
+            /* 浮动的盒子没用外边距合并问题 */
+            margin-top: 50px;
+        }
+        .guangao h1{
+            height: 40px;
+            padding: 10px;
+            color: aliceblue;
+            background-color:mediumslateblue;
+            text-align: center;
+            line-height: 40px;
+        }
+        .guangao li{
+            padding: 10px;
+            border-bottom: 1px solid #888888;
+        }
+        .guangao li h4{
+            font-size: 16px;
+            color: rgb(38, 41, 44);
+        }
+        .guangao li p{
+            font-size: 12px;
+            color: rgb(73, 87, 99);
+        }
+        .guangao a{
+            display: block;
+            padding:10px  15px;
+            color: #6a1691;
+            border: 1px solid rgb(147, 66, 214);
+            margin: 10px 10px;
+            text-align: center;
+            font-size: 700;
+        }
+
+        .goods{
+            height: 60px;
+            background-color: #fff;
+            box-shadow:0 4px 3px 3px rgba(0, 0, 0,0.1);
+            /* 行高会继承 */
+            line-height: 60px;
+        }
+        .goods h3{
+            float: left;
+            margin-left: 30px;
+            color: #6a1691;
+            font-size: 16px;
+        }
+        .goods ul{
+            float: left;
+            margin-left: 30px;
+        }
+
+        .goods ul li{
+            float: left;
+            
+        }
+        .goods ul li a{
+            padding: 0 30px;
+            font-size: 12px;
+            color: #888888;
+            border-left: 1px solid #888888;
+
+        }
+        .mo{
+            float:right;
+            margin-right: 30px;
+            color: #6a1691;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header jz">
+        <div class="logo"></div>
+        <div class="nav">
+            <ul>
+                <li><a href="">首页</a></li>
+                <li><a href="">课程</a></li>
+                <li><a href="">职业规划</a></li>
+            </ul>
+        </div>            
+        <div class="search">
+            <input type="text" value="请输入">
+            <button>搜索</button>
+        </div>
+        <div class="user">
+            <img src="" alt="">
+            name 
+        </div>
+    </div>
+    <div class="banner">
+        <div class="jz">
+            <!-- 左边 -->
+            <div class="subnav">
+                <ul>
+                    <li><a href="">前端开发<span>&gt;</span></a></li>
+                    <li><a href="">php<span>&gt;</span></a></li>
+                    <li><a href="">jqury<span>&gt;</span></a></li>
+                    <li><a href="">vue<span>&gt;</span></a></li>
+                    <li><a href="">python<span>&gt;</span></a></li>
+                    <li><a href="">python<span>&gt;</span></a></li>
+                    <li><a href="">python<span>&gt;</span></a></li>
+                    <li><a href="">python<span>&gt;</span></a></li>
+                    <li><a href="">python<span>&gt;</span></a></li>
+                </ul>
+            </div>
+            <!-- 右边 -->
+            <div class="guangao">
+                <h1>我的课程</h1>
+                <div class="kcb">
+                    <ul>
+                        <li><h4>继续学习 html入坟教程</h4><p>2020年6月1日<p></li>
+                        <li><h4>继续学习 html入坟教程</h4><p>2020年6月1日<p></li>
+                        <li><h4>继续学习 html入坟教程</h4><p>2020年6月1日<p></li>
+                    </ul>
+                    <a href="">查看详细</a>      
+                  </div>
+            </div>
+        </div>
+    </div>
+    <div class="goods jz">
+        <h3>精品推荐</h3>
+        <ul>
+            <li><a href="">11111</a></li>
+            <li><a href="">22222</a></li>
+            <li><a href="">333333</a></li>
+            <li><a href="">4444</a></li>
+            <li><a href="">5555</a></li>
+        </ul>
+
+    </div>
+    
+
+    <!-- 215集开始看 -->
+</html>

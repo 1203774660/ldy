@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        传统时通过表单
+        ajax get请求方式
+     -->
+    
+
+     <p>
+        <input type="text" id='user'>
+    </p>
+    <p>
+        <input type="text" id='mima'>
+    </p>
+    <p>
+        <input type="button"  value="提交" name="" id="btn">
+
+    </p>
+    <script type="text/javascript">
+        //1.获取元素
+        var btn=document.getElementById('btn');
+        var user=document.getElementById('user');
+        var mima=document.getElementById('mima');
+        //给按钮添加点击事件
+        btn.onclick=function(){
+            //创建ajax对象
+            var xhr = new XMLHttpRequest();
+            //获取用户在文本框输入的值
+            var userv=user.value;
+            var mimav=mima.value;
+            // alert(namev+mimav);
+
+            //user=123&mima=456
+            //拼接请求参数
+            var parmas='user='+userv+'&mima='+mimav;
+
+            //配置ajax对象
+            xhr.open('get','http://localhost:3000/get?'+parmas);
+            //发送请求
+            xhr.send();
+            //获取服务端响应的数据
+            xhr.onload=function(){
+                console.log(xhr.responseText);
+                
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+<!-- http://localhost:3000/003请求参数传递.html -->

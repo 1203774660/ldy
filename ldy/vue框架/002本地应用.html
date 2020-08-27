@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+    <style>
+        .active{
+            border: 3px solid red;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        1.v-text
+        2.v-html
+        3.v-on  绑定事件
+     -->
+    <div id="app">
+        <!-- 内容会全部替换 -->
+        <h2 v-text="message+'（标签里的内容）'"> 这里的内容不见了</h2>
+        <h2>(h2里的内容){{message+"（大括号内容）"}} </h2>
+
+        <!-- text只解析文本。html可以解析链接 -->
+        <p v-text="message"></p>
+        <p v-html="message"></p>
+
+        <p v-text="content"></p>
+        <p v-html="content"></p>
+        
+    </div>
+
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                message:"vue里的内容",
+                content:"<a href='https://www.baidu.com'>vue里的链接</a>"
+            }
+        })
+    </script>
+
+    <br>
+
+<!-- v-on可以用@代替 -->
+    <div id="app2">
+        <!-- 单击 -->
+        <input type="button" value="v-on" v-on:click="Do">
+        <input type="button" value="v-on简写" @click="Do">
+        <!-- 双击 -->
+        <input type="button" value="v-on双击" @dblclick="Do">
+        <!-- 鼠标移动事件 -->
+        <input type="button" value="v-onmonseenter鼠标经过" v-on:monseenter="Do">
+    </div>
+    <script>
+        var app = new Vue({
+            el:"#app2",
+            methods:{
+                Do:function(){
+                    alert('do it')
+                }
+            }       
+        })
+    </script>
+
+    <hr>
+
+    
+<!-- 值 -->
+    <div id="app3">
+        <h2 @click="Give">{{food}}</h2>
+    </div>
+    <script>
+        var app= new Vue({
+            el:"#app3",
+            data:{
+                food:"番茄炒蛋点我变"
+            },
+            methods:{
+                Give:function(){
+                    console.log(this.food);
+                    this.food="好吃"
+
+                }
+            }
+        })
+    </script>
+    <!-- 前端基础必会教程-4个小时带你快速入门vue到09 -->
+
+    <hr>
+
+
+
+<!-- v-if  和v-show
+    切换显示和隐藏
+ -->
+     <hr>
+    <div id="app5">
+        <input type="button" value="切换显示" @click='toggleIsShow'>
+
+        <!-- 文字显示 -->
+        <p v-if='isShow'>v-show</p>
+        <p v-show='isShow'>v-if</p>
+        
+        <!-- 判断显示 -->
+        <h2 v-if='temper>=35'>天气好热</h2>
+
+        
+    </div>
+    <script>
+        var app5=new Vue({
+            el:'#app5',
+            data:{
+                isShow:false,
+                temper:40
+            },
+            methods:{
+                toggleIsShow:function(){
+                    this.isShow=!this.isShow;
+                }
+            }
+        })
+            
+    </script>
+<!-- 
+    v-bind
+    设置元素属性
+ -->
+    <hr>
+    <div id="app6">
+        <img v-bind:src="imgSrc" alt="">
+        <!-- 简写:-->
+        <!-- <img :src="imgSrc" alt="" :title='imgTitle' :class="isActive?'active':''" @click='toggleActive'> -->
+
+
+        <!-- 点图片改class -->
+        <img :src="imgSrc" alt="" :title='imgTitle' :class="{active:isActive}"  @click="toggleActive">
+        <p>点第二张图片</p>
+    </div>
+    <script>
+        var app6=new Vue({
+            el:'#app6',
+            data:{
+                imgSrc:'https://pics7.baidu.com/feed/4bed2e738bd4b31c9a26e786156f3a789e2ff831.jpeg?token=a645a2f58b9a745ccf50cff3b0a207c0',
+                imgTitle:'vue起的title',
+                isActive:true
+            },
+            methods:{
+                toggleActive:function(){
+                    this.isActive=!this.isActive;              
+                }
+            },
+        })
+    </script>
+
+<!-- 
+    v-for
+ -->
+    <hr>
+    <div id="app7">
+        <ul>
+            <li v-for="item in arr">{{item}}</li>
+        </ul>
+        <ul>
+            <li v-for="(item,index) in arr">{{index+1}}++{{item}}</li>
+        </ul>
+        
+        <p v-for="item in obj" v-bind:title='item.name'>{{item.name}}+</p>
+
+
+
+        <input type="button" value="+" @click='add'>
+        <input type="button" value="-" @click='remove'>
+    </div>
+    <script>
+        var app7=new Vue({
+            el:'#app7',
+            data:{
+                arr:['ldy','lly','qqq'],
+                obj:[
+                    {name:'ldy'},
+                    {name:'lly'},
+                    {name:'qqq'}
+                    
+                ]
+            },
+            methods:{
+                add:function(){
+                    this.obj.push({name:'ddd'});
+                },
+                remove:function(){
+                    this.obj.shift();
+                }
+            }
+        })
+
+
+        
+    </script>
+<!-- 
+    v-on
+    传递自定义参数 事件修饰符
+ -->
+    <hr>
+    <div id="app8">
+        <input type="button" value="点了log" @click="Do(66666,'老铁')">
+
+        <!-- 回车 -->
+        <input type="text" @keyup.enter='huiche' value="点回车">
+    </div>   
+    <script>
+        var app8=new Vue({
+            el:'#app8',
+            methods:{
+                Do:function(e,ee){
+                    console.log(e);
+                    console.log(ee);       
+                },
+                huiche:function(){
+                    alert('hi');
+                }
+            }
+        })
+    </script>
+
+<!-- 
+    v-model
+    获取和设置表单的值   双向数据绑定
+    改2边的一边都会改变
+ -->
+
+    <hr>
+    <div id="app9">
+
+        <!-- 传给vue -->
+        <input type="text" v-model="message" @keyup.enter='get'>
+        <!-- vue给界面 -->
+        <h2>{{message}}</h2>
+        <!-- 回车证明 -->
+
+        
+        <input type="button" v-model="message" @click='set'>
+    </div>   
+    <script>
+        var app8=new Vue({
+            el:'#app9',
+            data:{
+                message:'请输入修改查看'
+            },
+            methods:{
+                get:function(){
+                    // 证明页面改变了vue的值
+                    alert(this.message);
+                },
+                set:function(){
+                    //vue改变页面
+                    this.message="修改了"
+                }
+
+            }
+        })
+    </script>
+
+
+
+
+
+
+</body>
+</html>
+<!-- 
+
+
+<hr>
+    <div id="app8"></div>   
+    <script>
+        var app8=new Vue({
+            el:'#app8',
+            data
+        })
+    </script>
+
+
+
+
+
+ -->

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!--数组  -->
+    <script>
+// forEach遍历（迭代）数组
+        var arr=[1,2,3];
+        var sum=0;
+        arr.forEach(function (value,index,array) {
+            console.log('每个数组元素+value');
+            console.log('每个数组索引号+index');
+            console.log('数组+array');
+            sum+=value;
+        })
+        console.log(sum);//6
+//map
+
+
+
+//filter 筛选过滤返回一个新的数组
+        var arr2=[12,7,22,81];
+        var arr3=arr2.filter(function (value,index) {
+            // return value>=20
+            return value%2===0;//[12,22]
+        });
+        console.log(arr3);
+//some 返回布尔值 
+        var arr4=[12,7,81,0];
+        var flag=arr4.some(function(value){
+            return value>=20;//ture---找到有满足的就不会再往下遍历
+        })
+
+//区别       
+        console.log(flag);
+        var arr4=[12,7,81,0,90];
+        var arr5=[];
+        var flag=arr4.forEach(function(value){
+            if(value>=20){
+                arr5.push(value);
+                return true;//true不会让foeach/filter终止遍历
+            }
+        })
+        console.log(arr5);
+
+        var arr4=[12,7,81,0,90];
+        var arr5=[];
+        var flag=arr4.some(function(value){
+            if(value>=20){
+                arr5.push(value);
+                return true;//true可以让some终止遍历
+            }
+        })
+        console.log(arr5);
+        
+    </script>
+
+    <input type="text" id="">
+    <button>空格输入bug</button>
+    <div></div>
+<!-- 字符串 -->
+    <script>
+//trim 清楚字符串两边快白
+        var str='      666        ' ;
+        console.log(str);
+
+        console.log(str.trim());
+        
+        //应用---输入框的空格bug
+        var input=document.querySelector('input');
+        var btn=document.querySelector('button');
+        var div=document.querySelector('div');
+        btn.onclick=function(){
+            if(input.value.trim() ===''){
+                alert('不能为空');
+            }else{
+                console.log(input.value.trim().length);
+                
+                div.innerHTML=input.value.trim();
+            }
+        }
+
+    </script>
+
+<!-- 对象 -->
+    <script>
+        var obj={
+            id:1,
+            name:'ldy',
+            age:100
+        }
+        obj.age=1000;
+        console.log(obj);
+        
+//Object.defineProperty(对象，属性名，特征)；
+        Object.defineProperty(obj,'age',{
+            value:0
+        })
+        console.log(obj);
+        Object.defineProperty(obj,'id',{
+            writable:false,//不可重写
+        })
+        obj.id=2;//无效
+        console.log(obj);
+
+
+        Object.defineProperty(obj,'new',{
+            value:'新的单元',
+            configurable:false,//默认   不可删除/修改特性
+            enumerable:false,//默认  是否枚举遍历
+        })//后面的数组遍历没有出来
+
+        console.log(obj);
+        delete obj.new;//删除失败
+        console.log(obj);
+
+//keys  获取对象自身所有的属性
+        var arr=Object.keys(obj);
+        console.log(arr);
+        arr.forEach(function(value){
+            console.log(value);
+            
+        })
+        
+            
+    </script>
+</body>
+</html>

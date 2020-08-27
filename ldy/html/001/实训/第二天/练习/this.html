@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>this</title>
+        <style>
+            li{
+                padding:0px;
+                list-style:none;
+                width:100px;
+                height:100px;
+                background:purple;
+                margin:100px;
+                float:left;
+            }
+        </style>
+    </head>
+    <body>
+        <input id="btn" type="button" value="按钮">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </body>
+</html>
+<script>
+    var btn = document.getElementById("btn");
+    console.log(btn);
+    //  点击事件
+    btn.onclick = function(){
+        //  this当前的对象
+        this.style.color = "red";
+        console.log(this.style);
+    }
+
+    //  获取到页面中的所有li
+    var li = document.getElementsByTagName("li");
+
+    console.log(li);
+
+    for(i=0;i<4;i++){
+        //  循环执行，下面这一行肯定是执行的
+        li[i].onclick = function(){
+            //  i == 4  循环执行完毕了
+            console.log(i);
+            this.style.borderRadius = "50%"
+        }
+    }
+</script>

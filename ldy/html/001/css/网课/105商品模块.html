@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        a{
+            color: #333333;
+            text-decoration: none;
+        }
+        body{
+            background-color: #f5f5f5;
+        }
+        .box{
+            width: 298px;
+            height: 415px;
+            background-color:bisque;
+            /* 让块级的盒子水平居中对齐 */
+            /* 上下有10px 左右自动 */
+            margin:10px auto;
+        }
+        .box img{
+            /* 让图片和盒子一样宽 */
+            width: 100%;
+        }
+        .jieshao{
+            height: 60px;
+            font-size: 14px;
+            /* 因为没用width属性，所以没用撑开盒子的宽度 */
+            padding: 0 20px;
+            /* 离图片远一点，因为已经设置了heigh，设置padding会撑开盒子，所以用margin */
+            margin: 15px 0;
+
+        }
+        .laiyun{
+            font-size: 12px;
+            color: #888888;
+            margin-top:10px  ;
+            padding: 0 18px;
+        }
+        .jiewei{
+            /* 盒子之间的距离用magin比较合适 */
+            margin-top: 15px;
+        }
+        .jiewei h4{
+            /* 要让2个成一行，将会
+            变成行内块元素 */
+            display: inline-block;
+            padding: 0 18px;
+            font-weight: 400;
+
+        }
+        .jiewei span{
+            color: coral;
+        }
+        .jiewei em{
+            /* 不倾斜 */
+            font-style: normal;
+            color: #888888;
+            margin:0 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1597039495319&di=ab8f016f669fed64283794826c68463b&imgtype=0&src=http%3A%2F%2Fa2.att.hudong.com%2F36%2F48%2F19300001357258133412489354717.jpg" alt="">
+        <p class="jieshao">内蒙古草莓，超甜,现在只需要5元可以买一斤，走过路过不要错过！！</p>
+        <div class="laiyun">
+            来源：内蒙古
+        </div>
+        <div class="jiewei">
+            <h4><a href="">更多介绍....</a></h4>
+            <em>|</em>
+            <span>5元</span>
+        </div>
+    </div>
+</body>
+</html>

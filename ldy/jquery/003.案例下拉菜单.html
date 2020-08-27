@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jQuery.js"></script>
+    <style>
+        .nav li ul{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <ul class="nav">
+        <li>
+            <a href="">首页</a>
+            <ul>
+                <li><a href="">1</a></li>
+                <li><a href="">2</a></li>
+                <li><a href="">3</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="">视频</a>
+            <ul>
+                <li><a href="">1</a></li>
+                <li><a href="">2</a></li>
+                <li><a href="">3</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="">音乐</a>
+            <ul>
+                <li><a href="">1</a></li>
+                <li><a href="">2</a></li>
+                <li><a href="">3</a></li>
+            </ul>
+        </li>
+    </ul>
+
+
+    <script>
+
+        $(function(){
+
+            // //方法1
+            // //鼠标经过
+            // //>  子代选择器,只选亲儿子
+            // $('.nav>li').mouseover(function(){
+            //     // $(this)当前元素
+            //     // $(this).children("ul").show();
+            //     $(this).children("ul").slideDown(200);
+
+            // })
+
+            // //鼠标离开
+            // $('.nav>li').mouseout(function(){
+            //     $(this).children("ul").slideUp(200);
+            // })
+
+
+            // //方法二
+            // //事件切换
+            // $('.nav>li').hover(function(){
+            //     $(this).children("ul").slideDown(200);
+            // },
+            // function(){
+            //     $(this).children("ul").slideUp(200);
+           
+           
+            // })
+
+            // //方法三
+            // $('.nav>li').hover(function(){
+            //     $(this).children("ul").slideToggle();
+            // })
+            
+            //乱移动动画就会一直执行处理 用stop停止
+            $('.nav>li').hover(function(){
+                //stop要写在动画前面
+                $(this).children("ul").stop().slideToggle();
+            })                
+
+     })
+
+            
+    </script>
+</body>
+</html>

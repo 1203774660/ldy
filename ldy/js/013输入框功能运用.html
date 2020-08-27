@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+
+            width: 200px;height: 100px;
+            background-color: aqua;
+            padding: 50px;
+        }
+        .fanda{
+            position: absolute;
+            width: 200px;height: 20px;
+        }
+        .fanda::before{
+            background-color: antiquewhite;
+            
+            /* 小三角 */
+
+        }
+        
+    </style>
+</head>
+<body>
+    <input type="请写入">
+    <!-- 点s。。光标自动条到搜索框 -->
+    <script>
+        var input = document.querySelector('input');
+        document.addEventListener('keyup',function(e){
+            if(e.keyCode===83){
+                input.focus();
+            }
+        })//用keydown的话s就会写进去
+    </script>
+
+<!-- 放大输入框内容 -->
+    <div class="box">
+        <div class="fanda">fanda de neiron</div>
+            <input type="text" class="inp">
+        
+    </div>
+</body>
+</html>

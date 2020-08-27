@@ -1,0 +1,87 @@
+1   <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 盒子模型。布局 -->
+    <!-- 盒子模型
+        content内容
+        height
+        width
+        border边框  1px solid
+        padding内边距 边框和内容之间的距离
+        margin外边距  盒子之前距离控制
+             top上 right bottom底  left
+        盒子大小=content+padding+border+margin
+        overflow：内容溢出
+                hidden 超出内容不可见
+                scroll 显示滚动条
+                auto 如果有超出，显示滚动条
+        border-width:px thin medium thick浏览器解释不同
+        border-style：dashed dotted solid double 虚线 点线 直线 双直线
+        border-color：
+        border：width style color
+
+        做水平分割线
+        .line{
+            height：1px
+            width：500px
+            border-top： 1px solid red
+        }
+        
+        对浏览器默认设置清0
+        *{
+            margin:0
+            paddin:0
+        }
+        px %（参照外层盒子宽高
+    -->
+
+    <!-- 
+    盒子一个一行
+    转行后 会比较margin，用最大的，然后叠一起
+    -->
+    <!-- div水平居中
+        margin：0 aoto
+     -->
+    
+
+
+
+
+     <!-- 定位机制
+        文档流flow 浮动float 层layer
+        文档流
+            block 独占一行  div p h al
+                display：block
+            inline 不单独一行，width height不可设置 由文字和图片决定  span a
+                display: inline
+                有间隙问题
+            inline-block 不单行 可以设置  img
+                display：
+            none 不显示
+                display：
+ 
+        float:left right 
+        clear:both 清楚左右浮动  left right 清楚右侧浮动-右侧不会有浮动元素-右目录
+
+        层：
+        positon:
+            static 默认
+            fixed固定定位 浏览器窗口
+            relative相对定位 直接父元素 外面一层的div   原位置依然是被灵魂占据，不给别人用
+            absolute绝对定位 网外面找绝对或者相对父元素的div 都是static就用body定位    原来位置会丢失
+        left right top bottom 相对父的位置。可以负数放到外面
+        z-index 大的在上面
+
+        日常搭配：relative里放absolute  
+            
+    
+    
+    -->
+</body>
+</html>
+

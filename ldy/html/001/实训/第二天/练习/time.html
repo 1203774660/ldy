@@ -1,0 +1,66 @@
+<meta charset="UTF-8">
+<style>
+    #box{
+        width:600px;
+        height:100px;
+        border:1px solid blue;
+        margin:100px auto;
+        font-size:40px;
+        line-height: 100px;
+        text-align: center;
+    }
+</style>
+<div id="box">xxxx年xx月xx日 星期x  xx:xx:xx</div>
+<script>
+    //  实例化时间对象
+    var time = new Date();
+
+    //  输出时间对象
+    console.log(time);
+
+    //  输出当前是哪一年
+    console.log(time.getFullYear());
+
+    //  获取当前是哪个月   从0计数的
+    console.log(time.getMonth());
+
+    //  获取当前的日期
+    console.log(time.getDate());
+
+    //  获取当前的星期
+    console.log(time.getDay());
+
+    //  获取当前的小时数
+    console.log(time.getHours());
+
+    //  获取当前的分钟数
+    console.log(time.getMinutes());
+
+    //  获取当前的秒数
+    console.log(time.getSeconds());
+
+    //  获取当前的时间戳   1970年1月1日0点0分0秒到现在的毫秒数
+    console.log(time.getTime());
+
+    function Time(){
+        var shijian = new Date();
+        var str = shijian.getFullYear() + '年' + (shijian.getMonth() + 1) + '月' + shijian.getDate() + '日'  + ' 星期' + weekday(shijian.getDay()) + '  ' + zero( shijian.getHours()  ) + ':' + zero(shijian.getMinutes()) + ':' + zero(shijian.getSeconds())
+        box.innerText = str
+    }
+    Time();
+    setInterval(Time,1000);
+
+    function weekday(number){
+        if(number == 2){
+            return '二';
+        }
+    }
+
+    function zero(number){
+        if(number <= 9 && number >= 0){
+            return '0' + number
+        }else{
+            return number
+        }
+    }
+</script>

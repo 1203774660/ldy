@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+    <script>
+        console.log(location.search);//  ?uer=123
+        //1先去掉?   substr('起始位置'。截取几个字符)
+        var p=location.search.substr(1);
+        console.log(p);
+        //2.利用等号分割
+        var arr=p.split('=');
+        console.log(arr);
+        //3.写入
+        var div=document.querySelector('div');
+        div.innerHTML=arr[1]+'欢迎你的到来';
+        
+        
+        
+    </script>
+    <div>lorem*30</div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li{
+            float: left;
+            list-style: none;
+            margin: 0 10px;
+        }
+        a{
+            text-decoration: none;
+            float: left;
+        }
+        .nav{
+            height: 40px;
+        }
+        .nav li ul{
+            display: none;
+        }
+        /* .nav li:hover ul{
+            display: block;
+        } */
+        .nav li ul li{
+            float: none;
+        }
+    </style>
+</head>
+<body>
+     <!-- 下拉菜单 -->
+     <ul class="nav">
+        <li><a href="">1</a>      
+          <ul>
+            <li><a href="">1.1</a></li>
+            <li><a href="">12</a></li>
+            <li><a href="">13</a></li>
+            </ul>
+          </li>
+            <li><a href="">2</a>
+                <ul>
+                    <li><a href="">21</a></li>
+                <li><a href="">22</a></li>
+                <li><a href="">23</a></li>
+                </ul>
+            </li>
+            <li><a href="">3</a>
+                <ul>
+                    <li><a href="">31</a></li>
+                    <li><a href="">32</a></li>
+                    <li><a href="">33</a></li>
+                </ul>
+                
+            </li>
+        </ul>
+            
+        
+    </ul>
+    <script>
+        var nav =document.querySelector('.nav');
+        //亲儿子
+        var lis= nav.children;
+        for (let i = 0; i < lis.length; i++) {
+            // 儿子0是a  儿子1 是ul
+            lis[i].onmouseover=function(){
+                this.children[1].style.display='block';
+            }
+            lis[i].onmouseout=function(){
+                this.children[1].style.display='none';
+            }      
+        }
+    </script>
+</body>
+</html>

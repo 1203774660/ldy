@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>dian</button>
+    <script>
+        //this 指向问题 一般情况下this的最终指向的时按个调用它的对象
+        //1.全局做或者普通函数中的this指向全局对象windo（定时器指向的也时）
+        console.log(this);
+        function fn() {
+            console.log(this);
+            
+          }
+          window.fn();
+        window.setTimeout(function(){
+            console.log(this);
+            
+        },1000)
+        //2.方法调用中谁调用this 指向谁
+        var o={//对象o
+           name:function(){//方法
+               console.log(this);//指向对象o
+           } 
+        }
+        o.name();
+        var  btn=document.querySelector('button');
+        btn.onclick=function(){
+            console.log(this);//指向btn
+            
+        }
+        btn.addEventListener('click',function(){
+            console.log(this);
+            
+        })
+        //3.构造函数中this指向构造函数的实例
+        function fun() {
+            console.log(this);//this指向f实例对象
+            
+          }
+        var f=new fun();
+    </script>
+</body>
+</html>

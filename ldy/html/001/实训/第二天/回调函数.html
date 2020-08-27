@@ -1,0 +1,88 @@
+<meta charset="UTF-8">
+<script>
+    //  写一个计算器函数，能够计算加减乘除
+    // function jsq(one,two,ysf){
+    //     switch(ysf){
+    //         case "+":
+    //             console.log(one + two);
+    //             break;
+    //         case "-":
+    //             console.log(one - two);
+    //             break;
+    //         case "*":
+    //             console.log(one * two);
+    //             break;
+    //         case "/":
+    //             console.log(one / two);
+    //             break;
+    //     }
+    // }
+    //
+    // jsq(5,6,"+");
+
+
+
+    //
+    // function jsq(one,two,ysf){
+    //     switch(ysf){
+    //         case "+":
+    //             add(one,two);
+    //             break;
+    //         case "-":
+    //             jian(one,two);
+    //             break;
+    //         case "*":
+    //             cheng(one,two);
+    //             break;
+    //         case "/":
+    //             chu(one,two);
+    //             break;
+    //     }
+    // }
+    //
+    // //  单独封装 加减乘除的函数
+    // function add(one,two){
+    //     console.log(one + two);
+    // }
+    //
+    // function jian(one,two){
+    //     console.log(one - two);
+    // }
+    //
+    // function cheng(one,two){
+    //     console.log(one * two);
+    // }
+    //
+    // function chu(one,two){
+    //     console.log(one / two);
+    // }
+    //
+    // jsq(3,2,"/");
+
+
+
+    function jsq(one,two,ysf){
+        ysf(one,two);
+    }
+
+    //  单独封装 加减乘除的函数
+    var add = function(one,two){
+        console.log(one + two);
+    }
+
+    function jian(one,two){
+        console.log(one - two);
+    }
+
+    function cheng(one,two){
+        console.log(one * two);
+    }
+
+    function chu(one,two){
+        console.log(one / two);
+    }
+    //  把整个函数当做参数，进行传递。回调函数
+    jsq(3,2,jian);
+
+
+</script>

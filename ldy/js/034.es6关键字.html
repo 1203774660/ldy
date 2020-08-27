@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!-- es6 -->
+    <script>
+//let只在所处的块级   块级作用域一个大括号里面
+//让变量有块级作用域
+//防止循环变量变成全局变量
+//不存在变量提升--先声明再用
+//暂时性死区
+    if(true){
+        let b=20;
+        console.log(b);
+        if(true){
+            let c=30;
+        }
+        // console.log(c);
+
+    }
+    // console.log(b);
+    
+
+    //不存在变量提升
+    // console.log(b);//报错
+    let b=10;
+    //暂时性死区
+    var num=10;
+    if(true){
+        // console.log(num);//2个都不会输出
+        let num=20;
+        
+    }
+    </script>
+</body>
+</html>
+<!-- 面试题 -->
+<script>
+    let arr=[];
+    for(let i=0;i<2;i++){
+        arr[i]=function(){
+            console.log(i);
+            
+        }
+    }
+    arr[0]();//0
+    arr[1]();//1
+
+
+    let arr2=[];
+    for(var i=0;i<2;i++){
+        arr2[i]=function(){
+            console.log(i);
+            
+        }
+    }
+    arr2[0]();//2
+    arr2[1]();//2
+
+    console.log(document);
+    
+</script>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+
+        }
+        .box{
+            position: relative;
+            width: 400px;
+            height: 300px;
+            background-color: aqua;
+            /* 相对定位可以这样居中，绝对定位固定定位不可以 */
+            margin: 100px auto;
+        }
+        .box img{
+            width: 400px;
+            height: 300px;
+        }
+        /* 并集选择器 */
+        .prev,
+        .next{
+            position: absolute;
+            /* 绝对定位的垂直居中*/
+            top:50%;
+            margin-top:-15;
+            /* 加了绝对定位的盒子可以直接设置高宽 */
+            width: 20px;
+            height: 30px;
+            background: rgba(0, 0, 0, 0.3);
+            color: #ffffff;
+            text-decoration: none;
+            line-height: 30px;
+            text-align: center;
+        }
+        .prev{           
+            left:0;
+            border-top-right-radius:15px;
+            border-bottom-right-radius:15px;
+        }
+        .next{
+            right:0;
+            border-top-left-radius:15px;
+            border-bottom-left-radius:15px;
+
+        }
+        .four{
+            position: absolute;
+            bottom: 10px;
+
+            left: 50%;
+            margin-left: -35px;
+
+            width: 70px;
+            height: 13px;
+            background-color:rgba(255,255,255,.6);
+            border-radius: 10px;
+        }
+        /* 权重11 */
+        .four li{
+            float: left;
+            list-style: none;
+            width: 8px;
+            height: 8px;
+            background-color: #ffffff;
+            border-radius:50%;
+            margin: 3px ;
+        }
+        /* 10 */
+        /* .select{
+            background-color: #ff5000;
+        } */
+        /* 20 */
+        .four .select{
+            background-color: #ff5000;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3892521478,1695688217&fm=26&gp=0.jpg" alt="">
+        <a href="" class="prev">&lt;</a>
+        <a href="" class="next">&gt;</a>
+        <ul class="four">
+            <li class="select"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father{
+            width: 200px;
+            height: 200px;
+            background-color: aquamarine;
+        }
+        .son{
+            width: 150px;height: 150px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <!-- 事件对象阻止默认行为
+ -->
+ <hr>
+ <div class="box1">事件类型获取</div>
+ <a href="http://baidu.yni84.com/">baidu</a>
+ <form action="http://baidu.yni84.com/">
+     <input type="text" value="先修改内容" name="sub">
+ </form>
+
+ <script>
+     //1.返回事件类型
+     var dd=document.querySelector('.box1');
+     dd.addEventListener('click',fn);
+     dd.addEventListener('mouseover',fn);
+     dd.addEventListener('mouseout',fn);
+     function fn(e){
+         console.log(e.type);//click
+ 
+     }
+
+     //2组织默认行为（事件） 让链接不跳转或者按钮不提交
+     var a=document.querySelector('a');
+     a.addEventListener('click',function(e){
+         e.preventDefault();//dom标准流的
+     })
+     //传统注册方式
+     a.onclick=function(e){
+         //普通浏览器
+         // e.preventDefault();//方法
+         //ie678
+         e.returnValue;//属性
+         //无兼容性问题  特点：return后面的代码不执行。只能传统注册方式使用
+         return false;
+         alert(11);
+     }
+ </script>
+<!-- 阻止冒泡行为
+-->
+
+    <div class="father">
+        <div class="son">只要冒泡儿子 </div>
+    </div>
+
+<script>
+    
+    var son =document.querySelector('.son');
+        son.addEventListener('click',function(e){
+            alert('冒泡son');
+            e.stopPropagation();
+
+            //ie678
+            e.cancelBubble=true;
+        },false);
+
+
+        var father =document.querySelector('.father');
+        father.addEventListener('click',function(){
+            alert('冒泡father');
+        },false);
+        document.addEventListener('click',function(){
+            // alert('冒泡document');
+        },false);
+</script>
+
+<!-- 事件委托 
+原理：不给每个节点单独设置事件监听器，而是事件监听器设置在其父节点上，利用冒泡原理影响设置每个节点
+只操作了隐藏DOM，提高了程序的性能
+-->
+    <ul>
+        <li>给ul设置点击事件直接影响了li</li>
+        <li>单点一个li</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <script>
+        var ul=document.querySelector('ul');
+        ul.addEventListener('click',function(e){
+            // alert('666');
+            e.target.style.backgroundColor='pink';
+        })
+    </script>
+
+<!-- 
+    禁止选择文字和右键菜单
+    
+ -->
+    <p>禁止右键菜单 F12/p>
+    <script>
+        // 右键
+        document.addEventListener('contextmenu',function(e){
+            e.preventDefault();
+        })
+        //选中
+        document.addEventListener('selectstart',function(e){
+            e.preventDefault();
+        })
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- 
+        1.后端路由：根据不同的用户URL请求，返回不同的内容.
+        2.SPA+Ajax+前端路由
+        3.前端路由：用户事件，显示不同内容
+     -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 导入vue 文件 -->
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 切换组件的超链接 -->
+        <a href="#/zhuye">主页</a>
+        <a href="#/keji">科技</a>
+        <a href="#/caijing">财经</a>
+        <a href="#/yule">娱乐</a>
+        <!-- 根据 is属性指定的组件名称，把对应的组件渲染到component标签所在位置 -->
+    <!-- component组件占位符 -->
+    <component :is="'keji'"></component>
+    </div>
+    
+    <script>
+        //region定义需要呗切换的4个组件
+        //主页组件
+        const zhuye={
+            template:'<h1>主页信息</h1>'
+        }
+        const keji={
+            template:'<h1>科技信息</h1>'
+        }
+        const caijing={
+            template:'<h1>财经信息</h1>'
+        }
+        const yule={
+            template:'<h1>娱乐信息</h1>'
+        }
+
+
+        //将4个组件注册为vm的私有子组件
+        //region vue 实例对象
+        const vm =new Vue({
+            el:'#app',
+            data:{},
+            components:{
+                zhuye,
+                keji,
+                caijing,
+                yule
+            }
+        })
+
+        //endregion
+        //监听window的onhashchange事件
+    </script>
+</body>
+</html>

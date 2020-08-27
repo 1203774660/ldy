@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jQuery.js"></script>
+    <style>
+        .box6,.box1,.box2 ,.box3{
+            
+            width: 100px;
+            height: 100px;
+            background-color: darkgreen;
+            margin: 50px 50px;
+        }
+        .box3{
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class="one">
+        <button>显示</button>
+        <button>隐藏</button>
+        <button>切换</button>
+    </div>   
+    <div class="box6">
+    </div>
+    <script>
+        $(function(){
+            $('.one button').eq(0).click(function(){
+                //fast  slow  normal  速度
+                //swing默认  linear 效果
+                $('.box6').show('slow','swing');
+            });
+            $('.one button').eq(1).click(function(){
+                //2秒
+                $('.box6').hide(1000,'linear');
+            });
+            $('.one button').eq(2).click(function(){
+                $('.box6').toggle('fast');
+            });
+        });
+    </script>
+
+    <div class="two">
+        <button>下拉滑动</button>
+        <button>上拉</button>
+        <button>切换</button>
+    </div>
+    <div class="box1"></div>
+    
+    <script>
+        $(function(){
+            $('.two button').eq(0).click(function(){
+                $('.box1').slideDown();
+            });
+            $('.two button').eq(1).click(function(){
+                $('.box1').slideUp(2000);
+            });
+            $('.two button').eq(2).click(function(){
+                $('.box1').slideToggle();
+            });
+        });
+    </script>
+
+<!-- 淡入淡出 -->
+    <div class="three">
+        <button>淡入</button>
+        <button>淡出</button>
+        <button>淡入淡出切换</button>
+        <button>修改透明度</button>
+        <div class="box2"></div>
+    </div>
+    <script>
+        $(function(){
+            $('.three button').eq(0).click(function(){
+                // $('.box2').fadeIn();
+                $('.box2').fadeIn(1000);
+
+            })
+        
+            $('.three button').eq(1).click(function(){
+                $('.box2').fadeOut(1000);
+            })
+            $('.three button').eq(2).click(function(){
+                $('.box2').fadeToggle(1000);
+            })
+            $('.three button').eq(3).click(function(){
+                $('.box2').fadeTo(1000,0.5);
+            })
+
+        })
+    </script>
+<!-- 自定义动画 animate -->
+    <div class="four">
+        <button>自定义</button>
+        <div class="box3"></div>
+        <script>
+            $(function(){
+                $('.four button').click(function(){
+                    $('.box3').animate({
+                        left:200,
+                        top:300,
+                        opacity:.4,
+                        width:200
+                    },500);
+                })
+            })
+        </script>
+    </div>
+</body>
+</html>

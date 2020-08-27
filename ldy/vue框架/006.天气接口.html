@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+    <!-- 官网提供的axios在线地址 -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div id="app1">
+        <input type="text" placeholder="请输入查询的天气" @keyup.enter='search' v-model='city'>
+    <a href="javascript:" @click="change('贵阳')">贵阳</a>
+    <a href="javascript:" @click="change('南宁')">南宁</a>
+    <ul>
+        <li v-for='item in weather'>
+            <span>{{item.date}}</span>
+            <p>{{item.type}}</p>
+            <p>{{item.low}}</p>
+            <p>{{item.high}}</p>
+        </li>
+    </ul>
+
+
+
+    </div>   
+    <script>
+        var app1=new Vue({
+            el:'#app1',
+            data:{
+                city:'ss',
+                weather:[]
+            },
+            methods: {
+                search:function(){
+                    // console.log(1);
+                    // console.log(this.city);
+                    axios.get('http://wthrcdn.etouch.cn/weather_mini?city='+this.city)
+                    .then((result) => {
+                        // console.log(result);
+                        console.log(result.data.data.forecast);
+                        this.weather=result.data.data.forecast;
+                    }).catch((err) => {
+                        
+                    });
+                    
+                },
+                // <!-- 提示城市-->
+                change:function(city){
+                    console.log(this.city);
+                    
+                    this.city=city;
+                    this.search();
+
+                }
+            },
+            
+        })
+    </script>
+
+    
+</body>
+</html>

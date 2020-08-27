@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            position: relative;
+            width: 444px;
+            height: 320px;
+            background-color: coral;
+            margin: 30px auto;
+        }
+        .box img{
+            width: 100%;
+            height: 100%;
+        }
+        .mask{
+            display: none;
+            position: absolute;
+            top: 0;left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .5) url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1597206304987&di=7b0d3314dfbc1978bf74e2f16dc11957&imgtype=0&src=http%3A%2F%2Fseopic.699pic.com%2Fphoto%2F40003%2F0794.jpg_wh1200.jpg) no-repeat center ;
+            background-size: 50px 50px;
+        }
+        .box:hover .mask{
+            display: block;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="mask"></div>
+        <img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3892521478,1695688217&fm=26&gp=0.jpg" alt="">
+    </div>
+</body>
+</html>

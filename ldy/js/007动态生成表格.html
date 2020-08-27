@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            margin: 200px auto;
+            border: 1px solid #888;
+        }
+        thead{
+            background-color: coral;
+        }
+        th{
+            width: 100px;
+            margin: 20px;
+        }
+        tr{
+            height: 80px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <table cellspacing="1">
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>科目</th>
+                <th>成绩</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- <tr>
+                <td>ldy</td>
+                <td>html</td>
+                <td>100</td>
+                <td><a href="">删除</a></td>
+            </tr>
+            <tr>
+                <td>anna</td>
+                <td>css</td>
+                <td>100</td>
+                <td><a href="">删除</a></td>
+            </tr>
+            <tr>
+                <td>ldy</td>
+                <td>html</td>
+                <td>100</td>
+                <td><a href="">删除</a></td>
+            </tr> -->
+        </tbody>
+
+    </table>
+    <script>
+        //1.准备数据  对象
+        var datas=[
+        {
+            name:'ldy',
+            subject:'html',
+            score:100
+        },
+        {
+            name:'xx',
+            subject:'css',
+            score:88
+        },
+        {
+            name:'xxx',
+            subject:'html',
+            score:66
+        }
+        ];
+
+        //创建行 几个人就几行
+        var tbody=document.querySelector('tbody');
+        for (let i = 0; i < datas.length; i++) {
+            var tr= document.createElement('tr');
+            tbody.appendChild(tr);
+
+
+            //创建单元格
+            for (var k in datas[i]) {
+                var td=document.createElement('td');
+                tr.appendChild(td);
+
+                //内容添加
+                // console.log(datas[i][k]);
+                td.innerHTML=datas[i][k];
+                tr.appendChild(td);
+                
+            }
+            //创建删除单元格
+            var td =document.createElement('td');
+            td.innerHTML='<a href="javascript:;">删除</a>';
+            tr.appendChild(td);
+            
+
+        }
+        // for(var k in obj){
+        //     k的到的是属性名字
+        //     obj[k]的到属性值
+        // }
+
+        //删除操作
+        var aa= document.querySelectorAll('a');
+        for (let i = 0; i < aa.length; i++) {
+            aa[i].onclick=function(){
+                // tbodytr》td》a   
+                tbody.removeChild(this.parentNode.parentNode);
+            }
+        }
+    </script>
+    
+</body>
+</html>

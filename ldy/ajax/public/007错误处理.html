@@ -1,0 +1,53 @@
+<!-- 
+    1网络通常 服务器端接受到。服务端返回结果不时预期
+        判断服务器范围的状态码，分别处理
+        xhr.status获取http状态码
+    2网络ok 服务器没有接受到请求 返回404
+        检查请求地址是否错误
+        http://localhost:3000/007错误处理.html
+    3网络ok 接收到请求 返回500状态码
+    4网络中断，请求无法发送到服务端
+        会触发xhr对象下面的onerror事件，在onerror事件处理函数中对错误进行处理
+        浏览器控制台中network 中选中offine断网
+
+
+    http状态码：表示请求的处理结果  服务器端返回的
+    ajax状态码ajax请求过程中 ajjax对象返回的
+
+ -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+ </head>
+ <body>
+     <button id="btn">发送ajax请求</button>
+     <script>
+         var btn =document.getElementById('btn');
+         btn.onclick=function(){
+              var xhr=new XMLHttpRequest();
+              xhr.open('get','http://localhost:3000/error');
+              xhr.send();
+              xhr.onload=function(){
+                
+                console.log(xhr.responseText);
+                  //获取http状态码
+                //   console.log(xhr.status);
+                if (xhr.status==400) {
+                    alert('请求出错')                  
+                }   
+                
+              }
+              //断网触发onerror事件  无法触发onload
+              xhr.onerror=function(){
+                  alert('断网中，无法发送ajax请求')
+              }
+         }
+     </script>
+
+ </body>
+ </html>
+
+ <!-- http://localhost:3000/007错误处理.html -->

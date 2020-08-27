@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jQuery.js"></script>
+</head>
+<body>
+    
+<!-- 筛选方法 
+    parent()父级
+    children()
+    find()
+    sibling()  除了自己的其他兄弟
+    nextAll([]) 当前元素之后的同辈
+    prevAll([]) 当前元素之前
+    hasClass
+    eq
+-->
+<div class="father" style="background-color: burlywood;">
+    <p>1111</p>
+    <span>000</span>
+    <div class="son">
+        <p>22222</p>
+        <span>9999</span>
+    </div>
+    <span>0000</span>
+    <p>1111</p>
+</div>
+<div class='bb' style="background-color: lightskyblue;">
+    <ol>
+        <p>ddd</p>
+        <li>1</li>
+        <li class="dd">2</li>
+        <li>3</li>
+        <li>4</li>
+    </ol>
+    <ul>
+        <li>1</li>
+        <li class="ddd">2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+</div>
+<script>
+    $(function(){
+        //1.亲爸
+        console.log($('.son').parent());
+        //2.子孙和亲儿子
+        $('.father').children().css('color','red');
+        $('.father').children('p').css('color','blue');
+        //3.后代
+        $('.father').find('span').css('color',"pink");
+
+
+        //1.兄弟元素
+        $('.bb ol .dd').siblings().css('color','red');
+        $('.bb ol .dd').siblings('li').css('color','blue');
+        //2.第n个元素  选择器的方式和选择方法的方式
+        $('.bb ol :eq(1)').css('color','red');//神tm的空格,不加没效果
+        $('.bb ul li').eq(2).css('color','green');
+        //3. 判断是否也够某个元素
+        console.log($('.bb ol li').hasClass('dd'));//ture
+        
+    })
+</script>
+<!-- 找祖宗 -->
+    <div class="box1">
+        <div class="box2">
+            <div class="box3">
+                <box class="box4">hhhhh</box>
+            </div>
+        </div>
+    </div>
+    <script>
+        console.log($('.box4').parent().parent().parent());
+        console.log($('.box4').parents());//所有祖先
+        console.log($('.box4').parents('.box1'));//指定
+
+        
+
+    </script>
+
+
+
+
+<!-- js和jquery
+    类操作与classname的区别
+ -->
+
+    <div class="one"></div>
+    <script>
+        //js    one的属性就不见了
+        var one=document.querySelector('.one');
+        one.className='two';
+        //jquery  追加
+        $('.one').addClass('two');
+
+        //删除
+        
+
+    </script>
+</body>
+</html>

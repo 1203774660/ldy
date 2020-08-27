@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function ajax(options){
+            // 创建ajax对象
+            var xhr=new XMLHttpRequest();
+            //配置ajax对象
+            xhr.open(options.type,options.url);
+            //发送
+            xhr.send();
+            //监听xhr对象下面的onload事件
+            //当xhr对象接收完响应数据后触发
+            xhr.onload=function(){
+                // console.log(xhr.responseText);
+                options.success(xhr.responseText);
+            }
+        }
+
+        ajax({
+            //请求方式
+            type:'get',
+            //请求地址
+            url:'http://localhost:3000/first',
+            //请求成功时候调用函数
+            success:function(data){
+                console.log(data);
+            }
+        })
+
+    </script>
+</body>
+</html>
+ <!-- http://localhost:3000/010封装1.html -->

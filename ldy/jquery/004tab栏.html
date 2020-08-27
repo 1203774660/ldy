@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jQuery.js"></script>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .tab{
+            height: 50px;
+            border: 1px solid black;
+        }
+        li{
+            float: left;
+            height: 30px;
+            
+            padding: 10px 20px;
+            line-height: 30px;
+            list-style: none;
+        }
+        .linew{
+            background-color: darkred;
+        }
+        .item{
+            display:none;
+        }
+
+    </style>
+    <script>
+        
+    </script>
+</head>
+<body>
+    <div class="tab">
+        <ul>
+            <li>内容1</li>
+            <li>2内容1</li>
+            <li>3内容1</li>
+            <li>4内容1</li>
+            <li>5内容1</li>
+        </ul>
+    </div>
+    <div class="neiron">
+        <div class="item" style="display: block;">1111</div>
+        <div class="item">2222</div>
+        <div class="item">333</div>
+        <div class="item">444</div>
+        <div class="item">555</div>
+    </div>
+
+    <script>
+        $(function(){
+            $('.tab li').click(function(){
+                //1.改li样式
+                $(this).addClass('linew').siblings().removeClass('linew');
+                //2.得到li索引
+                var index=$(this).index();
+                console.log(index);
+                $('.neiron .item').eq(index).show().siblings().hide();
+                
+            })
+        });
+    </script>
+
+
+<!--  -->
+</body>
+</html>

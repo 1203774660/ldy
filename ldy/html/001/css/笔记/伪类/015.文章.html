@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 首字 */
+        p::first-letter {
+            color: brown;
+        }
+        /* 首行 */
+        p::first-line{
+            color: cornflowerblue;
+        }
+        /* span::after{
+            content: 'com \2193';
+            color: aqua;
+            position: relative;
+            top: 30px;
+            left: 30px;
+        } */
+
+
+        div{
+            border: 1px solid #333;
+            width: 130px;
+
+        }
+        div>input[type="text"]{
+            border: none;
+            outline: none;
+            
+
+        }
+        div>input[type='text']+span:after{
+            content: 'ok';
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex delectus quam animi laboriosam dolor quas tenetur dolorem odit, provident illo repellat, facere voluptatem expedita libero debitis labore ducimus sit harum!
+    </p>
+    <hr>
+    <span>span</span>
+    <hr>
+    <div>
+        <input type="text">
+        <span></span>
+    </div>
+</body>
+</html>

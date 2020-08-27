@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!-- 三种创建元素的区别 -->
+    <button>diandian</button>
+    <p>123433</p>
+
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <script>
+        //1doc.wri  如果文档流执行完毕，它会导致页面的重绘
+        var bb=document.querySelector('button');
+        // bb.onclick=function(){
+        //     document.write('<div>666</div>');
+        //     //点了后之前的界面标签全部没了
+        // }
+        
+        //2.innerHtml
+        var b1=document.querySelector('.box1');
+        //5s
+        // for (let i = 0; i < 100; i++) {
+        //     b1.innerHTML+='<a href="">百度</a>'
+        // }
+
+            //效率更高0.s
+            var arr=[];
+            for (let i = 0; i < 100; i++) {
+                arr.push('<a href="">百度</a>');          
+            }
+            b1.innerHTML=arr.join('');
+
+        //3.doc.cre
+        var b2=document.querySelector('.box2');
+        //3s
+        for (let i = 0; i < 100; i++) {
+            var a= document.createElement('a');
+            b2.appendChild(a);
+        }
+
+        //同样用for循环时间不同
+        //2的拼接字符串比较耗时间
+        //innerhtml不用拼接字符串，用数组形式拼接效率跟高
+    </script>
+    <a href="">百度</a>
+</body>
+</html>

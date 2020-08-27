@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            height: 30px;
+            background-color:chocolate ;
+            margin: 0 auto;
+        }
+        @media screen and (max-width:767px) {
+            .container{
+                width: 100%;
+            }
+        }
+        @media screen and (min-width:768px) {
+            .container{
+                width: 750px;
+            }
+        }
+        @media screen and (min-width:992px) {
+            .container{
+                width: 970px;
+            }
+        }
+        @media screen and (min-width:1200px) {
+            .container{
+                width: 1170px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="container"></div>
+</body>
+</html>
+<!-- 
+    <768手机        100%   .col-xs-
+    768-992平板     750     .col-sm-
+    992-1200桌面    970     .col-md-
+    >1200大桌面     1170     .col-lg-
+
+    响应式布局容器
+    一个父级作为布局容器，来配合子级元素实现变化效果
+
+
+ -->

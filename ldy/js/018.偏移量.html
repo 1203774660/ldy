@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .father{
+            width: 200px;height: 200px;
+            background-color: pink;
+            margin: 100px;
+        }
+        .son{
+            width: 100px;
+            height: 100px;
+            background-color: palegreen;
+            margin-left: 45px;
+        }
+        .b1{
+            width: 100px;
+            height: 100px;background-color: crimson;
+
+        }
+        .b2{
+            width: 100px;
+            height: 100px;
+            background-color:indigo;
+            padding: 10px;
+        }
+        .b3{
+            width: 100px;
+            height: 100px;
+            background-color:darkorange;
+            padding: 10px;
+            border: 5px solid blue;
+        }
+
+
+        .b4{
+            margin: 30px;
+            padding: 20px;
+            width: 100px;height: 100px;
+            background-color: chartreuse;
+        }
+
+        .ck{
+            /* display: none; */
+            width: 500px;
+            height: 300px;
+            background-color: blanchedalmond;
+            transform: translate(-50%,-50%);
+
+        }
+    </style>
+</head>
+<body>
+<!-- offset 获得元素的大小 宽度和高度 -->
+    <div class="father">
+        <div class="son"></div>
+    </div>
+
+    <div class="b1">
+        没有padiing
+    </div>
+    <div class="b2">
+        有padiing
+    </div>
+    <div class="b3">
+        有padiing有border
+    </div>
+    <script>
+        var father=document.querySelector('.father');
+        var son=document.querySelector('.son');
+        
+        //1偏移量  maigin
+        console.log(father.offsetTop);//100
+        console.log(father.offsetLeft);//100
+        
+        // 以带有定位的父亲为准，不然默认window
+        console.log(son.offsetLeft);//150+50
+        //给father加reltive
+
+        var b1=document.querySelector('.b1');
+        var b2=document.querySelector('.b2');
+        var b3=document.querySelector('.b3');
+
+        //2宽高
+        console.log(b1.offsetWidth);//100
+        console.log(b1.offsetHeight);//100
+
+        console.log(b2.offsetWidth);//120
+        console.log(b2.offsetHeight);//120
+
+        console.log(b3.offsetWidth);//130
+        console.log(b3.offsetHeight);//130
+
+        //3返回带定位的父亲，否则返回body
+        console.log(son.offsetParent);
+        console.log(son.parentNode);//最近的父亲，不管有没有定位
+        
+        
+    </script>
+<!-- style -->
+    <div class="b4"></div>
+    <div class="b5" style="width: 100px;"></div>
+    <script>
+        var b4=document.querySelector('.b4');
+        var b5=document.querySelector('.b5');
+        console.log(b4.offsetWidth);//100//没有单位                      //包含
+        console.log(b4.style.width);// //有单位的字符串//不能输出外面的style //不包含padding和border
+        console.log(b5.style.width);//100px
+        
+
+        b4.offsetWidth='300px';//不能更改
+        b4.style.height="300px";
+    </script>
+
+<!-- 坐标距离 -->
+    <script>
+        b4.addEventListener('click',function(e){
+            console.log(e.pageX);//窗口到鼠标
+            console.log(e.pageY);
+            console.log(b4.offsetLeft);//盒子包窗口
+            var x=e.pageX-this.offsetLeft;//鼠标到盒子
+            var y=e.pageX-this.offsetTop;
+            this.innerHTML='x='+x+",y="+y;
+            
+            
+        })
+
+
+    </script>
+<!-- 拖动模态框 -->
+    <div class="btn" style="background-color: chartreuse; width: 10px;height: 10px;"></div>
+    <div class="ck">
+        <div>
+            <span><a href="">关闭</a></span>
+        </div>
+        <div>
+            <div>
+                <label for="">登录</label>
+                <input type="text" name="" id="">
+            </div>
+            <div>
+                <label for="">密码</label>
+                <input type="password" name="" id="">
+            </div>
+        </div>
+    </div>
+
+    <div class="mask"></div>
+    <script>
+        var btn=document.querySelector('.btn')
+        btn.addEventListener('click',function(){
+            ck.style.display+'block';
+        })
+    </script>
+<!-- 商品放大镜 -->
+</body>
+</html>

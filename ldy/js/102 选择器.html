@@ -1,0 +1,54 @@
+<!-- 
+DOM查找
+1.按id属性，精确查找一个元素
+var elem=document.getElementByld('id');
+2按标签名查找。返回集合
+var wlwms=parent.getElementsByTagName('tag');
+3name找。集合
+document.getElementsByName('name属性')
+4class
+getElementsByclassName
+5css选择器
+parent.querSelector('')
+parent.querSelectorAll('')
+
+读取属性值
+1先得属性节点对象，再得节点对象值
+var attrNode=elem.attributes()
+
+2
+ -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+     
+     <style>
+        #code{
+            width: 100px;
+            height: 50px;
+            background-color: aqua;
+            font-size: 44px;
+            letter-spacing: 5px;
+        }
+     </style>
+ </head>
+ <body>
+    <!-- 验证码 -->
+    <script>
+        function createRndCode(){
+            var chars=['1','2','a','6','b','h'];
+            var randCode="";
+            for (var index = 0; index < 3; index++) {
+                var randCode=Math.floor(Math.random()*(chars.length-1));
+                randCode+=chars[randPos];
+            }
+            document.getElementById("code").innerHTML=randCode;
+        }
+    </script>
+    <div id="code"></div>
+    <button onclick="createRndCode()">验证码</button>
+ </body>
+ </html>

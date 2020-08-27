@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .go{
+            position: relative;
+            width: 400px;
+            /* border: 1px solid red; */
+            /* 下面横线 */
+            border-bottom: 1px solid #ccc;
+            margin: 100px auto;
+        }
+        .to{
+            width: 370px;
+            height: 30px;
+            border: 0;
+            outline: none;
+            /* 输入框外边清0 */
+        }
+        .go img{
+            position: absolute;
+            width: 24px;
+            top:2px;
+            right: 2px;
+        }
+
+        .ys{
+            width: 200px;
+            height: 200px;
+            background: pink;
+        }
+
+        .jl{
+            width: 250px;
+            margin: 100px auto;
+        }
+        .jl li{
+            /* 清0 */
+            list-style-type: none;
+            float: left;
+            width:24px;
+            height:24px;
+            background-color: wheat;
+            margin: 15px;
+            background: url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1596707467281&di=40b7a98338d116565c5d9088d6830268&imgtype=0&src=http%3A%2F%2Fbbs.itsource.cn%2Fdata%2Fattachment%2Fforum%2F201706%2F30%2F163249m9lmyl6z6cui4mci.png)
+                no-repeat;
+            background-size: 250px 250px;
+        }
+
+        .st{
+            float: left;
+            height: 250px;
+            width: 250px;
+            background-color: aquamarine;
+        }
+        .change{
+            float: left;
+            background-color: #f4f4;
+            color: aquamarine;
+            font-size: 10px;
+            margin-top: 10px;
+        }
+
+        #ii{
+            width: 600px;
+            margin: 100px auto;
+        }
+        .tishi{
+            display: inline-block;
+            /*p显示在输入框右边 */
+            font-size: 12px;
+            color: Saqua;
+            background:url(https://www.easyicon.net/api/resizeApi.php?id=1187078&size=128)
+            no-repeat left center;
+            /* 图片显示在文字左边 */
+            background-size: 10px 10px;
+            padding-left: 10px;
+            /* 文字起始位置 */
+        }
+        .wrong_tishi{
+            color: floralwhite;
+            /* background-image: url(https://www.easyicon.net/api/resizeApi.php?id=1187077&size=128); */
+            background: red;
+        }
+        .right_tishi{
+            color: floralwhite;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">唐伯虎</button>
+    <script>
+        //1获取事件源
+        var btn=document.getElementById('btn');
+       //2.绑定事件源
+        btn.onclick=function(){
+            //3.添加事件处理程序
+            alert('点秋香')
+        }
+
+        
+    </script>
+    <!-- 
+        onclick
+        onmousover经过
+        onmouseout离开
+        onfocus获得鼠标焦点触发
+        onblur失去
+        onmousemove移动
+        onmouseup弹起
+        onmousedown按下
+     -->
+
+
+     <!-- 改元素内容 -->
+     <!-- 
+         element.innerText   除去html标签，同时空格和换行也会换掉
+         element.innerHTML   包括html，同时保留空格和换行
+      -->
+      <button id='a'>button</button>
+      <div id='b'>divdiv</div>
+      <div id="c">内容</div>
+      <script>
+          //点按钮，变div内容
+          //1.获取元素
+          var btn =document.querySelector('#a');
+          var div =document.querySelector('#b');
+          //2.注册事件
+          btn.onclick=function(){
+            //   div.innerText='我变了';
+            div.innerText=getdate();
+          }
+            function getdate(){
+                var date =new Date();
+                var year=date.getFullYear();
+                var month=date.getMonth()+1;
+                var dates =date.getDate();
+                var arr=['7','1','2','3','四','5','6'];
+                var day=date.getDay();
+                console.log(day);//4
+                return '今天是'+year+'年'+month+'月'+dates+'日'+arr[day];
+            }
+        //不用点直接显示
+        var cc=document.querySelector('#c');
+        cc.innerText=getdate();
+
+      </script>
+
+      <p></p>
+      <h1>
+          标签外
+          <span>标签内</span>
+      </h1>
+      <script>
+        var pp=document.querySelector('p');
+        //   pp.innerText='<strong>hhh</strong>';//<strong>hhh</strong>不能加粗
+        pp.innerHTML='<strong>hhh</strong>';//加粗
+
+        //获取标签内容的区别
+        var hh=document.querySelector('h1');
+        console.log(hh.innerText);//标签外 标签内
+        console.log(hh.innerHTML);//标签外  <span>标签内</span>  空格和换行也有保留
+          
+
+      </script>
+
+
+      <!-- 按钮变图 -->
+      <button id="x">图片</button>
+      <button id="y">图片二</button>
+      <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1596690749261&di=0087ecf967994361392112fd7dc9497c&imgtype=0&src=http%3A%2F%2Fa3.att.hudong.com%2F14%2F75%2F01300000164186121366756803686.jpg"
+       alt="" title="鼠标移过来显示文字">
+
+
+      <script>
+          var one=document.getElementById('x');
+          var two=document.getElementById('y');
+          var img=document.querySelector('img');
+
+          one.onclick=function(){
+              img.src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1596690769567&di=ff274728df2a7b5dac10890770b7c8cd&imgtype=0&src=http%3A%2F%2Fa0.att.hudong.com%2F56%2F12%2F01300000164151121576126282411.jpg';
+              img.title='图片一';
+          }
+          two.onclick=function(){
+              img.src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1596690749261&di=0087ecf967994361392112fd7dc9497c&imgtype=0&src=http%3A%2F%2Fa3.att.hudong.com%2F14%2F75%2F01300000164186121366756803686.jpg';
+              img.title='图片二';
+          }
+      </script>
+
+
+      <!-- 输入框 -->
+      <button class="hh">an</button>
+      <input type="text" value="输入内容" > 
+      <script>
+          var btn =document.querySelector('.hh');
+          var input =document.querySelector('input');
+          btn.onclick=function(){
+            input.value='被点击';//修改输入框显示内容
+            //  btn.disabled=true;//禁用按钮
+            this.disabled=true;
+          }
+      </script>
+
+
+      <!-- 登录 -->
+      <div class="go" >
+          <label for="">
+              <img id='eye' src="https://www.easyicon.net/api/resizeApi.php?id=1187077&size=128" alt="">
+          </label> 
+          <input class='to' type="password" name="" id="tt">
+      </div>
+      <script>
+          var eye=document.getElementById('eye');
+          var tt=document.getElementById('tt');
+        //   eye.onclick=function(){
+        //       x.type='text';//密码可见
+        //   }
+        var flag=0;
+            eye.onclick=function(){
+                if(flag==0){
+                    tt.type='text';
+                    eye.src='https://www.easyicon.net/api/resizeApi.php?id=1187078&size=128';
+                    flag=1;
+                }else{
+                    tt.type='password';
+                    eye.src='https://www.easyicon.net/api/resizeApi.php?id=1187077&size=128';
+                    flag=0;
+                }
+            }
+      </script>
+
+      <!-- 样式属性修改   颜色大小-->
+      <div class="ys"></div>
+      <script>
+          var v=document.querySelector('.ys');
+          v.onclick=function(){
+              this.style.backgroundColor='red';
+              this.style.width='250px';
+          }
+          //js属于行内演示，权限比css跟高。冲突时，js优先
+      </script>
+
+      <!-- 隐藏 -->
+      <div class="vvv">
+          <img src="https://www.easyicon.net/api/resizeApi.php?id=1187077&size=128" alt="">
+          <i class='ddd'>x点我</i>
+      </div>
+      <script>
+          var v=document.querySelector(".vvv");
+          var x=document.querySelector('.ddd');
+          x.onclick=function(){
+              v.style.display='none';
+          }
+      </script>
+
+      <!-- 精灵图 -->
+      <!-- 根据坐标的形式，循环显示各个图片 -->
+      <div class="jl">
+          <ul>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+          </ul>
+      </div>
+      <script>
+          var lis=document.querySelectorAll('li');
+          for(var i=0;i<lis.length;i++){
+              var index=i*20
+              lis[i].style.backgroundPosition='5px -'+index+'px';
+          }
+      </script>
+        <br>
+
+      <!-- 输入框内容消失 -->
+      <input class='inn' type="text" value="请输入">
+      <script>
+          var text =document.querySelector('.inn');
+          //获得焦点事件
+          text.onfocus=function(){
+            //   console.log("获得焦点");
+            if(this.value==='请输入'){
+                this.value='';
+            }
+            //颜色字体
+            this.style.color='red';
+          }
+          text.onblur=function(){
+            if(this.value===''){
+                this.value='请输入';
+            }
+            this.style.color='#999';
+          }
+      </script>
+        <br>
+      <!-- style -->
+      <div class="st" >文字</div>
+      <script>
+          var test=document.querySelector('.st');
+          test.onclick=function(){
+            //   this.style.fontSize='23px'
+            // 太多不方便用
+            //2.不保留原来样式
+            // this.className='change';
+            //3.保留原来样式.多类名选择器
+            this.className='st change';
+          }
+
+      </script>
+    <!-- 密码提示 -->
+    <div id="ii">
+        <input type="password" class='mima'>
+        <p class="tishi">请输入6-16位密码</p>
+    </div>
+    <script>
+        //1获取元素
+        var input1=document.querySelector('.mima');
+        var p=document.querySelector(".tishi");
+        //2注册事件 失去焦点
+        input1.onblur=function(){
+            if(this.value.length<6||this.value.length>16){
+                p.className='tishi wrong_tishi';
+                p.innerHTML="输入错误";
+            }else{
+                p.className='tishi right_tishi';
+                p.innerHTML="输入正确";
+            }
+        }
+        
+
+    </script>
+
+</body>
+</html>

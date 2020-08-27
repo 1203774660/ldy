@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jQuery.js"></script>
+
+</head>
+<body>
+    <div>
+        <span>neiron</span>
+    </div>
+    <input type="text" value="请输入内容">
+
+</body>
+</html>
+<script>
+    //1.获取\设置元素内容html()---innerHTML
+    console.log($('div').html());//span..neiron
+    $('div').html('123');
+    //2获取\设置元素文本内容text()----innerText
+    console.log($('div').text());//neiron
+    $('div').text('123');
+    
+    //3获取设置表单值val()
+    console.log($('div').val());//请输入内容
+    $('div').val('123');
+
+
+    
+</script>

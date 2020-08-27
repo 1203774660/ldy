@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Document</title>
+    <style>
+        p{
+            /* 倾斜 */
+            font-style: italic;
+            /* 去掉倾斜 */
+            font-style: normal;
+            font-size: 14px;
+            line-height: 1.5em;
+            
+            font-weight: bold;
+
+            /* 后面2个必备 */
+            font:bold italic 15px/1.5em 'Courier New';
+
+            text-transform: uppercase;
+            text-transform:lowercase;
+            text-transform:capitalize;
+            text-transform:initial;
+
+
+            text-decoration: line-through;
+            text-shadow: #ddd 5px 5px 3px;
+
+            /* 包留空格和换行 */
+            /* white-space:pre; */
+            white-space:pre-line;
+            /* 不换行 */
+            white-space: nowrap;
+
+
+            overflow: hidden;
+
+            /* 溢出变成... */
+            text-overflow: ellipsis;
+
+            /* 首行缩进 */
+            text-indent: 2em;
+
+            /* 水平 */
+            text-align:center;
+
+            /* 字母 */
+            letter-spacing: 2px;
+            /* 单词 */
+            word-spacing: 2px;
+
+            /* 内容读的方向 */
+            /* 诗词 */
+            writing-mode: vertical-rl;
+            /* 默认上到下 */
+            writing-mode: horizontal-tb;
+
+            
+
+        }
+        div img{
+            /* 图片相对位置 */
+            vertical-align: top;
+            /* middle  bottom  */
+            vertical-align: 60px;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        Lorem, ipsum dolor 
+        sit amet consectetur adipisicing elit. Modi sed dicta dolorem autem adipisci voluptatibus nostrum libero laborio          sam at, illum dolor ipsam, qui, asperiores doloremque quia simiv   lique alias maiores? Earum!
+    </p>
+    <pre>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis ex consequatur excepturi volupt          atem in expedita asperiores temporibus distinctio officiis dolor unde ullam ducimus, suscipit sit labore rerum ea explicabo ratione.</pre>
+
+    <div>
+        <img src="" alt="">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam, quos accusantium laboriosam inventore quas cumque illo, ab doloremque laborum modi sapiente voluptatum et eius delectus fugiat praesentium, sequi eligendi debitis?
+    </div>
+</body>
+</html>

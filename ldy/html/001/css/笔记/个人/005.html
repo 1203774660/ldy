@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;margin: 0;
+        }
+        .box{
+            width: 100%;
+            height: 100%;
+            background-color: aquamarine;
+        }
+        .box .heard{
+            height: 44px;
+            /* width: 1200px; */
+            background-color: cadetblue;
+        }
+        .box .neiron{
+            
+            height: 400px;
+            background-color: aqua;
+        }
+        .box .neiron .left{
+            
+            background-color: blueviolet;
+            display: inline-block;
+            height: 300px;
+            width: 20%;
+            /* width: 30%; */
+            /* inline-block元素本身就有距离 */
+        }
+        .box .neiron .right{
+            background-color: burlywood;
+            display: inline-block;
+            height: 300px;
+            width: 70%;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="heard">123</div>
+        <div class="neiron">
+            <div class="left">223</div>
+            <div class="right">323</div>
+        </div>
+        
+        
+    </div>
+</body>
+</html>

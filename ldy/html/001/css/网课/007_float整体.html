@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    *{
+        padding:0;
+        margin:0;
+    } 
+    body{
+        font-size: 14px;
+    }
+    #container{
+        
+        margin: 0 auto;  
+        /* 内容居中 */
+        width:1000px;
+        height:500px ;
+        /* 宽度是定义好的。但是高度是内容撑开的 */
+        background-color: yellowgreen;
+
+    }
+    #header{
+        height: 100px;
+        background-color: blueviolet;
+        margin-bottom: 5px;
+    }
+    #nav{
+        height: 30px;
+        background-color: teal;
+        margin-bottom: 5px;
+    }
+    #main{
+        height: 500px;
+        background-color: rgb(32, 148, 61);
+        margin-bottom: 5px;
+
+    }
+    .aside{
+        float: left;
+        width: 200px;
+        height: 500px;
+        background-color: aqua;
+        margin-right: 5px;
+    }
+    #aside1{
+
+    }
+    #aside2{
+        margin-left: 5px;
+    }
+    #content{
+        float: left;
+        width: 585px;
+        /* 1200 */
+        height: 500px;
+        background-color: aquamarine;
+
+    }
+    #footer{
+        height: 60px;
+        background-color: blue;
+
+    }
+    </style> 
+</head>
+<body>
+    <div id="container">
+        <div id='header'></div>
+        <div id="nav"></div>
+        <div id="main">
+            <div id="aside1" class="aside"></div>
+            <div id="content"></div>
+            <div id="aside2" class="aside"></div>
+        </div>
+        <div id="footer"></div>
+    </div>
+</body>
+</html>

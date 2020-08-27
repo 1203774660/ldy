@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0; margin: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+        .search{
+            display: flex;
+            /* 固定定位和父级没有关系,它以屏幕为准 */
+            position: fixed;
+            top: 0;
+            /*水平 居中对齐 */
+            left: 50%;
+            -webkit-transform: translateX(-50%);
+            /* x是以图标的为准 */
+            /* webkit兼容老版本的浏览器 */
+
+            width: 100%;
+            min-width: 320px;
+            max-width: 540px;
+            height: 44px;
+            background-color: darkcyan;
+
+        }
+        .user{
+            width: 44px;
+            height: 44px;
+            background-color: blue;
+            font-size: 12px;
+            text-align: center;
+            
+        }
+        .index{
+            display: flex;
+            flex: 1;
+        }
+        .user::before{
+            content: '';
+            display: block;
+            width: 23px;
+            height: 23px;
+            /* 图片本身就23*23 */
+            background:url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1597758921609&di=dbfa76f0cec10a360a8d93162ad14eb7&imgtype=0&src=http%3A%2F%2Fwww.fxunion.com%2Fd%2Ffile%2Fc0dbdce1224c0d669b0881c7bda2a119.png')no-repeat ;
+            background-size:contain;
+            margin: 4px auto -2px;
+            /* -的可以让他下面的内容上移 */
+
+        }
+        input{
+            border: none;
+            height: 26px;
+            flex:1;
+            margin:6px 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+            background-color: aliceblue;
+        
+
+        }
+        .focus img{
+            padding-top: 44px;
+            width: 100%;
+            height: 150px;
+        }
+        .nav1{
+            
+            background-color:antiquewhite;
+            height: 64px;
+            border-radius: 8px;
+
+        }
+        .nav1 ul{
+            display: flex;
+            
+            
+        }
+        .nav1 li{
+            flex: 1;
+            background-color: aqua;
+            display: block;
+            height: 50px;
+            margin: 5px;
+            
+        }
+        .y{
+            /* 图片加文字 */
+            /* y主轴   测轴居中对齐 */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+        }
+        ul li a span:nth-child(1){
+            width: 30px;
+            height:25px;
+            /* 图片本身就23*23 */
+            background:url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1597758921609&di=dbfa76f0cec10a360a8d93162ad14eb7&imgtype=0&src=http%3A%2F%2Fwww.fxunion.com%2Fd%2Ffile%2Fc0dbdce1224c0d669b0881c7bda2a119.png')no-repeat;
+            background-size:contain;
+            /*  精灵图*/
+            /* background-position: 0 30px; */
+
+        }
+        .nav2{
+            /*      */
+            overflow: hidden;
+            border-radius: 10px;
+            margin: 2px 0;
+            
+            /* 不给高度.让里面撑开 */
+        }
+        .nn{
+            display: flex;
+            height: 88px;
+            background-color: antiquewhite;
+            margin: 2px 0;
+        }
+
+        .n{
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            background-color: aquamarine;
+            /* margin: 5px 5px; */
+        }
+        /* -n+2前面2个元素 */
+        /* n+2第二2个元素后面的元素 */
+        .n:nth-child(-n+2){
+            margin-right: 5px;
+        }
+        .n a{
+            text-align: center;
+            flex: 1;
+            line-height: 44px;
+            color: antiquewhite;
+            text-shadow: 1px 1px rgba(0, 0, 0, .2);
+        }
+    </style>
+</head>
+<body>
+    <div class="search">
+        <div class="index">
+            <input type="text" placeholder="输入内容">
+        </div>
+        <div class="user">
+            <a href="">我的</a>
+        </div>
+        
+    </div>
+
+    <div class="focus">
+        <img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2534506313,1688529724&fm=26&gp=0.jpg" alt="">
+        
+    </div>
+    <div class="nav1"><ul>
+        <li ><a href="" class="y">
+            <span></span>
+            <span>111</span>
+        </a></li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul></div>
+    <div class="nav2">
+        <div class="nn">
+            <div class="n">1</div>
+            <div class="n">
+                <a href="">aa</a>
+                <a href="">bb</a>
+            </div>
+            <div class="n">3</div>
+
+        </div>
+        <div class="nn"></div>
+        <div class="nn"></div>
+
+    </div>
+    <footer>
+
+    </footer>
+
+</body>
+</html>

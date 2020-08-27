@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        .nav{
+            height: 40px;
+            border-top: 3px solid #ffff88;
+            border-bottom: 1px solid #eeddff;
+            background-color: plum;
+            /* 让文字居中 设置父亲的属性，然后继承 */
+            line-height:40px ;
+        }
+        .nav a{
+            font-size: 12px;
+            text-decoration: none;
+            color: azue;
+            display: inline-block;
+            height: 40px;
+            padding: 0 20px;
+        }
+        .nav a:hover{
+            background-color: #888888;
+            color: #ffff88;
+        }
+    </style>
+</head>
+<body>
+    <!-- 文字长度不一样怎么样
+        1.设置盒子长度
+        2.盒子都不给宽度。用padding
+     -->
+
+     <div class="nav">
+        <a href="">首页</a>
+        <a href="">手机客户端</a>
+        <a href="">帮助</a>
+        <a href="">在哪里</a>
+        <a href="">联系我们</a>
+     </div>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .a{
+            color: #fff;
+            background-color: red;
+        }
+
+        .list li{
+            float: left;
+            height: 40px;
+            list-style: none;
+            line-height: 40px;
+            padding: 0 20px;
+        }
+        .neiron{
+            width: 200px;
+            height: 200px;
+            background-color: antiquewhite;
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- 商品界面 -->
+    <div class="tab">
+        <div class="list">
+            <ul class="md">
+                <li class="a" index='0'>商品介绍</li>
+                <li index='1'>规格</li>
+                <li index='2'>售后</li>
+                <li index='3'>评价</li>
+                <li index='4'>社区</li>
+            </ul>
+        </div>
+        <div class="neiron">
+            <div class="item" style="display:block;">1111</div>
+            <div class="item">222</div>
+            <div class="item">333</div>
+            <div class="item">444</div>
+            <div class="item">555</div>
+        </div>
+    </div>
+    <script>
+        //2个连用必须是父子关系
+        var liss=document.querySelector('.md').querySelectorAll('li');
+        // console.log(liss);
+        //内容模块
+        var items=document.querySelectorAll('.item');
+        for (let i = 0; i <liss.length; i++) {
+            // console.log(liss);
+            liss[i].onclick=function(){
+
+                var index=this.getAttribute('index');
+                // console.log(index);
+                //先把其他无色
+                for (let i = 0; i <liss.length; i++) {
+                    // console.log(liss[i]);
+                    liss[i].className='';
+                    
+                    items[i].style.display='none';
+                }
+
+                //自己有色
+                this.className='a';
+
+                //显示对应div
+                items[index].style.display='block';
+                
+           }
+        }
+    </script>
+        
+<!-- 
+h5规定
+data-index 是自定义属性
+-->
+     <div class='dd' getTime='20' data-index='2' data-list-name='hh'></div>
+     <script>
+         var div=document.querySelector('.dd');
+        console.log(div.getAttribute("data-index"));
+        console.log(div.getAttribute("data-list-name"));
+        div.setAttribute('data-time',20)
+        
+        //e11以上兼容
+        console.log(div.dataset);//一个集合有div所有属性
+        console.log(div.dataset.index);
+        console.log(div.dataset['index']);//改成驼峰
+        console.log(div.dataset.listName);
+        console.log(div.dataset['listName']);
+     </script>
+
+<!-- 节点 -->
+     <!-- 1.div  父节点 -->
+     <div class="dabox">
+        <div class='box'>
+            <span class="er"></span>
+        </div>
+     </div>
+     
+     <script>
+         //老做法
+         var er=document.querySelector('.er');
+         var box = document.querySelector('.box');
+
+         //用节点
+         //1.父节点 parentNode  得到离元素最近的父级节点  没用就返回null
+         var er=document.querySelector('.er');
+         console.log(er.parentNode);//得到div box
+         
+     </script>
+    <!-- 2.ul和ol的li   字节点 -->
+    <div class="div2">
+        <ol>
+            <li>fff</li>
+            <li>zzz</li>
+            <li>lll</li>
+        </ol>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script>
+        //dom提供的api获取
+        var ul=document.querySelector('.div2').querySelector('ul');
+        var lis=ul.querySelectorAll("li");
+        console.log(lis);
+        
+        //子节点
+        //childNodes 会把回车算进去   返回所有节点：元素。文本等
+        console.log(ul.childNodes);//[text, li, text, li, text, li, text]
+        //1用for循环
+        //2用children 非标准 
+        console.log(ul.children);//[li, li, li]
+
+        //first
+        //last
+        var ol=document.querySelector('ol');
+        console.log(ol.firstChild);//text
+        console.log(ol.lastChild);
+
+        console.log(ol.firstElementChild);//<li>fff</li>
+
+        console.log(ol.children[1]);//<li>zzz</li>
+        console.log(ol.children[ol.children.length-1]);//最后一个
+        
+        
+        
+        
+    </script>
+
+<!-- 
+    节点复制
+ -->
+    <div style="background-color: chartreuse;">
+        <ul class="uu">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+    </div>
+    
+    <script>
+        var ul =document.querySelector('.uu');
+        //空或者false的话只复制标签
+        var ll=ul.children[0].cloneNode();
+        ul.appendChild(ll);
+        var ll=ul.children[0].cloneNode(true);
+        ul.appendChild(ll);
+    </script>
+</body>
+</html>

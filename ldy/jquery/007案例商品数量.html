@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jQuery.js"></script>
+    <style>
+        *{
+            padding: 0;margin: 0;
+        }
+        .color1{
+            background-color:darksalmon;
+        }
+        
+        .box,.color2{
+            background-color: bisque;
+        }
+        span{
+            float: left;
+        }
+        .box2 .qian{
+            float: left;
+        }
+        .zonjia .zon{
+            float: right;
+        }
+        .clear{
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div class="box ">
+        
+        <span>￥12.60</span>
+        <div class="box2">
+            
+            <a href="#" class="jian">-</a>
+            <input type="text" value="1" class="number" >
+            <a href="javascript:;" class="jia">+</a>
+            <!-- <a href="" class="shan">删除</a> -->
+            <button class="shan">删除</button>
+            <input type="checkbox" class="check">
+        </div>
+        <div class="zonjia ">￥12.60</div>    
+    </div>
+    
+    <div class="box clear">
+        
+        <span>￥10.55</span>
+        <div class="box2">
+            
+            <a href="#" class="jian">-</a>
+            <input type="text" value="1" class="number" >
+            <a href="javascript:;" class="jia">+</a>
+            <button class="shan">删除</button>
+            <input type="checkbox" class="check">
+            
+
+        </div>
+        <div class="zonjia">￥10.55</div>    
+    </div>
+    <div class="box clear">
+        
+        <span>￥2.60</span>
+        <div class="box2">
+            
+
+            <a href="#" class="jian">-</a>
+            <input type="text" value="1" class="number">
+            <a href="javascript:;" class="jia">+</a>
+            <button class="shan">删除</button>
+            <input type="checkbox" class="check">
+
+        </div>
+        <div class="zonjia">￥2.60</div>    
+    </div>
+
+    <div class="zon clear">
+        <div class="shu"></div>
+        <div class="qian"></div>
+    </div>
+
+    <button>清空购物车</button>
+    <button>删除选中</button>
+    <input type="checkbox" class="all">
+</body>
+</html>
+<script>
+    $('.jia').click(function(){
+        var n=$(this).siblings('.number').val();
+        console.log(n);
+        n++;
+        $(this).siblings('.number').val(n);
+
+        //价格
+        var p=$(this).parent().siblings('span').html();
+        console.log(p);
+        p=p.substr(1);
+        $(this).parent().siblings('.zonjia').html("￥"+(p*n).toFixed(2));
+// toFixed(2) 保留2位小数
+
+        getSum();
+        
+    })
+    $('.jian').click(function(){
+
+        var n=$(this).siblings('.number').val();
+        // console.log(n);
+        if(n>1){
+            n--;
+            $(this).siblings('.number').val(n);
+        }
+        //价格
+        var p=$(this).parent().siblings('span').html();
+        console.log(p);
+        p=p.substr(1);
+        $(this).parent().siblings('.zonjia').html("￥"+(p*n).toFixed(2));
+        
+        getSum();
+
+    })
+    $('.number').change(function(){
+        //先得到文本框理的值
+        var n=$(this).val();
+        var p=$(this).parents().siblings('span').html();
+        // console.log(p);
+        p=p.substr(1);
+        $(this).parent().siblings('.zonjia').html("￥"+(p*n).toFixed(2));
+
+        getSum();
+
+    })
+
+
+    getSum();
+    //总计数量和价钱
+    function getSum(){
+        var count=0;
+        var money =0;
+        $('.number').each(function(i,ele){
+            count+=parseInt($(ele).val());
+        });
+        $('.zon .shu').text(count);
+
+        $('.zonjia').each(function(i,ele){
+            money+=parseInt($(ele).text().substr(1));          
+        })
+        $('.qian').text('￥'+money.toFixed(2));
+    }
+
+    //删除
+
+    //1自杀
+    $('.box2 .shan').click(function(){
+        $(this).parents('.box').remove();
+        // console.log($(this));
+        getSum();
+    })
+    //2删除选中
+    $('body>button').eq(1).click(function(){
+        
+        $('.check:checked').parents('.box').remove();
+        getSum();
+    })
+    //3删全
+    $('body>button').eq(0).click(function(){
+        $('.box').remove();
+        getSum();
+    })
+    
+
+    //背景变色
+    $('.check').change(function(){
+        console.log($(this).prop('checked'));
+        
+        if($(this).prop('checked')){
+            $(this).parent().addClass('color1');
+        }else{
+            $(this).parent().removeClass('color1');
+        }
+
+
+        console.log($('.check:checked').length);//被选中的个数
+        if($('.check:checked').length==$('.check').length){
+            $('.all').prop('checked',true);
+        }else{
+            $('.all').prop('checked',false);
+        }
+    })
+    $('.all').change(function(){
+        console.log($(this).prop('checked'));
+        $('.check,.all').prop('checked',$(this).prop('checked'));
+        
+        if($(this).prop('checked')){
+            $('.box2').addClass('color1')
+        }else{
+            $('.box2').removeClass('color1');
+        }
+    })
+    
+
+
+</script>

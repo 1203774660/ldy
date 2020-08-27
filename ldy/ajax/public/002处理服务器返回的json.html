@@ -1,0 +1,44 @@
+<!-- 
+
+    服务器端响应的数据格式：大多数情况以json对象为响应数据的格式 。用户拿到数据要将json和html字符串进行拼接
+
+ -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+ </head>
+ <body>
+     <script>
+        //  1创建ajax对象
+         var xhr=new XMLHttpRequest();
+        //  2.告诉ajax对象要向哪里发送请求，以什么方式
+        // 1 请求方式 2.请求地址
+         xhr.open("get","http://localhost:3000/responseData")
+         //3.发送请求  不可以在send后面直接接受数据，请求受网络的影响时间不确定的时间以后
+         xhr.send();
+         //4.获取服务器端响应到客户端的数据
+        xhr.onload=function(){
+            //
+            console.log(xhr.responseText);
+            console.log(typeof xhr.responseText);//string
+            //在http请求和响应过程中。无论时请求参数还是响应内容，如果时对象类型，最终都会被转换为对象字符串进行传输
+
+            //json字符串--》jison对象
+            var responseText=JSON.parse(xhr.responseText);
+            console.log(responseText);
+            //拼接html字符串
+            var html='<h2>'+responseText.name+'</h2>';
+            document.body.innerHTML=html;
+            
+            
+        }
+     </script>
+     
+ </body>
+ </html>
+ <!-- 
+     http://localhost:3000/002处理服务器返回的json.html
+  -->

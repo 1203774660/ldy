@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;padding: 0;
+        }
+        p{
+            background-color: chartreuse;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            padding: 10px;
+        }
+        span{
+            background-color: aqua;
+
+            /* 无效 */
+            width: 100px;
+            height: 100px;
+            
+            /* 无效 */
+            text-align: center;
+            /* 像脱离标准文档流  如果里面没内容也不起作用 */
+            padding: 10px;
+
+        }
+
+        div{
+            /* display: inline-block; */
+            display: inline;
+            background-color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+    <!-- 行内元素 inline 不自己一行 大小由内容决定 不可定位
+        a b strong span img label button input select textarea
+     -->
+     <!-- 块级元素block 自己一行 大小可定 内容可定位
+        hearder form ul ol table article div hr aside figure canvas video audio footer
+    -->
+    <span>span</span><span></span>
+    <p>ppp</p><p>ppp</p>
+    <div>inline/inline-block换行和空格都会产生间隙</div>
+    <div>111</div>
+    <hr>
+    <!-- 方法1 -->
+    <div>div</div><div>div</div>
+    <!-- 方法2 -->
+    <div>div</div><!--   --><div>div</div>
+    <!-- 方法3  margin-left  但是每个浏览器的间距不一样,用不了-->
+    <!-- 方法4 给父元素加font-size :0px -->
+    <!-- 方法5 父级搞个letter-spacing=负数px 子元素搞个letter-spacing=0px -->
+</body>  
+</html>

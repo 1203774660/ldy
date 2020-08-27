@@ -1,0 +1,39 @@
+<!-- 
+art-template
+
+服务端
+npm install art-template --save
+客户端
+
+
+
+ -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+     <!-- //1引入模板引擎的库文件 -->
+     <script src="../template-web.js"></script>
+ </head>
+ <body>
+     <div id="container"></div>
+     <!-- //2准备模块 -->
+     <script id='tpl' type='text/html'>
+         <h2>{{username}}   {{age}}</h2>
+     </script>
+
+
+     <script type="text/javascript">
+         //3告诉模板引擎将那个数据和那个模板进行拼接
+         //模板id，数据对象类型
+         //方法的返回值是拼接好的字符串
+         var html=template('tpl',{username:'zhangsan',age:12});
+         console.log(html);
+         document.getElementById('container').innerHTML=html;
+         
+     </script>
+     
+ </body>
+ </html>

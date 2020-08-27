@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><style>
+        div{
+            color: red;
+        }
+        .com{
+            color: rebeccapurple;
+        }
+        #dd{
+            color: chartreuse;
+        }
+        /* 
+        id 100
+        class 属性 10
+        标签 伪类 1
+        *  0
+        行内样式 1000
+        !important最高
+        */
+
+        /* 20 */
+        .hh[class]{
+            color: cornflowerblue;
+        }
+        /* 10 */
+        .hh{
+            color: cadetblue !important;
+        }
+
+
+        /* 
+        继承权重nulll
+        0>null
+         */
+    </style>
+</head>
+<body>
+    <div>
+        <div class="com" id="dd">
+            123
+        </div>
+    </div>
+
+    <div class="hh">
+        hhh
+
+    </div>
+</body>
+</html>

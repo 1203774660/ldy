@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .ss,.ff,.mm{
+            float: left;
+            width: 20px;height: 20px;
+            margin: 5px;
+            background-color: cadetblue;
+        }
+    </style>
+    <script>
+
+        //window  页面加载完后才执行  放在页面任何一个位置都不收限制
+
+
+        // window.onload=function(){
+        //     var btn =document.querySelector('button');
+        //     btn.addEventListener('click',function(){
+        //         alert(66);
+        //     })
+        // },
+        // // 只 执行下面的
+        // window.onload=function(){
+        //     var btn =document.querySelector('button');
+        //     btn.addEventListener('click',function(){
+        //         alert(2222);
+        //     })
+        // }
+
+        //没有限制
+        window.addEventListener('load',function(){
+            var btn =document.querySelector('button');
+            btn.addEventListener('click',function(){
+                alert(66);
+            })
+        })
+        window.addEventListener('load',function(){
+            var btn =document.querySelector('button');
+            btn.addEventListener('DOMContenntLoaded',function(){
+                alert(9999999999);
+            })
+        })
+        //load是等页面内柔全部加载完毕
+        //DOMCoflantenntLoaded是DOM加载完毕，不包含图片 f'lash css 等
+    </script>
+</head>
+<body>
+<!-- 窗口加载事件 -->
+<!-- 窗口宽度很小时，隐藏某些div -->
+    <button>点</button>
+<!-- 窗口大小 -->
+    <div  class="box1" style="width: 100px;height: 200px; background-color: bisque; "  ></div>
+    <script>
+        // 拖动窗口大小
+        var div=document.querySelector('div');
+        window.addEventListener('resize',function(){
+            console.log('变化了');
+            console.log(window.innerWidth);//输出宽度
+            if(window.innerWidth<=500){
+                div.style.display='none';
+            }else{
+                div.style.display='block';
+            }
+        })
+    </script>
+
+<!-- 定时器 
+window.settimeout   限时多少毫秒执行。  默认0
+-->
+    <script>
+            setTimeout(function(){
+                console.log('时间到');
+                
+            },2000);
+
+            function name(){
+                console.log('时间到2');
+                
+            }
+            setTimeout(name,3000);
+
+            setTimeout('name()',4000);
+    </script>
+
+<!-- 5s后隐藏图片 -->
+    <img src="https://i0.hdslb.com/bfs/face/f51c359094e8445a714f432182460c7a33de8b93.jpg@68w_68h.webp" alt="">
+    <script>
+        var img=document.querySelector('img');
+        setTimeout(function(){
+            img.style.display='none';
+        },5000);
+    </script>
+
+<!-- 停止定时器 clearTimeout-->
+<hr>
+    <button class="bb">停止</button>
+
+    <script>
+        var bb=document.querySelector('.bb');
+        var timer=setTimeout(function(){
+                console.log('爆炸了');
+                
+            },4000);
+        bb.addEventListener('click',function(){
+            clearTimeout(timer);
+        })
+    </script>
+
+<!-- 间隔时间回调  setlinterval -->
+
+    <script>
+        // setInterval(function(){
+        //     console.log('间隔回调');
+            
+        // },1000)
+    </script>
+
+
+
+<!-- 倒计时 -->
+<hr>
+    <div class="ss"></div>
+    <div class="ff"></div>
+    <div class="mm"></div>
+    <script>
+        var ss=document.querySelector('.ss');
+        var ff=document.querySelector('.ff');
+        var mm=document.querySelector('.mm');
+        //倒计时的终点  一天内
+        var inputTime=+new Date('2020-9-15 00:00:00');
+        
+        //先调用一次，防止刷新页面的时候时空白的
+        Go();
+
+
+        //开启定时器
+        setInterval(Go,1000);
+        function Go() {
+            var nowTime=+new Date();
+            var times=(inputTime-nowTime)/1000;
+            var s=parseInt(times/60/60%24);
+            s=s<10?'0'+s:s;
+            ss.innerHTML=s;
+            var f=parseInt(times/60%60);
+            f=f<10?'0'+f:f;
+            ff.innerHTML=f;
+            var m=parseInt(times%60);
+            m=m<10?'0'+m:m;
+            mm.innerHTML=m;
+          }
+    </script>
+
+<!-- 
+    开始和停止计数器
+ -->
+ <hr>
+    <button class="begin">开始</button>
+    <button class="stop">停止</button>
+    <script>
+        var begin=document.querySelector('.begin');
+        var stop =document.querySelector('.stop');
+
+        var timer2=null;//一定要在函数外面先定义
+        begin.addEventListener('click',function(){
+
+            //在函数里面申请只会时个局部变量
+            timer2=setInterval(function(){
+                console.log('开始开始');
+            },1000)
+
+        })
+        stop.addEventListener('click',function(){
+            clearInterval(timer2);
+
+        })
+
+    </script>
+
+<!-- 60秒才能发一次短信 -->
+    <hr>
+    <input type="number">
+    <button class="fason">发送</button>
+    <script>
+        var fason =document.querySelector('.fason');
+        var time=3;
+        fason.addEventListener('click',function(){
+            
+            fason.disabled=true;
+            Go();
+            Go=setInterval(function(){
+                if (time==0) {
+                clearInterval(Go);
+                fason.disabled=false;
+                fason.innerHTML='发送';
+                time=3;
+            }else{
+                fason.innerHTML="时间还剩"+time--+'秒';
+            }
+                
+            },1000)
+        })
+    </script>
+</body>
+</html>

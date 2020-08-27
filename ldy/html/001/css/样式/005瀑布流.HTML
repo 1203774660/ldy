@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 4px;
+
+        }
+        .box{
+            column-count: 4;
+            column-gap: 0;
+        }
+        .item{
+            position: relative;
+            counter-increment: item-counter;
+        }
+        .item img{
+            
+            display: block;
+            width: 100%;
+            height: auto;
+            
+
+        }
+        .item::after{
+            position: absolute;
+            display: block;
+            top: 2px;
+            left: 2px;
+            width: 24px;
+            height: 24px;
+            text-align: center;
+            line-height: 24px;
+            background-color: aqua;
+            color: aliceblue;
+            content: counter(item-counter);
+            
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="item">
+            <img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=363226220,1846528701&fm=26&gp=0.jpg" alt="1">
+        </div>
+        <div class="item">
+            <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3868462843,3014909590&fm=11&gp=0.jpg" alt="2">
+        </div>
+        <div class="item">
+            <img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=173349721,3538150333&fm=26&gp=0.jpg" alt="3">
+        </div>
+        <div class="item">
+            <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2366378567,421657111&fm=26&gp=0.jpg" alt="">
+        </div>
+        <div class="item">
+            <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1597831098470&di=8219f2ec8052cee86f814b5802e091b4&imgtype=0&src=http%3A%2F%2Fcdn.duitang.com%2Fuploads%2Fitem%2F201610%2F21%2F20161021174144_PaEZr.jpeg" alt="">
+        </div><div class="item">
+            <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2366378567,421657111&fm=26&gp=0.jpg" alt="">
+        </div>
+        
+    </div>
+</body>
+</html>

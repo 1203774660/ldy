@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father{
+            width: 200px;
+            height: 200px;
+            background-color: aquamarine;
+        }
+        .son{
+            width: 150px;height: 150px;
+            background-color: blue;
+        }
+
+        .one{
+            margin: 20px 20px;
+            background-color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="son">测试捕获阶段和冒泡阶段 </div>
+    </div>
+    <script>
+        //1.捕获阶段  2.目标  3.冒泡阶段
+        //a. js代码只能执行捕获或者冒泡其中的一个阶段
+        //b. onclick和attachwvwnt 只能得到冒泡阶段
+        //c. 如果sddwvwnetlistener第三格参数时true那么则处于捕获阶段 
+        //捕获 document>html>body>father>son
+        //所以father先弹出
+        var son =document.querySelector('.son');
+        son.addEventListener('click',function(){
+            alert('捕获son');
+        },true);
+        var father =document.querySelector('.father');
+        father.addEventListener('click',function(){
+            alert('捕获father');
+        },true);
+        
+
+        // 冒泡阶段 如果sddwvwnetlistener第三格参数时false那么则处于捕获阶段son>father>body>html>documt
+        var son =document.querySelector('.son');
+        son.addEventListener('click',function(){
+            alert('冒泡son');
+        },false);
+        var father =document.querySelector('.father');
+        father.addEventListener('click',function(){
+            alert('冒泡father');
+        },false);
+        document.addEventListener('click',function(){
+            alert('冒泡document');
+        },false);
+
+
+        //没用冒泡 onblur onfocus onmouseenter onmouseleave
+    </script>
+
+<!-- 事件对象 
+this 和tagert
+//1.event是一个事件对象 写到外面监听函数的小括号里面  当形参看
+//2.事件对象只有右了事件才会存在，它是系统给外面自动创建的，不需要外面传递参数
+//3事件对象是外面事件的一系列相关数据的几乎，和事件相关
+//4可以自己起名字
+//ie678不能用
+-->
+
+    <div class="one">this和target的区别</div>
+    <script>
+        var dd=document.querySelector('.one');
+        dd.onclick=function(event){
+            console.log(event);
+        }
+        dd.addEventListener('click',function(e){
+            console.log(e);
+            //ie678写法
+            // console.log(window.event);
+            //兼容的写法
+            console.log(e=e||window.event);
+            //e认识e  不认识就等于后面的
+        })
+    </script>
+
+<!-- 常见事件对象的属性和方法
+
+    target
+    this
+-->
+    <hr>
+    <div class="two">事件对象的获取</div>
+    <ul>
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+    </ul>
+    <script>
+        var div=document.querySelector('.two');
+        div.addEventListener('click',function(e){
+            console.log(e.target);//div触发事件的对象
+            console.log(this); //div绑定事件的对象
+        })
+
+        var ul=document.querySelector('ul');
+        ul.addEventListener('click',function(e){
+            //绑定ul this指向ul
+            console.log(this);//ul
+            console.log(e.target);//li
+
+        })
+
+        // 兼容写法  ie678不认识e
+        div.onclick=function(e){
+            e=e||window.event;
+            var t=e.target||e.srcElement;
+            console.log(t);//div
+        }
+    </script>
+
+
+
+</body>
+</html>

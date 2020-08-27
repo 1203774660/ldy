@@ -1,0 +1,44 @@
+<meta charset="UTF-8">
+<body id="body">
+    <div class='one'>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</body>
+<script>
+
+    //  setInterval(函数,毫秒为单位的时间);   每隔多久执行一次函数
+    setInterval(changeColor,1000);
+
+    function changeColor(){
+        // document.write( Math.floor(Math.random() * 1000000) % 256 );
+        // document.write('<br/>');
+        var li = document.getElementById("li");
+        var r = Math.floor(Math.random() * 1000000) % 256;
+        var g = Math.floor(Math.random() * 1000000) % 256;
+        var b = Math.floor(Math.random() * 1000000) % 256;
+        li[0].style.backgroundColor = 'rgb('+ r +',' + g + ',' + b + ')';
+
+    }
+
+    //  rgb(r,g,b);
+</script>
+
+
+
+<!-- <script>
+
+    function cheng(one,two){
+
+        for(j = 0; j < one; j++ ){
+            for(i = 0; i < two; i++ ){
+                document.write('*');
+            }
+            document.write("<br/>");
+        }
+    }
+    cheng(4,7);
+</script> -->

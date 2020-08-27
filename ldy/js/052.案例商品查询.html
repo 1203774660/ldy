@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+            
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        按价格查询<input type="text" class="start">- <input type="text" class="end">
+        <button class="jiage">搜索</button>
+        <hr>
+        按商品名称查询<input type="text" class="min">
+        <button class="minzi">查询</button>
+
+    </div>
+    <hr>
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>商品name</th>
+                <th>价格</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <!-- <tr>
+                <td>1</td>
+                <td>小米</td>
+                <td>1800</td>
+            </tr> -->
+        </tbody>
+
+    </table>
+    
+</body>
+</html>
+<script>
+    var data=[{
+        id:1,
+        name:'小米',
+        price:1999
+    },{
+        id:2,
+        name:'华为',
+        price:999
+    },{
+        id:3,
+        name:'oppo',
+        price:3999
+    },{
+        id:4,
+        name:'apple',
+        price:9999
+    },];
+    //1获取相应元素
+    var tbody=document.querySelector('tbody');
+    var jiage=document.querySelector('.jiage');//button
+    var start=document.querySelector('.start');//input
+    var end=document.querySelector('.end');//input
+    var minzi=document.querySelector('.minzi');//button
+    var min=document.querySelector('.min');//input
+    
+
+
+
+
+    //2.把数据渲染到页面中
+    // data.forEach(function(value){
+    //     console.log(value);
+    //     var tr= document.createElement('tr');
+    //     tr.innerHTML='<td>'+value.id+'</td><td>'+value.name+'</td><td>'+value.price+'</td>'
+    //     tbody.appendChild(tr);
+    // })
+
+    //修改后的2
+    setdata(data);
+        function setdata(mydata){
+            //先清空
+            tbody.innerHTML='';
+            mydata.forEach(function(value){
+                console.log(value);
+                var tr= document.createElement('tr');
+                tr.innerHTML='<td>'+value.id+'</td><td>'+value.name+'</td><td>'+value.price+'</td>'
+                tbody.appendChild(tr);
+            });
+        }
+    //3价格阶梯
+    jiage.addEventListener('click',function(){
+        var newdata=data.filter(function(value){
+            return value.price>=start.value&&value.price<=end.value;
+        })
+        console.log(newdata);
+        //渲染
+        setdata(newdata);
+    })
+   //4名称
+    minzi.addEventListener('click',function(){
+        var arr=[];
+        data.some(function(value){
+            if(value.name===min.value){
+                arr.push(value);
+                return true;//终止循环
+            }
+        });
+        setdata(arr);
+    })
+    
+</script>

@@ -1,0 +1,141 @@
+
+<!-- 
+
+    lorem*30  出来30 个单词
+ -->
+
+
+<!DOCTYPE html>
+<html lang="en">  <!--lang属性：提供给引擎。en英文。zh中文--> 
+<head><!---->
+    <meta charset="UTF-8">  <!--meta：元数据  charset：字符集编码方式 utf-8--> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title> <!--页面标题--> 
+   
+</head>
+<body>
+    
+    <h>1-6</h>
+    <p>   不管多少空格和转行默认一个&nbsp&nbsp空格字符&nbsp空格字符</p><!--&nbsp空格字符-->  
+    <br/><!--换行-->
+    <pre>预留格式标签          保留格式</pre>
+    <img src="  .jpg" alt=“图像不能显示时的替换文本”/><!--scr路径+文件名-->
+                                                    <!--绝对路径（某盘某文件）和相对路径（和html同目录的某文件夹里的jpg-->
+                                                    <!--相对2：在html上1/n个目录：../../名字.jpg-->
+                                                    <!--上个目录里的另外一个文件夹内：../图片包/名字.jpg-->
+    <hr>水平分割
+    <a href="#">链接</a>
+    <sup>小标</sup>
+    <em>强调斜体</em>
+    <i>斜体</i>
+    <strong>重点强调粗体</strong>
+    <b>粗体</b>
+
+    <!-- dl：自定义列表 
+         dt：列表项
+         dd：描述 -->
+    <dl>
+        <dt>第一天</dt>
+        <dd>1234444444</dd>
+        <dt>第二天</dt>
+        <dd>124242353151</dd>
+    </dl>
+    <!-- 快捷键
+        p*5科得5个
+        ctrl l 选一行
+        ctrl点多个光标  多行编辑
+        ctrl / 注释
+
+    -->
+
+
+    <!-- 
+    1<head>=<div id="head">
+    2<div id>  .开头可用多次  #只能用一次
+    -->
+    <div align="center"><p>center自己对其</p></div>
+
+    <nav>
+        <li><a href="#">第一个</li>
+        <li><a href="#">第二个</li>
+    </nav><!--导航链接。-->
+    <!-- ul 
+        ul无序列表
+        li列表项
+        ol有序列表
+        table 表格
+        tr行
+        td列
+        th表头
+        border =边框粗细。
+    -->
+    <table border="1">
+        <th>1</th>
+        <th>2</th>
+        <tr>
+            <td>00</td>
+            <td>01</td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>11</td>
+        </tr>
+    </table>
+    <!-- 
+        1.form表单。采集用户信息
+        action="数据处理网页（后端额面"
+        2.input输入框、按钮
+        type=text文本框
+            =password密码框
+            =submit提交按钮
+            =reset重置按钮
+            =radio单选框
+            =checkbox多选框 
+        value=按钮表面文字=传给后台的框内数据
+        name=后台确认=单选框要同名
+        checked=checked默选的选项。一帮给第一个。后面的就不用了
+        3.select下拉列表框
+        4.option下拉选项
+        selected=selected默认选
+        5.textarea文本框
+        rows行数
+        cols列数
+        +提示文
+
+     -->
+    <form action="001.html">
+        账户<input type="text">
+            <input type="submit" value="确定">
+            <input type="reset" value="重置">
+        <br>
+        密码<input type="password">
+        <br>
+        男<input type="radio" name="单选"checked="checked"> 女<input type="radio" name="单选"> 
+        <br>
+        爱好：吃<input type="checkbox"checked="checkbox"> 喝<input type="checkbox" >玩<input type="checkbox" > 
+        <br>
+        地区：<select name="" id="">
+            <option selected="selected">中国</option>
+            <option >日本</option>
+            <option >美国</option>
+        </select>
+        <br>
+        <textarea cols="30" rows="10">请输入文本。。</textarea>
+    </form>
+
+
+    <!-- sublimed 的快捷键
+        ctrl e 
+        p{ndjn}
+        p
+        img[src=。。。]
+        img
+        p>span
+        p>img+a[href="#"]
+        (div>p)+(div>img)
+        ul>li*3
+        lorem自动文本
+        lorem4 自动四个单词的文本
+     -->
+</body>
+</html>

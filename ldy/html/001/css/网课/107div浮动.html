@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 1200px;
+            height: 460px;
+            background-color: plum;
+            margin: 0 auto;
+        }
+        
+        .left{
+            /* 都是表春浮动流  要左右同行 */
+            float: left;
+            width: 230px;
+            height: 460px;
+            background-color: palevioletred;
+        }
+        .right{
+            float: left;
+            width: 970px;
+            height: 460px;
+            background-color: aqua;
+        }
+
+        
+        li{
+            list-style: none;
+        }
+        .box2{
+            margin: 10px auto;
+            width: 1200px;
+            height: 300px;
+            background-color: palegoldenrod;
+        }
+        /* 权重11 */
+        .box2 li{
+            float: left;
+            width: 23%;
+            height: 96%;
+            background-color: coral;
+            margin: 1% 1%;
+        }
+        /* 权重20 */
+        .box2 .lili{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <!-- 左右 -->
+    <div class="box">
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+
+    <!-- 4个同行小盒子 -->
+    <ul class="box2">
+        <li class="lili">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+</body>
+</html>

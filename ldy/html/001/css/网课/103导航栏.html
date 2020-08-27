@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .nav a{
+            /* 设置行内块元素 可以让它们在同一行，设置a的高度宽度 */
+            /* 把链接这种行元素改成行内块元素 */
+            /* 没有设置就不能改宽高，只能文字决定宽高 */
+            display: inline-block;
+            text-decoration: none;
+            width: 120px;
+            height: 58px;
+            background-color: pink;
+            /* 垂直居中 */
+            line-height:58px ;
+            /* 水平居中*/
+            text-align: center;
+            color: aliceblue;
+        }
+        .nav a:hover{
+            background-color: blueviolet;
+        }
+        .nav .aa:hover{
+            background-color:aqua;
+        }
+        /* 伪类 */
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="" class="aa">daohan</a>
+        <a href="">daohan</a>
+        <a href="">daohan</a>
+        <a href="">daohan</a>
+        <a href="">daohan</a>
+    </div>
+</body>
+</html>

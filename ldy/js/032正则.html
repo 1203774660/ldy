@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrong{
+            color: red;
+        }
+        .right{
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        //1条用如gegexp对象的构造函数创建
+        var regexp=new RegExp(/123/);
+        console.log(regexp);// /123/
+        //2字面量创建
+        var rg=/123/;
+
+        // test检测函数
+        console.log(rg.test(123));
+        console.log(rg.test('abc'));
+        
+//边界符
+        //^
+        //$
+    // 只要有abc
+        var rg1=/abc/;//里面不用加引号，不管是数字型还是字符串型
+        console.log(rg1.test('abc'));//t
+        console.log(rg1.test('abcd'));//t
+        console.log(rg1.test('aabcd'));//t
+    // 结尾随便，开头必须一样
+        var rg2=/^abc/;
+        console.log(rg2.test('abc'));//t
+        console.log(rg2.test('abcd'));//t
+        console.log(rg2.test('aabcd'));//f
+    //全部一样
+        var rg3=/^abc$/;
+        console.log(rg3.test('abc'));//t
+        console.log(rg3.test('abcd'));//f
+        console.log(rg3.test('aabcd'));//f
+        console.log(rg3.test('abcabc'));//f
+//字符类[] -
+    //只要包含a或者b/c
+        var rg4=/[abc]/;
+        console.log(rg4.test('a123'));//t
+        console.log(rg4.test('bqwe'));//t
+        console.log(rg4.test('def'));//f
+    // 3选1  a/b/c 单个字母才正确
+        var rg5=/^[abc]$/;
+        console.log(rg5.test('abc'));//f
+        console.log(rg5.test('aa'));//f
+        console.log(rg5.test('b'));//t
+    //26选1
+        var rg6=/^[a-z]$/;
+        console.log(rg6.test(1));//f
+        console.log(rg6.test('F'));//f
+        console.log(rg6.test('f'));//t
+    //52选1
+        var rg7=/^[a-zA-Z]$/;
+        console.log(rg7.test(1));//f
+        console.log(rg7.test('F'));//t
+        console.log(rg7.test('f'));//t
+    //字母数字下划线
+    var rg8=/^[a-zA-Z0-9_-]$/;
+        console.log(rg8.test(1));//t
+        console.log(rg8.test('F'));//t
+        console.log(rg8.test('f'));//t
+        console.log(rg8.test('_'));//t
+        console.log(rg8.test('-'));//t
+    //[^]取反  不能包含 单
+        var rg9=/^[^a-zA-Z0-9_-]$/;  
+        console.log(rg9.test('1！'));//f
+        console.log(rg9.test('#'));//t
+        console.log(rg9.test('f'));//f
+        console.log(rg9.test('_'));//f
+        console.log(rg9.test('-'));//f
+//量词 * 0/多次 + 1/多次 ? 0/1次   {n}n次 {n,}n/多次  {n,m}n-m次
+        var rg10=/^a*$/;  
+        console.log(rg10.test(''));//t
+        console.log(rg10.test('a'));//t
+        console.log(rg10.test('aaa'));//t
+        var rg11=/^a{3}$/;  
+        console.log(rg10.test(''));//f
+        console.log(rg10.test('a'));//f
+        console.log(rg10.test('aaa'));//t
+        console.log(rg10.test('aaaaaa'));//f
+        var rg12=/^a{3,}$/;  
+        console.log(rg12.test(''));//f
+        console.log(rg12.test('a'));//f
+        console.log(rg12.test('aaa'));//t
+        console.log(rg12.test('aaaaaaaa'));//t
+        var rg13=/^a{3,5}$/;  
+        console.log(rg13.test(''));//f
+        console.log(rg13.test('a'));//f
+        console.log(rg13.test('aaa'));//t
+        console.log(rg13.test('aaaa'));//t
+        console.log(rg13.test('aaaaaaaa'));//f
+    //6-16个字符
+        var rg14=/^[a-zA-Z0-9_-]{6,16}$/;  
+        console.log(rg14.test('12a6'));//f
+        console.log(rg14.test('123456'));//t
+        console.log(rg14.test('qa12Q3-_ws'));//t
+        console.log(rg14.test('$$123'));//f
+    // c重复3次
+        var rg15=/^abc{3}$/;  
+        console.log(rg15.test('abc'));//f
+        console.log(rg15.test('abccc'));//t
+        console.log(rg15.test('ccc'));//f
+    //abc重复3次
+        var rg16=/^(abc){3}$/;  
+        console.log(rg16.test('abc'));//f
+        console.log(rg16.test('abccc'));//f
+        console.log(rg16.test('ccc'));//f
+        console.log(rg16.test('abcaabbcc'));//f
+        console.log(rg16.test('abcabcabc'));//t
+// \d=[0-9] \D=^  
+// \w=[a-zA-Z0-9_-]  \W=[^a-zA-Z0-9_-]  
+// \s=[\t\n\r\v\f]  \S
+// | 或者
+        var rg17=/^\d{3}-\d{8}|\d{4}-\d{7}$/;
+        // var rg18=/^\d{3,4}-\d{8,7}$/;
+
+
+//6-16
+    </script>
+    <input type="text" name="" id=""><span>输入</span>
+    <script>
+        var reg1=/^[a-zA-Z0-9_-]{6,16}$/; 
+        var uname=document.querySelector('input');
+        var span=document.querySelector('span')
+        uname.onblur=function(){
+            if(reg1.test(this.value)){
+                span.innerHTML='对了';
+                span.className="right";
+                
+            }else{
+                span.innerHTML='错了';
+                span.className="wrong";
+            }
+        }
+        
+    </script>
+    
+
+<!-- 基本注册 -->
+    <style>
+        .ok{
+            color: chartreuse;
+        }
+        .no{
+            color: red;
+        }
+    </style>
+
+    <form action="">
+        <ul>
+            <li>
+                <label for="">手机号:</label>
+                <input type="text" name="" id="phone">
+                <span >图片</span>
+                <!-- <i>手机输入不正确</i> -->
+            </li>
+            <li>
+                <label for="">qq</label>
+                <input type="text" id="qq">
+                <span></span>
+            </li>
+            <li>
+                <label for="">name</label>
+                <input type="text" id="uname">
+                <span></span>
+            </li>
+        </ul>
+        </ul>
+    </form>
+    <script>
+        window.onload=function(){
+            var regtel =/^1[3|4|5|7|8]\d{9}$/;//手机号
+            var regqq=/^[1-9]\d{4,10}$/;
+            var regname=/^[\u4e00-\u9fa5]{2,8}$/;//汉字
+
+            var phone=document.querySelector('#phone');
+            var qq=document.querySelector('#qq');
+            var uname=document.querySelector('#uname')
+            // phone.onblur=function(){
+            //     if(regtel.test(this.value)){
+            //         this.nextElementSibling.className='ok';
+            //         this.nextElementSibling.innerHTML='<span >图片</span><i class="ok">手机输入正确</i>'
+            //     }else{
+            //         this.nextElementSibling.className='no';
+            //         this.nextElementSibling.innerHTML='<span >图片</span><i class="no">手机输入不正确</i>'
+            //     }
+            // }
+
+            regexp(phone,regtel);
+            regexp(qq,regqq);
+            regexp(uname,regname);
+            function regexp(element,reg){
+                element.onblur=function(){
+                    if(reg.test(this.value)){
+                        this.nextElementSibling.className='ok';
+                        this.nextElementSibling.innerHTML='<span >图片</span><i class="ok">手机输入正确</i>'
+                    }else{
+                        this.nextElementSibling.className='no';
+                        this.nextElementSibling.innerHTML='<span >图片</span><i class="no">手机输入不正确</i>'
+                    }
+                }
+            }
+
+
+
+        }
+        
+    </script>
+
+
+<!-- 敏感词替换 -->
+<!-- 
+    g全局匹配
+    i忽略大小写
+    gi局匹配忽略大小写
+ -->
+    <textarea name="" id="text" cols="30" rows="10"></textarea>
+    <button id="btn">tijiao</button>
+    <div></div>
+    <script>
+        var text=document.querySelector('#text');
+        var btn=document.querySelector('#btn')
+        var div=document.querySelector('div');
+        btn.onclick=function(){
+            // 只替换了第一个
+            // div.innerHTML=text.value.replace(/激情/,'**');
+            div.innerHTML=text.value.replace(/激情|gay/g,'**');
+            text.value='';
+        }
+    </script>
+</body>
+</html>

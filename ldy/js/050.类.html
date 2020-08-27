@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // #class创建类
+        class Star{
+            //接收传递过来的参数
+            //#构造函数  不用return
+            constructor(uname,age){
+                //#实例成员 构造函数内部通过this添加的成员 
+                //只能通过实例化的对象ldh来访问
+                this.uname=uname;
+                this.age=age
+            }
+            //#方法
+            sing(x){
+                console.log(this.uname+"唱歌:"+x);
+                
+            }
+            // 不用逗号分 
+        }
+        //#new利用类创建对象 
+        new Star()
+        var ldh=new Star ('刘德华',100);
+        var ldy=new Star ('ldy',18);
+        //#属性和方法调用
+        console.log(ldh.uname);
+        ldh.sing('歌曲');
+        //不可以通过构造函数俩访问
+        console.log(Star.uname);
+        //#静态成员 在构造函数本身上添加的成员
+        Star.age='18';
+        //静态成员只能通过构造函数来访问
+        console.log(Star.age);
+        console.log(ldh.age);//不能通过对象来访问
+
+        console.log(ldh.sing===ldy.sing);
+        console.dir(Star);
+//构造函数浪费内存  每个对象都是不同的新函数地址   ----》prototype原型对象 解决   作用：共享方法
+        function Paren(name,age){
+            this.uname=name;
+            this.age=age;
+
+        }
+        Paren.prototype.sing=function(){
+            console.log('我会唱歌');
+            
+        }
+        
+        var ldy=new Paren('ldy',20);
+        ldy.sing();
+        var lll=new Paren('ldy',20);
+        lll.sing();
+        console.log(ldy.sing===lll.sing);
+        console.dir(Paren);
+
+
+//__proto__  对象的原型
+        //对象身上系统自己条件一个__proto__属性 指向外面构造函数的原型对象prototype
+
+        // 
+
+//如果要修改原来的原型对象，给他赋值时一个对象，必须手动利用constryctor指回原来的构造函数
+
+        // Paren.prototype.sing=function(){
+        //     console.log('我会唱歌11');
+            
+        // }
+        // Paren.prototype.dramp=function(){
+        //     console.log('我会跳');
+            
+        // }
+
+
+        // =是覆盖了
+        Paren.prototype={
+            constructor:Paren,
+            move:function(){
+             console.log('我回演习');
+            },
+            dramp:function(){
+             console.log('我会跳');
+            }
+        }
+        var xh=new Paren("xh",199);
+        console.log(Paren.prototype);
+        console.log(xh.__proto__);
+        
+        console.log(Paren.prototype.constructor);//原来的
+        console.log(xh.__proto__.constructor);
+
+
+//构造函数Paren和原型对象prototype和实例ldy
+        // Paren--Paren.prototype-->prototype
+        //Paren<--Paren.prototype.constructor--prototype
+        //Paren--新建-->实例对象--ldy.__poto__-->prototype
+        //Paren<--ldy.__poto__.constructor--实例对象
+
+        console.log(Paren.prototype.__proto__===Object.prototype)//-->Object的原型对象prototype
+        console.log(Object.prototype.__proto__);//null
+        
+//this
+        function Vegetable(name,much){
+            this.name=name;
+            this.much=much;
+            console.log(this);//tomato
+        }
+        var this2;
+        Vegetable.prototype.do=function(){
+            console.log('炒菜');
+            
+            console.log(this);//tometo
+        }
+        var tometo=new Vegetable('tomato',10);
+        //在构造函数和原型对象中,里面的this指向的是对象实例
+        tometo.do();
+        console.log(this2===tometo);
+        
+//原型对象的应用,扩展内置对象方法
+        console.log(Array.prototype);
+        Array.prototype.sum=function(){
+            var sum =0;
+            for (let i = 0; i < this.length; i++) {
+                sum+=this[i];   
+            }
+            return sum;
+        }
+        var arr =[1,2,3];
+        console.log(arr.sum());
+        console.log(Array.prototype);
+        
+//继承   构造函数+原型对象实现  组合继承        
+//call()
+        function fn(x,y){
+            console.log('学习');
+            console.log(this);//window
+            console.log(x+y);
+        }
+        var o={
+            name:'ldy'
+        }
+        fn();
+        fn.call();//函数调用
+        fn.call(o);//改变这个函数this指向-->o
+        fn.call(1,2);
+
+
+        //借用父构函数继承属性
+        function Father(name,age){
+            this.uname=name;
+            this.age=age;
+        }
+        Father.prototype.money=function(){
+            console.log('赚钱');
+            
+        }
+        function Son (n,a,s){
+            Father.call(this,n,a);//-->Son
+            this.score=s;
+        }     
+        // Son.prototype =Father.prototype;//Son.p--->Father.p   如果修改了子原型对象,父亲有而改变
+        Son.prototype=new Father();
+        //原型对象指回构造函数被改变,要手动改回来
+        Son.prototype.constructor=Son;
+        Son.prototype.exam=function(){
+            console.log('考试');
+            
+        }
+        var son =new Son('ldy',18,99);
+        console.log(Son);
+        console.log(Father);
+        
+//ES6前 通过构造函数+原型实现面向对象
+//ES6后 通过类
+
+        class Star2{
+
+        }
+        console.log(typeof Star);
+        //1.类的本质还是一个函数, 构
+        console.log(Star2.prototype);//
+        console.log(Star2.prototype.constructor);//
+        Star2.prototype.sing=function(){
+            console.log('ldyyy');//
+        }
+        var ldy =new Star2();
+        console.log(ldy);
+        console.log(ldt.__proto__===Star.prototype);//
+        
+//39       
+        
+        
+
+
+
+
+
+        </script>
+
+        
+</body>
+</html>

@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jQuery.js"></script>
+    <style>
+        div{
+            width: 100px;height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+<!-- 遍历 -->
+    <script>
+        //迭代可以全部改变
+        $(function(){
+            $('div').css('color','red');
+        })
+        //单独改变 采用遍历
+        //each遍历每个元素  +回调函数
+        $(function(){
+            var sum=0;
+            var arr=['red','pink','blue']
+            //1用each遍历don对象
+            $('div').each(function(index,domEle){
+                console.log(index);//0...2
+                console.log(domEle);//div..div
+                //domEle.css('color');dom对象没有css方法
+
+                //单个改色
+                $(domEle).css('color',arr[index]);
+
+                //求和--parseInt转换为字符型的
+                sum+=parseInt($(domEle).text());
+                console.log(sum);
+            })
+            //2.用$.each遍历元素  遍历数据，处理处理数据
+            $.each($('div'),function(i,ele){
+                console.log(i);//0.。2
+                console.log(ele);//div
+            })
+            $.each(arr,function(i,ele){
+                console.log(i);//0.。2
+                console.log(ele);//red 。。。
+            })
+            $.each({
+                name:'ldy',
+                age:12,
+            },function(i,ele){
+                console.log(i);//name age
+                console.log(ele);//ldy 12
+            })
+            
+        })
+    </script>
+
+<!-- 创建增删 -->
+    <ul>
+        <li>lilili</li>
+
+    </ul>
+    <div class="test">divdiv</div>
+    <script>
+        $(function(){
+            //1创建元素
+            var li=$('<li>新的lilili</li>');
+            //2添加元素
+            //内部添加
+            // $('ul').append(li);//内部的最后面
+            $('ul').prepend(li);//内部的最后面
+            //外部添加
+            var div=$('<div>新的div</div>');
+            // $('.test').after(div);
+            $('.test').before(div);
+
+            //3删除元素
+            $('ul').remove();//自杀
+            $('ul').empty();//所有子节点
+            $('.test').html();//清空匹配元素内容 子节点
+        })
+    </script>
+    
+</body>
+</html>

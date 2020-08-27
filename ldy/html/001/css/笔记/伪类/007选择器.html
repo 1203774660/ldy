@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 全部p */
+        /* main p{
+            color: blue;
+        } */
+        /* 亲儿子p */
+        /* main>p{
+            color: blueviolet;
+        } */
+        /* p的后面的所有span */
+        /* main p~span{
+            color:aquamarine;
+        } */
+        /* p后面第一个span */
+        main p+span{
+            color:aquamarine;
+        }
+
+
+
+
+        nav[title][id]{
+            color:chartreuse
+        }
+        nav[title='nn']{
+            color: coral;
+        }
+        nav[title^='aa']{
+            color: darkkhaki;
+        }
+        nav[title$='abc']{
+            color: cornflowerblue;
+        }
+        nav[title*='abc']{
+            color: cornflowerblue;
+            color: cornflowerblue;
+        }
+        nav[title~='abc']{
+            color: cornflowerblue;
+            color: cornflowerblue;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <span>1spanspan</span>
+        <p>1pppp</p>
+        <span>1spanspan</span>
+        
+        <div>
+            <span>span</span>
+            <p>2ppp</p>
+            
+        </div>
+        <span>3spanspanspan </span>
+        <p>3pppp</p>
+    </main>
+
+
+
+    <nav title id> nnnn</nav>
+    <nav title>hhh</nav>
+    <nav title='nn'>nnn</nav>
+    <nav title='aa.com'>aaa</nav>
+    <nav title='rrrabc'>abc</nav>
+</body>
+</html>

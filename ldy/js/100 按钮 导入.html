@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 3 -->
+    <script>
+        function load(){
+            window.open('http://www.baidu.com','_blank')
+            
+        }
+    </script>
+    <!-- 4.2 -->
+    <script>
+        alert('内嵌js');
+    </script>
+    <!-- 4.3 外部文件。下面不可以写js代码-->
+    <script src="  .js">
+    </script>
+</head>
+<body>
+    <!-- 1 -->
+    <script>
+        var a=[1,2,3,4];
+        var sum= 0 ;
+        for(var i=0;i<a.length;i++){
+            sum +=a[i];
+        }
+        document.write(sum);
+    </script>
+    <!-- 2 -->
+    <p id="change">hhhhh</p>
+    <button onclick="document.getElementById('change').style.fontSize='24px'">dd</button>
+    <!-- 3 -->
+    <button onclick="load()">ddddd</button>
+    <!-- 4.1 -->
+    <button onclick="alert('行内js')">ddd</button>
+
+</body>
+</html>

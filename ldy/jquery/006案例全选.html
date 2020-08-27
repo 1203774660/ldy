@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jQuery.js"></script>
+
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div>
+        <input type="checkbox" class='qx'>全选
+        <input type="checkbox" class='dx'>单选
+        <input type="checkbox" class='dx'>单选
+        <input type="checkbox" class='dx'>单选
+        <input type="checkbox" class='dx'>单选
+        <input type="checkbox" class='qx'>全选
+
+
+    </div>
+</body>
+</html>
+
+<script>
+    $(function(){
+        
+        $('.qx').change(function(){
+            console.log($(this).prop('checked'));
+            $('.dx,.qx').prop('checked',$(this).prop('checked'));
+
+        })
+       
+       
+        $('.dx').change(function(){
+            console.log($('.dx:checked').length);//被选中的个数
+            if($('.dx:checked').length==$('.dx').length){
+                $('.qx').prop('checked',true);
+            }else{
+                $('.qx').prop('checked',false);
+            }
+
+        })
+    })
+</script>

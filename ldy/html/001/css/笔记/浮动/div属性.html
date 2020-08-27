@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            /* 轮廓线不占大小 */
+            outline: solid 20px #ddd;
+        }
+        input:focus{
+            outline: none;
+        }
+        div a{
+            /* 垂直排列 */
+            display: block;
+
+        }
+        div li{
+            /* 行排列 */
+            display:inline-block;
+        }
+        div{
+            /* 不保留 */
+            display: none;
+            /* 空间位子保留 */
+            visibility: hidden;
+            /* 类似于透明度 */
+            opacity: 0;
+        }
+
+        div{
+            /* 滚动条 */
+            overflow: scroll;
+            /* 不换行 */
+            white-space: nowrap;
+            /* 超出。。。 */
+            text-overflow: ellipsis;
+        }
+        .main1，.main2,.main3{
+            background-color:red;
+            width: 200px;height: 200px;
+        }
+        .main1 nav{
+            background-color: aqua;
+            /* 自动填满高度 */
+            height: -webkit-fill-available;
+            width: 20px;
+        }
+
+        .main2 span{
+            display: inline-block;
+            background-color: aqua;
+            /* 自动填满高度 */
+            height: -webkit-fill-available;
+            /* width: -webkit-fill-available; */
+
+        }
+        .main3 article{
+            background-color: blue;
+            /* 宽度由内容撑开*/
+            width:fit-content;
+            padding: 10px;
+            margin: auto;
+        }
+        .main4{
+            background-color:red;
+            /* width: 200px;height: 200px; */
+
+            /* 由最  的内in容设置 */
+            /* width: max-content; */
+            width: min-content;
+        }
+        .main4 nav{
+            background-color: chocolate;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        /*背景 */
+        .main5{
+            border: 2px solid black;
+            padding: 30px;
+            height: 500px;
+            background-color: burlywood;
+            /* background-clip: padding-box; */
+            /* 只到内容区域 */
+            background-clip:content-box;
+            /* 平均 */
+            background-repeat: space;
+            /* repeat no-repeat repeat-x repeat-y */
+
+            /* 固定图片。由滚动条也不动 */
+            background-attachment: fixed;
+            /* scroll 滚动 */
+
+            background-position: center;
+            background-position: top right;
+            background-position: 50% 50%;
+
+            /* 扑满。原来比例，部分不显示 */
+            background-size: cover;
+            /* 图片全部显示原来比例 ，留白 */
+            background-size: contain;
+
+
+            /* 2个图片 */
+            background-image: url(),url();
+            background-position: top left,center;
+            background-repeat: no-repeat, repeat;
+
+
+            background: red url() no-repeat center;
+        }
+
+   
+        .s-shadow{
+            box-shadow: 0 0 5px rgba(100, 100, 100, .2);
+        }
+        .m-shadow{
+            box-shadow: 0 0 8px rgba(100, 100, 100, .8);
+        }
+
+
+        .main7{
+            background: linear-gradient(to bottom right,red ,green, blue);
+            background: linear-gradient(90deg,rgb(152, 214, 133) ,rgb(86, 184, 86), rgb(14, 177, 27))
+            background: radial-gradient(100px 200px,red,green,blueviolet);
+
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <input type="text">
+
+
+    <main class="main1">
+        <nav>11事缩水11</nav>
+        
+    </main>
+    <main class="main2">
+        <span>spanspan</span>
+    </main>
+    <main class="main3">
+        <article>
+            article
+        </article>
+    </main>
+    <main class="main4">
+        <nav>学习新思想，爱国爱学习1214251</nav>
+        <nav>你号</nav>
+    </main>
+    <main class="main5"></main>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jQuery.js"></script>
+
+    <style>
+        .box1{
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <script>
+        // 写在div上面的解决方案
+        // 等待页面dom加载完后,再去执行js代码
+        //入口函数
+
+        //1
+        // $(document).ready(function(){
+        //     $('div').hide();
+        // })
+
+        //写法2
+        $(function(){
+            $('.box1').hide();
+        })
+        
+    </script>
+    <div class="box1"></div>
+
+
+    <!-- script要放在div后面,因为div先加载,放前面不起作用 -->
+
+    <!-- <script>
+        // 隐藏
+        $('div').hide();
+    </script> -->
+
+<!-- 
+$是jquery的别称
+也是jquery的顶级对象
+-->
+
+    <div></div>
+    <script>
+        //1
+        // $(function(){
+        //     alert(11);
+        // });
+        
+        //2
+        jQuery(function(){
+            alert("有个box1被隐藏");
+        });
+    </script>
+
+
+    <!-- muteo静音 -->
+    <!-- <video src="mov.mp4" muteo></video> -->
+<!-- dom对象和jquery对象 -->
+    <script>
+        //1.DOM对象:用原生js获取的对象 mydiv
+        var mydiv=document.querySelector('.box1');
+        console.dir(mydiv);//div.dd
+        //2.jquery对象  本质:通过$把DOM元素进行包装 伪数组存储
+        $('.box1');
+        console.dir($('.box1'));//n.fn.init(1)
+
+        
+        //jquery只能用jquery方法
+        //dom对象用原生js属性和方法
+
+        //js的方法
+        mydiv.style.display='none';
+        //jquery
+        $('.box1').hide();
+
+        //对象转换
+        // var myvideo=document.querySelector('video');
+        // // myvideo.play();
+        //1.
+        // $(video)[0].play();
+        //2.
+        // $(video).get(0).play();
+    </script>
+
+
+<!-- 选择器$("  ")
+    #id id选择器
+    .class 类
+    * 全选
+    div 标签
+    div,p,li 并集
+    li.current 交集
+ -->
+    <div>
+        <p>123</p>
+    </div>
+    
+    <div class="box" >
+        <ol>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ol>
+        <ul>
+            <li>11</li>
+            <li>22</li>
+            <li>33</li>
+        </ul>
+    </div>
+    <script>
+        // 先写入口函数
+        $(function(){
+        console.log($('p'));
+        console.log($("ul li"));
+        })
+
+//隐式迭代:匹配的所有元素自己遍历循环,
+      //改所有背景颜色
+        $('div').css('background','pink');
+        $('ol li').css("color",'red');
+    </script>
+<!-- 筛选选择器
+    :first
+    :last
+    :eq(index)  
+    :odd  奇数
+    :even   偶数 
+ -->
+    <script>
+        $(function(){
+            $('ul li:first').css('color','blue');
+            $('ul li:eq(1)').css('color','red');
+        })
+    </script>
+
+
+
+
+</body>
+</html>

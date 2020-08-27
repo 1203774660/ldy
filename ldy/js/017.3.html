@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="bb2">后退</button>
+    <script>
+        var bb2=document.querySelector('.bb2');
+        bb2.addEventListener('click',function(){
+            // history.back();
+            history.go(-1);//后退一边
+        })
+    </script>
+</body>
+</html>

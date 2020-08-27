@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <script>
+        x=6;
+        // var b=233;      
+        function a(){
+            // var b=0
+            // alert(b);
+            
+            return function(){
+                // globalThis.b++;
+                // window.b++;
+                alert(global.x++);
+                // alert(window.b);
+                // b++;
+                
+            };
+        }   
+        // var f=a;
+        var f=a();
+        f();
+    </script> -->
+
+    <script>
+        function f(x){
+            if(x==1||x==2){ return 1;
+            }else{
+                return f(x-1)+f(x-2);
+            }
+            
+
+        }  
+        
+        console.log(f(1000));
+    </script>
+</body>
+</html>
+<!-- 
+    3种对象
+    内置对象
+        包括request对象、response对象、session对象、out对象、application对象、page对象、exception对象、pageContext对象、config对象。这些对象在客户端和服务器端交互的过程中分别完成不同的功能。
+    宿主对象  
+    用户自定义对象
+ -->

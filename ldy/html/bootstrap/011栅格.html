@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="./jQuery.js" ></script>
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+    <style>
+        .row{
+            margin-bottom: 20px;
+        }
+        .row.row{
+            margin-top: 10px;
+            margin-bottom: 0;
+        }
+        [class*="col-"]{
+            background-color: aqua;          
+            border: 1px solid rgba(86,61,124,.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1">12131231231242141241212412</div>
+            <div class="col-md-1">1</div>
+            <div class="col-md-1">1</div>
+            <div class="col-md-1">1</div>
+            <div class="col-md-1">1</div>
+            <div class="col-md-1">1</div>
+            <div class="col-md-1">1</div>
+            <div class="col-md-1">1</div>
+            <div class="col-md-1">1</div>
+            <div class="col-md-1">1</div>
+            <div class="col-md-1">1</div>
+            <div class="col-md-1">111111111111111111124241412412421</div>
+            
+        </div>
+        
+    </div>
+
+    <!-- 偏移 -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">4</div>
+            <div class="col-md-6 col-md-offset-2">6</div>    
+        </div> 
+    </div>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9">
+                one
+                <div class="row">
+                    <div class="cool-xs-8">
+                        122
+                    </div>
+                    <div class="col-xs-4">22</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-9 col-md-push-3" >2</div>
+            <div class="col-md-3 col-md-pull-9" > 1</div>
+        </div>
+    </div>
+    
+</body>
+</html>

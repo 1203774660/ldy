@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="./vue.js"></script>
+    <!-- 官网提供的axios在线地址 -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+
+<!-- 接口内容显示 -->
+    <div id="app1">
+        <input type="button"  value='获取笑话' name="" id="" @click='get'>
+        <p>
+            {{joke}}
+        </p>
+    </div>
+
+    <script>
+        var app1=new Vue({
+            el:'#app1',
+            data:{
+                joke:"hhhhh"
+            },
+            methods:{
+                get:function(){
+                    var that=this;//注意
+                    axios.get('https://autumnfish.cn/api/joke').then(function(response){
+                        // console.log(response);
+                        that.joke=response.data;
+                    },function(err){})
+                }
+            }
+        })
+    </script>
+</body>
+</html>

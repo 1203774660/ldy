@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            border: 1px solid salmon;
+            padding: 10px;
+            overflow: hidden;
+        }  
+        span{
+            height: 100px;
+            width: 100px;
+            float: left;
+            padding: 20px;
+            background-color:aqua;
+            border: 4px solid salmon;
+            /* shape-outside: border-box; */
+            /* shape-outside: padding-box; */
+            shape-outside: content-box;
+            /* shape-outside: magin-box; */
+
+
+            /* clip-path: circle(50% at 0 100%); */
+            /* clip-path: ellipse(20% 30%); */
+            clip-path: polygon(50% 0, 100% 100%,0 100%);
+
+            shape-outside: polygon(50% 0, 100% 100%,0 100%);
+
+
+        } 
+    </style>
+</head>
+<body>
+    <p>
+        <span>
+        </span>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem, officiis. Molestiae eum, unde ullam tempora eligendi sapiente eius non veniam quia repellendus, sit modi illo atque quidem! Cupiditate, maxime repellat.
+    </p>
+</body>
+</html>

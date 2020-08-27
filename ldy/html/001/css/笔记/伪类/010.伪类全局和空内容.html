@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 相当于html */
+        :root{
+            color: red;
+        }
+
+        li{
+            border: 1px solid saddlebrown;
+            
+        }
+        /* 内容为空的处理 */
+        li:empty{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <ul>
+            <li>111</li>
+            <li></li>
+        </ul>
+    </div>
+</body>
+</html>

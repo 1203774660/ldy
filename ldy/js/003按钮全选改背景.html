@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background: no-repeat center top;
+        }
+       .baidu{
+           width: 100px;
+       }
+       .baidu li{
+           list-style: none;
+           float: left;
+           margin: 0 1px;
+           cursor: pointer;
+       }
+       .baidu li img{
+           width: 50px;
+           border: 1px solid;
+       }
+        /*  */
+       table{
+           float: left;
+           border: 1px solid;
+       }
+       tbody tr{
+           height: 30px;
+       }
+       tbody td {
+            font-size: 12px;
+            color: slateblue;
+            border-bottom: 1px solid red;
+            
+       }
+       .bg{
+           background-color: aquamarine;
+       }
+       /*  */
+       div{
+           float: left;
+           margin: 10px;
+       }
+
+    </style>
+</head>
+<body>
+    <!-- 多个按钮 -->
+    <div>
+    <button>按钮1</button>
+    <button>按钮2</button>
+    <button>按钮3</button>
+    <button>按钮4</button>
+    <button>按钮5</button>
+    <script>
+        var btns=document.getElementsByTagName("button");
+        for (let i = 0; i <btns.length; i++) {
+            btns[i].onclick=function(){
+                //先把其他无色
+                for (let i = 0; i <btns.length; i++) {
+                    btns[i].style.color='';
+                }
+                //自己有色
+                this.style.color='red';
+            }
+        }
+    </script>
+
+    </div>
+    
+    <!--选择图片变背景  -->
+    <div> 
+
+    <ul class="baidu">
+        <li><img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1170509971,3861269768&fm=26&gp=0.jpg" alt=""></li>
+        <li><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1596791670534&di=7eb76e6df22170a5733f22e9706b0a79&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201804%2F29%2F20180429070534_bpfvj.jpg" alt=""></li>
+        <li><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1596791670533&di=8966f01892597bd41b47a1085a4fe2a4&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201406%2F24%2F20140624183738_F5ffP.jpeg" alt=""></li>
+        <li><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1596791670530&di=4c68ca8550880d7ab14f1fab96e541f8&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2Ff%2F597c4f27ec7e2.jpg" alt=""></li>
+    </ul>
+    <script>
+        var imgs=document.querySelector('.baidu').querySelectorAll("img");
+        for(var i=0;i<imgs.length;i++){
+            imgs[i].onclick=function(){
+                document.body.style.backgroundImage='url('+this.src+')';
+            }
+               
+        }
+    </script>  
+    </div>
+    
+
+    <!-- 表格鼠标经过变色 -->
+    <div>
+        <table>
+            <thead>
+            
+            </thead>
+            <tbody>
+                <tr>
+                    <td>语文</td>
+                    <td>英语</td>
+                    <td>数学</td>
+                    <td>地理</td>
+                    <td>音乐</td>
+                </tr>
+                <tr>
+                    <td>语文2</td>
+                    <td>英语2</td>
+                    <td>数学2</td>
+                    <td>地理2</td>
+                    <td>音乐2</td>
+                </tr>
+    
+            </tbody>
+            <script>
+                var trs=document.querySelector('tbody').querySelectorAll('tr');
+                for (let i = 0; i < trs.length; i++) {
+                    //经过事件
+                    trs[i].onmousemove=function(){
+                            this.className='bg';
+                    }
+                    //离开事件
+                    trs[i].onmouseout=function(){
+                            this.className='';
+                    }
+                }
+            </script>
+        </table>
+    </div>
+    
+    <!-- 全选 -->
+    <div class="div1" >
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        <input type="checkbox" id='qx'>
+                    </th>
+                    <th>食品</th>
+                    <th>价格</th>
+                </tr>
+            </thead>
+            <tbody id='dx'>
+                <tr>
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                    <td>horo</td>
+                    <td>5000</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                    <td>苹果</td>
+                    <td>8000</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                    <td>vovi</td>
+                    <td>3000</td>
+                </tr>
+            </tbody>
+        </table>
+        <script>
+            var qx=document.getElementById('qx');
+            var dx=document.getElementById('dx').getElementsByTagName('input');
+            // 点全选
+            qx.onclick=function(){
+                console.log(this.checked);//属性ture false
+                for (var i = 0; i < dx.length; i++) {
+                    dx[i].checked=this.checked;
+                }
+            }
+            //点全部单选后
+            for (var i = 0; i < dx.length; i++) {
+                   dx[i].onclick=function(){
+                       var flag=true;
+                       //控制全选按钮是否选中
+                        for (var j = 0; j < dx.length; j++) {
+                            if(!dx[j].checked){//有没选的
+                                // qx.checked=false;
+                                flag=false;
+                                break;//可以不用。提高效率
+                            }
+                        }
+                        qx.checked=flag;
+                   }
+                }
+            
+
+
+        </script>
+    </div>
+
+    <!--  获取属性的方式-->
+    <p id="pp" index=‘1></p>
+    <script>
+        var ppp=document.querySelector('p');
+        //1.元素名字.属性   用于元素自带属性
+        console.log(ppp.id);//pp
+        //2.元素名字.getAttribute('属性')  自定义属性用这个
+        
+        console.log(ppp.getAttribute('id'));//pp
+        console.log(ppp.getAttribute('index'));
+        
+        //二。设置属性
+        ppp.id='text';
+        // ppp.className='nnn';
+
+        //三。移除属性
+        ppp.removeAttribute('index');
+
+    </script>
+
+
+</body>
+</html>

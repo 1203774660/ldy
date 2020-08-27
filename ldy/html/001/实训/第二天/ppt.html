@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>ppt</title>
+        <style>
+
+            *{
+                margin:0px;
+                padding:0px;
+                list-style:none;
+            }
+
+            li{
+                width:400px;
+                height:300px;
+                border:2px solid black;
+                color:white;
+                font-size:30px;
+                text-align:center;
+                line-height: 300px;
+            }
+            li:nth-child(1){
+                background:pink;
+            }
+            li:nth-child(2){
+                background:skyblue;
+            }
+            li:nth-child(3){
+                background:yellowgreen;
+            }
+            li:nth-child(4){
+                background:orange;
+            }
+            li:nth-child(5){
+                background:gray;
+            }
+            ul{
+                position:relative;
+            }
+            li{
+                position:absolute;
+                left:0px;
+                top:0px;
+                display:none;
+            }
+
+        </style>
+    </head>
+    <body>
+        <ul>
+            <li>科幻电影</li>
+            <li>武侠电影</li>
+            <li>爱情电影</li>
+            <li>惊悚电影</li>
+            <li>亚洲电影</li>
+        </ul>
+    </body>
+</html>
+<script>
+
+    //  获取到所有的li   通过标签名称获取document中的元素
+    var li = document.getElementsByTagName('li');
+
+    var num = 0;
+    // console.log(li[1]);
+    //  显示第一个li
+    li[num].style.display = 'block';
+
+    //  每隔一秒，显示下一个li，隐藏上一个li
+    setInterval(function(){
+
+        hideLi();
+
+        num = num + 1;
+        //  判断num是不是超过限制
+        if(num == 5){
+            num = 0;
+        }
+
+        showLi(num);
+
+    },1000);
+
+
+    //  隐藏所有li
+    function hideLi(){
+        for(i=0;i<5;i++){
+            li[i].style.display = 'none';
+        }
+    }
+
+    //  显示第num个li的函数
+    function showLi(query){
+        li[query].style.display = 'block';
+    }
+
+
+</script>

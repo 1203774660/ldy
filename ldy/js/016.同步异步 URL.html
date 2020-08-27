@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log(1);
+        setInterval(function(){
+            console.log(3);
+        })
+        console.log(2);
+        //回调函数属于异步任务。其他同步   
+        
+        //同步任务都在主线程上执行，形成执行线
+        //js的异步通过回调函数实现
+        //1.普通事件 click resize
+        //2.资源加载 load error
+        //3定时器  setinterval settimeout
+
+        //先执行同步任务
+        //异步任务依次放入队列  异步进程处理决定发不发谁先放
+        //任务队列
+
+        //事件循环
+
+    </script>
+
+
+<!-- location对象 
+用于获取或者设置窗体的URL  解析
+window.location
+URL统一资源定位符。。互联网标准资源的地址
+-->
+    <button class="bb">5s后跳传页面</button>
+    <div class="box"></div>
+    <!-- 5s后跳传页面 -->
+    <script>
+        var box=document.querySelector('div');
+        var bb= document.querySelector('.bb');
+        bb.addEventListener('click',function(){
+            // console.log(location,href);//当前地址
+            location.href='https://www.baidu.com/';
+        })
+        var time=5;
+        setInterval(function(){
+            if(time==0){
+                location.href='https://www.baidu.com/';
+            }else{
+                box.innerHTML="你将在"+time--+"s后跳转";
+            }
+        },1000)
+    </script>
+
+
+</body>
+</html>

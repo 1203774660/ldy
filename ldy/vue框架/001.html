@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <!-- 每个 Vue 应用都需要通过实例化 Vue 来实现。 -->
+    <!-- 
+    var vm = new Vue({
+        // 选项
+    }) 
+    -->
+    {{message}}
+    <!-- 标签外无效 -->
+    <div id="app" class="app">
+        <!-- {{}}插值表达式 -->
+        {{message}}
+        <span>{{message}} </span>
+
+        <h2>{{school.name}} {{school.phone}} </h2>
+        <ul>
+            <li>{{arry[0]}} </li>
+            <li>{{arry[1]}} </li>
+        </ul>
+    </div>
+    <script>
+        var app =new Vue({
+            el:'#app',
+            // el:".app",
+            // el:"div",//标签选择器
+
+            //body，html标签无效
+            //只支持双标签。p。h2
+
+            data:{
+                message:'hello vue',
+                school:{//对象
+                    name:'广西科技大学',
+                    phone:"12345"
+                },
+                arry:["ldy",'hhy','yyg']
+            }
+            //
+        })
+        //# id选择器
+        //. class选择器
+        //el 挂载点
+
+        //1.vue实例作用范围：vue管理el选择命中的原色及其内部的后代原色
+        //2.建议使用idv选择器
+    </script>
+</body>
+</html>

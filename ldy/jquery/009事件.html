@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jQuery.js"></script>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            background-color: antiquewhite;
+        }
+        .color{
+            background-color: darkviolet;
+        }
+    </style>
+</head>
+<body>
+    <div class="b1"></div>
+    
+    <div class="b2"></div>
+    <div class="b3"></div>
+
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <ol>
+       
+        <li>2</li>
+        <li>3</li>
+    </ol>
+    <script>
+        $(function(){
+            //1.单个事件注册
+            $('.b1').click(function(){
+                $(this).css('background','pink');
+            })
+            $('.b1').mouseenter(function(){
+                $(this).css('background','red');
+            })
+            //2.事件处理on
+            $('.b2').on({
+                mouseenter:function(){
+                    $(this).css('background','pink');
+                },
+                click:function(){
+                    $(this).css('background','red');
+
+                },
+                mouseleave:function(){
+                    $(this).css('background','green');
+
+                }
+            })
+
+
+            $('.b3').on('mouseenter mouselerve',function(){
+                $(this).toggleClass('color');
+            })
+
+
+        //2用on实现事件委托
+            // $('ul li').click();
+            // (事件,子选择器，函数)
+            //click是绑定再别身上，但是触发对象是ul的li
+            $('ul').on('click','li',function(){
+
+            })
+        //3on可以给动态创建的元素绑定事件
+            // $('ol li').click(function(){
+            //     alert(11);
+            //     //用这种方法，后来的小li没有点击事件
+            // })
+            $('ol').on('click','li',function(){
+                alert(11);
+
+            })
+            var li=$(' <li>jquery创建的小li</li>');
+            $('ol').append(li);
+        })
+    </script>
+    
+</body>
+</html>

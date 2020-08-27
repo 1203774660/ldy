@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap-theme.css">
+    <script src="./bootstrap/js/bootstrap.js" ></script>
+    <!-- bootstrap是依赖jquery的 -->
+    <script src="./jQuery.js" ></script>
+    <style>
+        *{
+            padding: 0;margin: 0;
+        }
+        /* 根据设计搞自手动修改 */
+        @media screen and (min-width:1280px) {
+            .container{
+                width: 1280px;
+            }
+        }
+        .logo{
+            background-color: paleturquoise;
+            
+        }
+        .logo img{
+            /* width: 100%; */
+
+            /* 不要缩放 */
+            max-width: 50%;
+
+            display: block;
+            margin: 0 auto;
+        }
+        /* 显示下面。隐藏上面 */
+        .logo span{
+            display: block;
+            height: 50px;
+            line-height: 50px;
+            color: #cccccc;
+            font-size: 18px;
+            text-align: center;
+        }
+
+
+
+        ul{
+            list-style: none;
+        }
+        a:hover{
+            text-decoration: none;
+        }
+        .nav{
+            background-color: #eeeeee;
+            border-bottom: 1px solid #cccccc;
+        }
+        .nav a{
+            text-decoration: none;
+            display: block;
+            height: 50px;
+            font-size: 15px;
+            /* margin: 0 auto; */
+            line-height: 50px;
+
+            text-align: center;
+        }
+        
+        .nav a:hover {
+            background-color: #ffffff;
+        }
+        .nav a::before{
+            /* content: '123';
+            height: 10px;
+            vertical-align: middle;
+            background: url('https://dss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3652516493,3696782755&fm=26&gp=0.jpg')no-repeat top;
+            background-color: aquamarine; */
+            vertical-align: middle;
+            padding-right: 5px;
+        
+        }
+        /* 小屏幕和超小的时候 nav变形 */
+        @media screen and (max-width:991px){
+            .nav li{
+                float: left;
+                width: 20%;
+            }
+        }
+        /* 超小时文字变小 */
+        @media screen and (max-width:767px){
+            .nav li a{
+                font-size: 14px;
+                /* 内容显示不全 */
+                padding-left: 3px;
+            }
+            /* 和中间的距离 */
+            article{
+                margin-top: 10px;
+            }
+
+            /* 超小屏幕 第一个li宽100  剩下的50 */
+            .news ul li{
+                width: 50%!important;
+            }
+            .news ul li:nth-child(1){
+                width: 100%!important;
+            
+            }
+        }
+        .news ul li{
+            width: 25%;
+            float: left;
+            height: 128px;
+
+            /* 用%加magin会挤下去 */
+            padding-right: 10px;
+
+            margin-bottom: 10px;
+        }
+        .news ul li a{
+            position: relative;
+            display: block;
+            height: 100%;
+            width: 100%;
+            
+            background-color: cornflowerblue;
+        }
+        .news li:nth-child(1){
+            width: 50%;
+            height: 266px;
+            background-color: bisque;
+        }
+        
+        
+            
+     
+        .news img{
+            width: 100%;
+            height: 100%;
+        }
+        .news li a p{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 27px;
+            width:100% ;
+            /* display: block; */
+            background: rgba(0, 0, 0, .5);
+            font-size: 12px;
+            color: #cccccc;
+            padding: 5px 10px;
+            margin-bottom: 0;
+        }
+        .news li:nth-of-type(1) p{
+            font-size: 22px;
+            height: 41px;
+        }
+        /* .clearfix{
+            clear: both;
+        } */
+        .publish{
+            border-top: 1px solid #cccccc;
+        }
+        .publish .row{
+            border-bottom:1px solid #cccccc ;
+        }
+        
+        .row img{
+            width: 100%;
+            height: 100%;
+        }
+        .banner img{
+            width: 100%;
+        }
+        
+        .hot{
+            display: block;
+            margin-top: 20px;
+            border:1px solid #cccccc ;
+            padding: 0 20px 20px;
+            
+        }
+        
+        .hot span{
+            border-radius: 0;
+            margin-bottom: 20px;
+        }  
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <!-- zuo -->
+            <header class="col-md-2">111
+                <div class="logo">
+                    <a href="">
+                        <img src="https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png" alt="" class="hidden-xs">
+                        <!-- 超小屏幕隐藏图片 -->
+
+                        <span class="visible-xs">百度百科</span>
+                    </a>
+                </div>
+                <div class="nav">
+                    <ul>
+                        <li><a href="" class="glyphicon glyphicon-heart">123333</a></li>
+                        <li><a href="">123</a></li>
+                        <li><a href="">123</a></li>
+                        <li><a href="">123</a></li>
+                        <li><a href="">123</a></li>
+                    </ul>
+                </div>
+            </header>
+            <!-- zhon -->
+            <article class="col-md-7">222
+                <div class="news clearfix">
+                    <ul>
+                        <li>
+                            <a href="">
+                                <img src="https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png" alt="">
+                                
+                                <p>123</p>
+                            </a>
+                            
+                        </li>
+                        <li>
+                            <a href="">
+                                <img src="https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png" alt="">
+                                
+                                <p>2</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <img src="https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png" alt="">
+                                
+                                <p>3</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <img src="https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png" alt="">
+                                
+                                <p>123</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <img src="https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png" alt="">
+                                
+                                <p>123</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="publish">
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <h3>h3=24px</h3>
+                            <p class="text-muted">2020年7月1日</p>
+                            <p class="hidden-xs">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, at. Molestias doloribus id veritatis. Labore, temporibus provident sequi sapiente enim voluptatibus, optio voluptatum esse magni soluta minima libero, impedit saepe!
+                            </p>
+                        </div>
+                        <div class="col-sm-3 pic ">
+                            <img src="https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png" alt="" class="hidden-xs">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <h3>h3=24px</h3>
+                            <p class="text-muted">2020年7月1日</p>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, at. Molestias doloribus id veritatis. Labore, temporibus provident sequi sapiente enim voluptatibus, optio voluptatum esse magni soluta minima libero, impedit saepe!
+                            </p>
+                        </div>
+                        <div class="col-sm-3 pic">
+                            <img src="https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png" alt="" >
+                        </div>
+                    </div>
+                </div>
+
+            </article>
+            <!-- you -->
+            <aside class="col-md-3">333
+                <a href="" class="banner">\
+                    <img src="https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png" alt="">
+                </a>
+                <a href="" class="hot">
+                    <span class="btn btn-primary">sou</span>
+                    <h4 class="text-primary">hello you</h4>
+                    <p>cupiditate suscipit rerum explicabo debitis sequi perspiciatis delectus saepe dolores ipsam repudiandae voluptas eaque enim, voluptates iure!</p>
+                </a>
+
+            </aside>
+        </div>
+    </div>
+</body>
+</html>

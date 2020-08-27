@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 变量-->
+    <script>     
+        var a;//声明
+        a='hello world';//赋值
+        //输出
+        console.log(a);
+        console.log('a');  
+        document.write(a);
+        var a=1,b=2;
+
+        
+        </script>
+    <!--数据类型
+
+        \u4e00汉字开头
+        \u9fa5结束
+        \r
+        \n
+        null
+        underfined  声明没赋值或访问对象不存在
+      -->
+    <script>
+        var a=12;
+        var b='13';
+        document.write('a');//a
+        document.write(a+b);//1213
+
+        //typeof()
+        document.write(typeof(a));//numbar
+        document.write(typeof b);//string
+        //NaN()  not a number
+        document.write(isNaN(a));
+        document.write(isNaN(b));
+        //toString()  类似于num+''
+        //parseInt()   获取前面的整数部分
+        //parseFloat()  获取前面的浮点数
+        //Number()  解析成数字。如果有非法字符返回nan
+    </script>
+    <!-- 运算符。表达式
+        =-*%/
+        -- ++
+        >< ==  ===数值类型都比
+        && || !
+        xxx?xxx:xxx;
+    -->
+    <script>
+        var a=prompt('输入');
+        document.write(a);
+    </script>
+
+
+    <!-- 函数 -->
+    <script>
+        function hh{
+            console.log('hello');
+            console.log('word');
+        }
+        //调用
+        hh()
+        //转换函数
+        parseInt()
+        parseFloat()
+        //参数
+        function pp(a,b){
+
+        }
+        pp('aa','bb')
+    </script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        nav{
+            display: table-caption;
+            text-align:center;
+            color: blueviolet;
+        }
+        .table{
+            display: table;
+        }
+        .table section:nth-of-type(1){
+            display: table-header-group;
+        }
+        .table section:nth-of-type(2){
+            display: table-row-group;
+        }
+        .table section:nth-of-type(3){
+            display: table-row-group;
+            background-color: aquamarine;
+        }
+        ul{
+            display:table-row ;
+        }
+        ul li {
+            display: table-cell;
+            border: solid 1px #333333;
+            padding: 10px;
+        }
+
+
+        table{
+            background-color: darkgrey;
+            width: 100%;
+        }
+        table caption{
+            background-color: aqua;
+            color: #333333
+            ;
+            border: 1px solid salmon; 
+            caption-side: top;
+        }
+        table tr td{
+            height: 50px;
+            text-align: center;
+            vertical-align: middle;
+
+        }
+        table tbody{
+            background-color: burlywood;
+
+        }
+        table tbody tr:first-of-type{
+            background-color: cadetblue;
+        }
+        table{
+
+            /* 外线消失.内还在 */
+            border: none;
+
+            /*  */
+            /* border-spacing: 10px; */
+            /* border-spacing: 0px; */
+            /* 细线 */
+            border-collapse: collapse;
+
+            /* border: 1px solid red; */
+
+
+            /* 内容空就隐藏 */
+            empty-cells: hide;
+        }
+        /* 棋盘 */
+        table td{
+            border: none;
+            border-right: solid 1px red;
+            border-bottom: solid 1px red;
+            padding: 10px;
+        }
+        table td:last-child{
+            border-right:none ;
+        }
+        table tbody tr:last-child td{
+            border-bottom:none ;
+        }
+
+    </style>
+
+
+    
+</head>
+<body>
+    <article class="table">
+        <nav>biaoyi</nav>
+        <section>
+            <ul>
+                <li>11</li>
+                <li>22</li>
+            </ul>
+        </section>
+        <section>
+            <ul>
+                <li>11111</li>
+                <li>22222</li>
+            </ul>
+        </section>
+        <section>
+            <ul>
+                <li>1111</li>
+                <li>2222</li>
+            </ul>
+        </section>
+
+        <table border="1">
+            <caption>biaoto</caption>
+            <thead>
+                <tr>
+                    <td>111</td>
+                    <td>222</td>
+                    <td>222</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>111111</td>
+                    <td>22222222</td>
+                    <td>22222222</td>
+                </tr>
+                <tr>
+                    <td>111111111</td>
+                    <td>22222222222222</td>
+                    <td>22222222</td>
+                </tr>
+                <tr>
+                    <td>111111111</td>
+                    <td>22222222222222</td>
+                    <td>22222222</td>
+                </tr>
+
+            </tbody>
+                
+            
+        </table>
+    </article>
+
+
+
+</body>
+</html>

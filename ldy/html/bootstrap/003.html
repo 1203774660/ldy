@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap-theme.css">
+    <script src="./bootstrap/js/bootstrap.js" ></script>
+    <!-- bootstrap是依赖jquery的 -->
+    <script src="./jQuery.js" ></script>
+</head>
+<body>
+    <!-- 
+        row行
+        col-md-12   该行可以分为12列
+     -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">1</div>
+            <div class="col-md-4">2</div>
+            <div class="col-md-4">3</div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="row">
+                    <div class="col-md-6">a1</div>
+                    <div class="col-md-6">a2</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">a3</div>
+                    <div class="col-md-6">a4</div>
+                </div>
+            </div>
+
+
+            <div class="col-md-9">b</div>
+        </div>
+
+
+        <!-- 超过一行 -->
+        <div class="row">
+            <!-- 6+8>12   第一行1 -->
+            <div class="col-md-6">1</div>
+            <!-- 8+3=11   第二行2 3 -->
+            <div class="col-md-8">2</div>
+            <div class="col-md-3">3</div>
+
+            <div class="col-md-5">4</div>
+        </div>
+
+    </div>
+
+    <!-- 
+        col-xs-     超小手机屏幕768
+        col-sm-     平板768
+        col-md-     电脑桌面992
+        col-lg-     超大桌面1200
+     -->
+</body>
+</html>
