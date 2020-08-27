@@ -49,6 +49,7 @@
     }
     arr[0]();//0
     arr[1]();//1
+    //每次循环会产生一个块级作用域，每个块级作用域中的变量时不同的，函数执行时输出的时自己上一级作用域下的i值
 
 
     let arr2=[];
@@ -60,7 +61,45 @@
     }
     arr2[0]();//2
     arr2[1]();//2
+    //输出的是全局变量i的值是在执行循环的时候产生的
+    //函数执行时输出的时全局作用域下i的值
 
-    console.log(document);
     
 </script>
+
+<!-- 
+    const
+    声明常量  常量：值（内存地址）不能变化的量
+
+    1具有块级作用域
+    2声明的时候必须给初始值
+    3值的内存地址不能改
+
+ -->
+ <script>
+    // 1具有块级作用域
+
+     if(true){
+         const a=10;
+         if(true){
+             const a =20;
+             console.log(a);//20
+             
+         }
+         console.log(a);//10
+     }
+    //  console.log(a);
+     
+    // 3值的内存地址不能改
+     const pi=3.14;
+    //  pi=3;//Assignment to constant variable.
+
+     const arrr=[100,200];
+     arrr[0]='a';//复杂数据类型可以更改
+     arrr[1]='b';//没有改内存地址
+     console.log(arrr);
+    //  arr=['x','y']//Assignment to constant variable.
+     
+
+ </script>
+ 

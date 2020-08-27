@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!-- 解构赋值
+es6允许从数组中提取值，按照对应位置，对变量赋值
+
+
+-->
+    <script>
+    //数组解构
+        // let[a,b,c]=[1,2,3];
+        let ary=[1,2,3];
+        let[a,b,c]=ary;
+        console.log(a);
+        console.log(b);
+        console.log(c);
+
+        
+        let[x,y]=[0];
+        console.log(x);//0
+        console.log(y);//undefined
+
+    //对象解构--属性匹配
+    //允许使用变量的名字匹配对象的属性值
+        //名字要一样，顺序随意
+        let person={name:'ldy',age:30,sex:'男'}
+        let{sex,age,name}=person;
+        console.log(name);
+        console.log(age);
+        console.log(sex);
+        //换属性名
+        let{name:n}=person;
+        console.log(n);//ldy
+        
+
+        
+        
+
+    </script>
+</body>
+</html>
+<!-- 箭头函数-简化函数定义语法
+ -->
+<script>
+    
+    // ()=>{}
+    //const fn ()=>{}
+    const fn=(a)=>{
+        console.log(a);
+        
+    }
+    fn(123);
+    //函数体只有一行代码，且代码执行结果就时返回值，可以省略大括号
+    const f=(n,m)=>n+m;
+    console.log(f(1,2));
+    //形参只有一个，可以省略小括号
+    const ff = a =>a++;
+    console.log(ff(1));
+    //this
+    //箭头函数不绑定this，指向的时函数定义位置的上下文this
+    const f2=  ()=>{
+        console.log(this);//window
+    }
+    f2();
+
+    const obj={name:'ldy'}
+    function fnn(){
+        console.log(this);
+        return ()=>{
+            console.log(this);
+            //被定义在fnn函数内部
+            //和上面输出的this一个指向
+        }
+    }
+    const fff=fnn.call(obj);//改变this指向
+    fff();
+
+</script>
+
+<!-- 剩余函数
+将一个不定数量的参数表示为一个数组
+-->
+<script>
+    //老方法
+    function sum(first,...args){
+        console.log(first);//10
+        console.log(args);//[20, 30]
+    }
+    sum(10,20,30);
+    //箭头函数不能用argment？？？
+    const ss=(...args)=>{
+        let total=0;
+        args.forEach(item=>total+=item);
+        // return total;
+        console.log(total);
+        console.log(args);
+        
+        
+    }
+    ss(10,20,30);
+</script>
